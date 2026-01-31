@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(timeout 3 tail:*)",
+      "Bash(exit 0)",
+      "Bash(curl:*)",
+      "Bash(for category in economy labor social)",
+      "Bash(do echo -n \"$category: \")",
+      "Bash(done)"
+    ]
+  }
+}

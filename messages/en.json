@@ -1,0 +1,67 @@
+{
+  "common": {
+    "appName": "Chislopis",
+    "appDescription": "NSI Data Visualization",
+    "loading": "Loading...",
+    "error": "Error",
+    "noData": "No data available"
+  },
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About"
+  },
+  "categories": {
+    "demographics": "Demographics",
+    "economy": "Economy",
+    "labor": "Labor & Employment",
+    "social": "Social Indicators",
+    "regional": "Regional Statistics",
+    "sectoral": "Sectoral Statistics",
+    "finance": "Finance",
+    "demographicsDesc": "Population, births, deaths, migration",
+    "economyDesc": "GDP, business statistics, foreign trade",
+    "laborDesc": "Employment, unemployment, wages",
+    "socialDesc": "Income, poverty, education, healthcare",
+    "regionalDesc": "Data by regions and municipalities",
+    "sectoralDesc": "Tourism, culture, industry",
+    "financeDesc": "Budget, banking, investment"
+  },
+  "charts": {
+    "types": {
+      "line": "Line Chart",
+      "bar": "Bar Chart",
+      "pie": "Pie Chart",
+      "map": "Map",
+      "table": "Table",
+      "scatter": "Scatter Plot"
+    },
+    "selectType": "Select Chart Type",
+    "export": "Export",
+    "fullscreen": "Fullscreen",
+    "dataPoints": "Data points",
+    "dimensions": "Dimensions"
+  },
+  "dataFields": {
+    "year": "Year",
+    "quarter": "Quarter",
+    "month": "Month",
+    "region": "Region",
+    "value": "Value",
+    "category": "Category",
+    "type": "Type",
+    "sector": "Sector",
+    "salary": "Salary",
+    "students": "Students",
+    "rate": "Rate",
+    "population": "Population",
+    "births": "Births",
+    "deaths": "Deaths"
+  },
+  "home": {
+    "title": "Statistical Data Visualization",
+    "subtitle": "Interactive charts and maps based on data from the National Statistical Institute",
+    "explore": "Explore Categories",
+    "datasetsCount": "{count} datasets"
+  }
+}

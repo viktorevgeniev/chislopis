@@ -1,0 +1,42 @@
+{
+  "name": "chislopis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "next": "^15.1.6",
+    "echarts": "^5.5.0",
+    "echarts-for-react": "^3.0.2",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1",
+    "papaparse": "^5.4.1",
+    "jsonstat-toolkit": "^1.4.2",
+    "date-fns": "^3.3.1",
+    "next-intl": "^3.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.1",
+    "lucide-react": "^0.316.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/leaflet": "^1.9.8",
+    "@types/papaparse": "^5.3.14",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "^15.1.6"
+  }
+}
