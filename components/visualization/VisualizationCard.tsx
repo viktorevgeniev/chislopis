@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dataset } from '@/types/dataset';
 import { ChartContainer } from '@/components/charts/ChartContainer';
+import { PopulationDashboard } from '@/components/charts/PopulationDashboard';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface VisualizationCardProps {
@@ -74,6 +75,11 @@ export function VisualizationCard({ dataset, locale }: VisualizationCardProps) {
         </CardContent>
       </Card>
     );
+  }
+
+  // Check if dataset has custom visualization
+  if (dataset.customVisualization === 'PopulationDashboard') {
+    return <PopulationDashboard data={data} locale={locale} />;
   }
 
   return (

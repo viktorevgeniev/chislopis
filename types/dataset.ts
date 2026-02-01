@@ -38,12 +38,23 @@ export interface Dataset {
     bg: string;
     en: string;
   };
+  // Optional URLs for multi-CSV datasets (NSI Open Data format)
+  fieldsUrl?: {
+    bg: string;
+    en: string;
+  };
+  codeListsUrl?: {
+    bg: string;
+    en: string;
+  };
   updateFrequency: UpdateFrequency;
   lastUpdated: string;
   dimensions: DataDimension[];
   suggestedChartTypes: ChartType[];
   hasGeographic: boolean;
   hasTimeSeries: boolean;
+  // Optional flag for custom visualization components
+  customVisualization?: string;
 }
 
 export interface NormalizedData {

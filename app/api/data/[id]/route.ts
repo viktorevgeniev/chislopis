@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getDatasetById } from '@/lib/data/datasetRegistry';
 import { fetchCSV } from '@/lib/data/fetchers/csvFetcher';
 import { fetchJSONStat } from '@/lib/data/fetchers/jsonStatFetcher';
+import { fetchAndProcessMultiCsv } from '@/lib/data/fetchers/multiCsvFetcher';
 import { getCachedData, setCachedData } from '@/lib/data/fetchers/dataCache';
 import { normalizeData } from '@/lib/data/transformers/normalizeData';
 import { generateMockData, shouldUseMockData } from '@/lib/data/fetchers/mockData';
@@ -48,8 +49,11 @@ export async function GET(
     let rawData: any[];
     let usedMockData = false;
 
-    if (shouldUseMockData()) {
-      // Use mock data in development
+    // Multi-CSV datasets always try to fetch real data (they have special processing)
+    const isMultiCsvDataset = dataset.fieldsUrl && dataset.codeListsUrl;
+
+    if (shouldUseMockData() && !isMultiCsvDataset) {
+      // Use mock data in development (except for multi-CSV datasets)
       rawData = generateMockData(dataset, locale);
       usedMockData = true;
     } else {
@@ -57,7 +61,17 @@ export async function GET(
         // Fetch data from NSI
         const url = dataset.urls[locale];
 
-        if (dataset.format === 'csv') {
+        // Check if this is a multi-CSV dataset (has fieldsUrl and codeListsUrl)
+        if (isMultiCsvDataset) {
+          console.log('Fetching multi-CSV dataset:', id, url);
+          const processedData = await fetchAndProcessMultiCsv(
+            url,
+            dataset.fieldsUrl![locale],
+            dataset.codeListsUrl![locale]
+          );
+          console.log('Processed data rows:', processedData.rows.length, 'Sample:', processedData.rows[0]);
+          rawData = processedData.rows;
+        } else if (dataset.format === 'csv') {
           rawData = await fetchCSV({ url });
         } else {
           rawData = await fetchJSONStat(url);

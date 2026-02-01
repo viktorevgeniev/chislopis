@@ -36,6 +36,47 @@ export const datasetRegistry: Dataset[] = [
     hasTimeSeries: true
   },
   {
+    id: 'population-demographics',
+    nsiId: '1942',
+    title: {
+      bg: 'Население по статистически райони, възраст, местоживеене и пол',
+      en: 'Population by districts, municipalities, place of residence and sex'
+    },
+    description: {
+      bg: 'Подробна демографска статистика на населението по NUTS региони, възрастови групи, градско/селско население и пол',
+      en: 'Detailed demographic statistics by NUTS regions, age groups, urban/rural residence and sex'
+    },
+    category: 'demographics',
+    subcategory: 'population-demographics',
+    format: 'csv',
+    urls: {
+      bg: 'https://www.nsi.bg/opendata/getopendata.php?l=bg&id=1942',
+      en: 'https://www.nsi.bg/opendata/getopendata.php?l=en&id=1942'
+    },
+    fieldsUrl: {
+      bg: 'https://www.nsi.bg/opendata/getfields.php?l=bg&id=1942',
+      en: 'https://www.nsi.bg/opendata/getfields.php?l=en&id=1942'
+    },
+    codeListsUrl: {
+      bg: 'https://www.nsi.bg/opendata/getcodelists.php?l=bg&id=1942',
+      en: 'https://www.nsi.bg/opendata/getcodelists.php?l=en&id=1942'
+    },
+    updateFrequency: 'yearly',
+    lastUpdated: '2024-01-15',
+    dimensions: [
+      { name: 'Year', type: 'temporal', cardinality: 15, isKey: true },
+      { name: 'NUTS', type: 'geographic', cardinality: 30, isKey: true },
+      { name: 'Residence', type: 'categorical', cardinality: 3, isKey: true },
+      { name: 'Age', type: 'categorical', cardinality: 20, isKey: true },
+      { name: 'Gender', type: 'categorical', cardinality: 3, isKey: true },
+      { name: 'Population', type: 'numerical', cardinality: 0, isKey: false }
+    ],
+    suggestedChartTypes: ['bar', 'line', 'map'],
+    hasGeographic: true,
+    hasTimeSeries: true,
+    customVisualization: 'PopulationDashboard'
+  },
+  {
     id: 'births-deaths',
     nsiId: '1.1.3.1',
     title: {
