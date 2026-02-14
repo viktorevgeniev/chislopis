@@ -1,8 +1,8 @@
 # NSI Open Data - Dataset Implementation Checklist
 
 **Total Datasets:** 131
-**Implemented:** 9 (with custom visualizations)
-**Pending:** 123
+**Implemented:** 15 (with custom visualizations)
+**Pending:** 117
 
 ---
 
@@ -18,7 +18,7 @@
 | 22 | 1893 | **Deaths by weeks, age, sex and districts** | **DONE** |
 | 71 | 818 | **Marriages by statistical regions, districts, municipalities** | **DONE** |
 | 27 | 819 | **Divorces by statistical regions, districts, municipalities** | **DONE** |
-| 79 | 1125 | Mortality by causes, sex, statistical regions and districts (2005-2019) | Pending |
+| 79 | 1125 | **Mortality by causes, sex, statistical regions and districts (2005-2019)** | **DONE** |
 
 ---
 
@@ -27,15 +27,15 @@
 ### Activity Rates
 | # | NSI ID | Dataset Name | Status |
 |---|--------|--------------|--------|
-| 2 | 1175 | Activity rates by age groups and sex (Quarterly) | Pending |
-| 3 | 1214 | Activity rates by age, sex and statistical region (Quarterly) | Pending |
-| 4 | 1211 | Activity rates by level of education (Quarterly) | Pending |
-| 5 | 1209 | Activity rates by place of residence and sex (Quarterly) | Pending |
+| 2 | 1175 | **Activity rates by age groups and sex (Quarterly)** | **DONE** |
+| 3 | 1214 | **Activity rates by age, sex and statistical region (Quarterly)** | **DONE** |
+| 4 | 1211 | **Activity rates by level of education (Quarterly)** | **DONE** |
+| 5 | 1209 | **Activity rates by place of residence and sex (Quarterly)** | **DONE** |
 
 ### Employment Rates
 | # | NSI ID | Dataset Name | Status |
 |---|--------|--------------|--------|
-| 47 | 939 | Employment rates (15-64) by sex, statistical regions and districts (Quarterly) | Pending |
+| 47 | 939 | Employment rates (15-64) by sex, statistical regions and districts (Quarterly) | DONE |
 | 48 | 1099 | Employment rates (20-64 years) by sex (Quarterly) | Pending |
 | 49 | 1176 | Employment rates by age group and sex (Quarterly) | Pending |
 | 50 | 1212 | Employment rates by level of education (Quarterly) | Pending |

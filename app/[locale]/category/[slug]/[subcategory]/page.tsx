@@ -12,7 +12,9 @@ export default async function SubcategoryPage({
   const { locale, slug, subcategory: subcategoryId } = await params;
   const category = getCategoryById(slug as CategoryId);
   const subcategory = getSubcategoryById(slug as CategoryId, subcategoryId);
-  const datasets = getDatasetsBySubcategory(slug, subcategoryId);
+  const allDatasets = getDatasetsBySubcategory(slug, subcategoryId);
+  // Only show datasets that have a custom dashboard implemented
+  const datasets = allDatasets.filter(d => d.customVisualization);
 
   const loc = locale as 'bg' | 'en';
 

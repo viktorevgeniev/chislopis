@@ -165,7 +165,7 @@ export const datasetRegistry: Dataset[] = [
     'Смъртност по причини за смърт, пол, статистически райони и области',
     'Mortality by causes of death, sex, statistical regions and districts',
     'demographics', 'vital-statistics', 'Deaths',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'MortalityRatesDashboard' }
   ),
 
   // ═══════════════════════════════════════════
@@ -180,7 +180,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на икономическа активност по възрастови групи и пол',
     'Quarterly activity rates by age groups and sex',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'ActivityRatesDashboard' }
   ),
   nsiDataset(
     'activity-rates-by-age-sex-region', '1214',
@@ -189,7 +189,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на активност по възраст, пол и статистически райони',
     'Quarterly activity rates by age, sex and statistical region',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'ActivityRatesRegionalDashboard' }
   ),
   nsiDataset(
     'activity-rates-by-education', '1211',
@@ -198,7 +198,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на активност по степен на образование',
     'Quarterly activity rates by level of education',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'ActivityRatesEducationDashboard' }
   ),
   nsiDataset(
     'activity-rates-by-residence-sex', '1209',
@@ -207,7 +207,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на активност по местоживеене и пол',
     'Quarterly activity rates by place of residence and sex',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'ActivityRatesResidenceDashboard' }
   ),
 
   // --- labor > employment (Employment Rates) ---
@@ -218,7 +218,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост за 15-64 годишни по пол, райони и области',
     'Quarterly employment rates for 15-64 year-olds by sex, regions and districts',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'EmploymentRatesRegionalDashboard' }
   ),
   nsiDataset(
     'employment-rates-20-64-sex', '1099',

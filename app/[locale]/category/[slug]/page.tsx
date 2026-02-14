@@ -11,7 +11,9 @@ export default async function CategoryPage({
 }) {
   const { locale, slug } = await params;
   const category = getCategoryById(slug as CategoryId);
-  const datasets = getDatasetsByCategory(slug);
+  const allDatasets = getDatasetsByCategory(slug);
+  // Only show datasets that have a custom dashboard implemented
+  const datasets = allDatasets.filter(d => d.customVisualization);
 
   if (!category) {
     return (
@@ -42,7 +44,7 @@ export default async function CategoryPage({
       {hasSubcategories ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {category.subcategories!.map((sub) => {
-            const subDatasets = getDatasetsBySubcategory(slug, sub.id);
+            const subDatasets = getDatasetsBySubcategory(slug, sub.id).filter(d => d.customVisualization);
             return (
               <Link
                 key={sub.id}

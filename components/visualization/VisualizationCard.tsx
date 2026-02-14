@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Dataset } from '@/types/dataset';
-import { ChartContainer } from '@/components/charts/ChartContainer';
 import { Card, CardContent } from '@/components/ui/card';
 
 function DashboardSkeleton() {
@@ -16,14 +15,22 @@ function DashboardSkeleton() {
   );
 }
 
-const PopulationDashboard = dynamic(() => import('@/components/charts/PopulationDashboard').then(m => ({ default: m.PopulationDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const PopulationByDistrictsDashboard = dynamic(() => import('@/components/charts/PopulationByDistrictsDashboard').then(m => ({ default: m.PopulationByDistrictsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const VitalStatisticsDashboard = dynamic(() => import('@/components/charts/VitalStatisticsDashboard').then(m => ({ default: m.VitalStatisticsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const BirthsDashboard = dynamic(() => import('@/components/charts/BirthsDashboard').then(m => ({ default: m.BirthsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const MortalityDashboard = dynamic(() => import('@/components/charts/MortalityDashboard').then(m => ({ default: m.MortalityDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const WeeklyMortalityDashboard = dynamic(() => import('@/components/charts/WeeklyMortalityDashboard').then(m => ({ default: m.WeeklyMortalityDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const MarriagesDashboard = dynamic(() => import('@/components/charts/MarriagesDashboard').then(m => ({ default: m.MarriagesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
-const DivorcesDashboard = dynamic(() => import('@/components/charts/DivorcesDashboard').then(m => ({ default: m.DivorcesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false });
+const dashboards: Record<string, React.ComponentType<any>> = {
+  PopulationDashboard: dynamic(() => import('@/components/charts/PopulationDashboard').then(m => ({ default: m.PopulationDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  PopulationByDistrictsDashboard: dynamic(() => import('@/components/charts/PopulationByDistrictsDashboard').then(m => ({ default: m.PopulationByDistrictsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  VitalStatisticsDashboard: dynamic(() => import('@/components/charts/VitalStatisticsDashboard').then(m => ({ default: m.VitalStatisticsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  BirthsDashboard: dynamic(() => import('@/components/charts/BirthsDashboard').then(m => ({ default: m.BirthsDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  MortalityDashboard: dynamic(() => import('@/components/charts/MortalityDashboard').then(m => ({ default: m.MortalityDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  WeeklyMortalityDashboard: dynamic(() => import('@/components/charts/WeeklyMortalityDashboard').then(m => ({ default: m.WeeklyMortalityDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  MarriagesDashboard: dynamic(() => import('@/components/charts/MarriagesDashboard').then(m => ({ default: m.MarriagesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  DivorcesDashboard: dynamic(() => import('@/components/charts/DivorcesDashboard').then(m => ({ default: m.DivorcesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  MortalityRatesDashboard: dynamic(() => import('@/components/charts/MortalityRatesDashboard').then(m => ({ default: m.MortalityRatesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  ActivityRatesDashboard: dynamic(() => import('@/components/charts/ActivityRatesDashboard').then(m => ({ default: m.ActivityRatesDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  ActivityRatesRegionalDashboard: dynamic(() => import('@/components/charts/ActivityRatesRegionalDashboard').then(m => ({ default: m.ActivityRatesRegionalDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  ActivityRatesEducationDashboard: dynamic(() => import('@/components/charts/ActivityRatesEducationDashboard').then(m => ({ default: m.ActivityRatesEducationDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  ActivityRatesResidenceDashboard: dynamic(() => import('@/components/charts/ActivityRatesResidenceDashboard').then(m => ({ default: m.ActivityRatesResidenceDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+  EmploymentRatesRegionalDashboard: dynamic(() => import('@/components/charts/EmploymentRatesRegionalDashboard').then(m => ({ default: m.EmploymentRatesRegionalDashboard })), { loading: () => <DashboardSkeleton />, ssr: false }),
+};
 
 interface VisualizationCardProps {
   dataset: Dataset;
@@ -96,45 +103,17 @@ export function VisualizationCard({ dataset, locale }: VisualizationCardProps) {
     );
   }
 
-  // Check if dataset has custom visualization
-  if (dataset.customVisualization === 'PopulationDashboard') {
-    return <PopulationDashboard data={data} locale={locale} />;
+  const Dashboard = dataset.customVisualization ? dashboards[dataset.customVisualization] : null;
+
+  if (!Dashboard) {
+    return (
+      <Card>
+        <CardContent className="flex items-center justify-center h-64">
+          <p className="text-muted-foreground">No visualization available for this dataset</p>
+        </CardContent>
+      </Card>
+    );
   }
 
-  if (dataset.customVisualization === 'PopulationByDistrictsDashboard') {
-    return <PopulationByDistrictsDashboard data={data} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'BirthsDashboard') {
-    return <BirthsDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'MortalityDashboard') {
-    return <MortalityDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'WeeklyMortalityDashboard') {
-    return <WeeklyMortalityDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'MarriagesDashboard') {
-    return <MarriagesDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'DivorcesDashboard') {
-    return <DivorcesDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  if (dataset.customVisualization === 'VitalStatisticsDashboard') {
-    return <VitalStatisticsDashboard data={data} dataset={dataset} locale={locale} />;
-  }
-
-  return (
-    <ChartContainer
-      data={data}
-      dataset={dataset}
-      title={dataset.title[locale]}
-      locale={locale}
-    />
-  );
+  return <Dashboard data={data} dataset={dataset} locale={locale} />;
 }
