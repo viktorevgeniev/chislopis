@@ -1,8 +1,8 @@
 # NSI Open Data - Dataset Implementation Checklist
 
 **Total Datasets:** 131
-**Implemented:** 1 (with custom visualization)
-**Pending:** 130
+**Implemented:** 9 (with custom visualizations)
+**Pending:** 123
 
 ---
 
@@ -10,21 +10,14 @@
 
 | # | NSI ID | Dataset Name | Status |
 |---|--------|--------------|--------|
-| 97 | 1169 | Population by sex, residence districts and municipalities | Pending |
+| 97 | 1169 | **Population by sex, residence districts and municipalities** | **DONE** |
 | 98 | 1942 | **Population by statistical regions, age, place of residence and sex** | **DONE** |
-
-#### Requirements for #98 (ID 1942):
-- [x] Basic implementation with 3 visualizations (Pyramid, Trends, Regional)
-- [x] **Population Pyramid filters:**
-  - [x] Add year filter (dropdown to select year)
-  - [x] Add region filter (dropdown to select NUTS region, default: entire country)
-- [x] Use English names from Code Lists instead of NUTS codes (e.g., "Severozapaden" instead of "BG31")
-| 67 | 1130 | Live births by districts, municipalities and sex | Pending |
-| 21 | 1139 | Deaths by districts, municipalities and sex | Pending |
-| 20 | 1678 | Deaths by causes, sex and age groups by statistical regions (2015-2019) | Pending |
-| 22 | 1893 | Deaths by weeks, age, sex and districts | Pending |
-| 71 | 818 | Marriages by statistical regions, districts, municipalities | Pending |
-| 27 | 819 | Divorces by statistical regions, districts, municipalities | Pending |
+| 67 | 1130 | **Live births by districts, municipalities and sex** | **DONE** |
+| 21 | 1139 | **Deaths by districts, municipalities and sex** | **DONE** |
+| 20 | 1678 | **Deaths by causes, sex and age groups by statistical** regions (2015-2019) | **DONE** |
+| 22 | 1893 | **Deaths by weeks, age, sex and districts** | **DONE** |
+| 71 | 818 | **Marriages by statistical regions, districts, municipalities** | **DONE** |
+| 27 | 819 | **Divorces by statistical regions, districts, municipalities** | **DONE** |
 | 79 | 1125 | Mortality by causes, sex, statistical regions and districts (2005-2019) | Pending |
 
 ---

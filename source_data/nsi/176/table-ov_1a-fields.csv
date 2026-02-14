@@ -1,0 +1,9 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"NUTS","NUTS","NUTS"
+"SILC_Median","Среден доход","Mean/Median income"
+"GenderID","Пол","Sex"
+"SILC_Age","Възраст","Age"
+"periods","Времева разбивка","Time breakdown"
+"Units","Мернa единицa","Unit of measure"
+"ValueColumn","Стойност за показател Монетарна бедност-относителен дял","Velue of indicator Monetary poverty-rate"

@@ -1,0 +1,13 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"SILC_Activity","","Икономическа активност","Activity Status"
+"SILC_Activity","1","Заети","Employment"
+"SILC_Activity","2","Не заети","Non employment"
+"SILC_Activity","3","Безработни","Unemployment"
+"SILC_Activity","4","Пенсионери","Retired"
+"SILC_Activity","5","Други неактивни","Inactive population - Other"
+"Units","","Мерни единици","Measuring units"
+"Units","perc_pop_fig","% от съвкупността","PC_POP"

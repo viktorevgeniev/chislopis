@@ -1,0 +1,6 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"SILC_Activity","","Икономическа активност","Activity Status"
+"SILC_Activity","6","Заети на непълно работно време","Part-time work"
+"SILC_Activity","7","Заети на пълно работно време","Full-time work"
+"Units","","Мерни единици","Measuring units"
+"Units","perc_pop_fig","% от съвкупността","PC_POP"

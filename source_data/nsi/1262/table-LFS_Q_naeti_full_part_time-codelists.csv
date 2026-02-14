@@ -1,0 +1,7 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"LFS_FullPartTime","","Пълно/Непълно работно време ","Full-time/Part-time "
+"LFS_FullPartTime","FT","Наети на пълно работно време","Full-time employees"
+"LFS_FullPartTime","PT","Наети на непълно работно време","Part-time employees"
+"LFS_FullPartTime","TOT","Общо","Total"
+"Units","","Мерни единици","Measuring units"
+"Units","1000cp","брой лица в хиляди","Thousand persons"

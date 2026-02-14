@@ -1,0 +1,11 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"PlaceResidence","","Местоживеене - град/село","Place of residence"
+"PlaceResidence","0","Общо","Total"
+"PlaceResidence","1","Град","Urban"
+"PlaceResidence","2","Село","Rural"
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"Units","","Мерни единици","Measuring units"
+"Units","1000cp","брой лица в хиляди","Thousand persons"

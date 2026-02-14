@@ -1,0 +1,8 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"NACE2008A21","","Икономически дейности (Агрегирана номенклатура А21)","Economic Activity Groupings (Aggregated Nomenclature A21)"
+"Units","","Мерни единици","Measuring units"
+"Units","1000cp","брой лица в хиляди","Thousand persons"
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"

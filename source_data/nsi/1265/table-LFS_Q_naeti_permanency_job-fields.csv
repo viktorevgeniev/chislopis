@@ -1,0 +1,6 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"LFS_JobPermanency","Вид на работата - постоянна/временна","Permanency of job"
+"Units","Мернa единицa","Unit of measure"
+"periods","Времева разбивка","Time breakdown"
+"ValueColumn","Стойност за показател Наети лица (пол, местоживеене, пълно/непълно работно време, вид на договора с работодателя, форма на собственост, вид на работата) (тримесечно)","Velue of indicator Employees (sex, place of residence, full/part time, type of contract, kind of ownership, permanency of job) (quarterly)"

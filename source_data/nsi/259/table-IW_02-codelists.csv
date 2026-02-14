@@ -1,0 +1,10 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"SILC_HHType","","Тип на домакинството","Household type"
+"SILC_HHType","1","Едно лице","Single person"
+"SILC_HHType","11","Домакинства със зависими деца","Households with dependent children"
+"SILC_HHType","12","Един родител със зависими деца","Single parent with dependent children"
+"SILC_HHType","17","Двама или повече възрастни със зависими деца","Two or more adults with dependent children"
+"SILC_HHType","18","Двама или повече възрастни без зависими деца","Two or more adults without dependent children"
+"SILC_HHType","3","Домакинства без деца","Households without dependent children"
+"Units","","Мерни единици","Measuring units"
+"Units","perc_pop_fig","% от съвкупността","PC_POP"

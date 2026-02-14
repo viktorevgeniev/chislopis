@@ -1,4 +1,5 @@
-import { getDatasetsByCategory } from '@/lib/data/datasetRegistry';
+import Link from 'next/link';
+import { getDatasetsByCategory, getDatasetsBySubcategory } from '@/lib/data/datasetRegistry';
 import { getCategoryById } from '@/lib/data/categories';
 import { VisualizationCard } from '@/components/visualization/VisualizationCard';
 import { CategoryId } from '@/types/dataset';
@@ -21,21 +22,49 @@ export default async function CategoryPage({
     );
   }
 
+  const loc = locale as 'bg' | 'en';
+  const hasSubcategories = category.subcategories && category.subcategories.length > 0;
+
   return (
     <div className="space-y-8">
       {/* Category Header */}
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">{category.name[locale as 'bg' | 'en']}</h1>
+        <h1 className="text-4xl font-bold">{category.name[loc]}</h1>
         <p className="text-lg text-muted-foreground">
-          {category.description[locale as 'bg' | 'en']}
+          {category.description[loc]}
         </p>
         <p className="text-sm text-muted-foreground">
           {datasets.length} dataset{datasets.length !== 1 ? 's' : ''} available
         </p>
       </div>
 
-      {/* Datasets Grid */}
-      {datasets.length === 0 ? (
+      {/* Subcategory Cards or Datasets */}
+      {hasSubcategories ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {category.subcategories!.map((sub) => {
+            const subDatasets = getDatasetsBySubcategory(slug, sub.id);
+            return (
+              <Link
+                key={sub.id}
+                href={`/${locale}/category/${slug}/${sub.id}`}
+                className="group block"
+              >
+                <div className="rounded-xl border bg-card p-6 shadow-sm transition-all duration-200 hover:shadow-lg hover:scale-[1.02] hover:border-primary/50">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {sub.name[loc]}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {sub.description[loc]}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {subDatasets.length} dataset{subDatasets.length !== 1 ? 's' : ''}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      ) : datasets.length === 0 ? (
         <div className="text-center py-12 bg-muted/30 rounded-lg">
           <p className="text-muted-foreground">
             No datasets available in this category yet.
@@ -47,7 +76,7 @@ export default async function CategoryPage({
             <VisualizationCard
               key={dataset.id}
               dataset={dataset}
-              locale={locale as 'bg' | 'en'}
+              locale={loc}
             />
           ))}
         </div>

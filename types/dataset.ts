@@ -47,6 +47,10 @@ export interface Dataset {
     bg: string;
     en: string;
   };
+  // Local data source: NSI ID used to load from source_data/nsi/{localNsiId}/
+  localNsiId?: string;
+  // Name for the value column after processing (default: 'Population')
+  valueColumnName?: string;
   updateFrequency: UpdateFrequency;
   lastUpdated: string;
   dimensions: DataDimension[];

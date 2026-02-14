@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef, useMemo, useState } from 'react';
-import * as echarts from 'echarts';
+import echarts from '@/lib/echarts';
+import type { EChartsOption } from '@/lib/echarts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select } from '@/components/ui/select';
@@ -180,7 +181,7 @@ function PopulationPyramid({ data, locale }: { data: any[]; locale: 'bg' | 'en' 
 
     const chart = echarts.init(chartRef.current);
 
-    const option: echarts.EChartsOption = {
+    const option: EChartsOption = {
       tooltip: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
@@ -341,7 +342,7 @@ function DemographicTrends({ data, locale }: { data: any[]; locale: 'bg' | 'en' 
       .map(([year, counts]) => ({
         year,
         ...counts
-      }))
+      } as { year: string; '0-14': number; '15-64': number; '65+': number }))
       .sort((a, b) => parseInt(a.year) - parseInt(b.year));
   }, [data]);
 
@@ -350,7 +351,7 @@ function DemographicTrends({ data, locale }: { data: any[]; locale: 'bg' | 'en' 
 
     const chart = echarts.init(chartRef.current);
 
-    const option: echarts.EChartsOption = {
+    const option: EChartsOption = {
       tooltip: {
         trigger: 'axis',
         axisPointer: { type: 'cross' }
@@ -473,7 +474,7 @@ function RegionalUrbanRural({ data, locale }: { data: any[]; locale: 'bg' | 'en'
 
     const chart = echarts.init(chartRef.current);
 
-    const option: echarts.EChartsOption = {
+    const option: EChartsOption = {
       tooltip: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' }

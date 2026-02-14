@@ -1,0 +1,8 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"LFS_LabourContract","","Вид на договора с работодателя","Type of labour contract"
+"LFS_LabourContract","0","Общо","Total"
+"LFS_LabourContract","1","Трудов или за служебно правоотношение","Labour or civil service contract"
+"LFS_LabourContract","2","Граждански или друг","Civil or other"
+"LFS_LabourContract","3","Без договор","Without contract"
+"Units","","Мерни единици","Measuring units"
+"Units","1000cp","брой лица в хиляди","Thousand persons"

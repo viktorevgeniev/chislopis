@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitch } from './LanguageSwitch';
+import { HeaderSearch } from '@/components/search/HeaderSearch';
 
 interface HeaderProps {
   locale: string;
@@ -36,7 +37,10 @@ export function Header({ locale }: HeaderProps) {
           </Link>
         </nav>
 
-        <LanguageSwitch locale={locale} />
+        <div className="flex items-center gap-4">
+          <HeaderSearch locale={locale as 'bg' | 'en'} />
+          <LanguageSwitch locale={locale} />
+        </div>
       </div>
     </header>
   );

@@ -1,0 +1,7 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"GenderID","Пол","Sex"
+"Age10_LFS","Десетгодишни възрастови групи  - Наблюдение на работната сила","10-years age groups - LFS"
+"periods","Времева разбивка","Time breakdown"
+"Units","Мернa единицa","Unit of measure"
+"ValueColumn","Стойност за показател Лица извън работната сила по възрастови групи и пол   (тримесечно)","Velue of indicator Persons not in labour force by age groups and sex (quarterly)"

@@ -1,0 +1,11 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Units","","Мерни единици","Measuring units"
+"Units","perc","процент","Per cent"
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"Residence","","Местоживеене ","Residence"
+"Residence","0","Общо","Total"
+"Residence","1","В градовете","Urban"
+"Residence","2","В селата","Rural"

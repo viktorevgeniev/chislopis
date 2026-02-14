@@ -1,0 +1,11 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"SILC_Age","","Възраст","Age"
+"SILC_Age","2","18-64 години","Between 18 and 64 years"
+"SILC_Age","3","65 и повече години","65 years and over"
+"SILC_Age","9","18 и повече години","18 years and over"
+"Units","","Мерни единици","Measuring units"
+"Units","perc_pop_fig","% от съвкупността","PC_POP"

@@ -1,0 +1,9 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"Age10_LFS","Десетгодишни възрастови групи  - Наблюдение на работната сила","10-years age groups - LFS"
+"GenderID","Пол","Sex"
+"LFS_WorkWillingness","Желание за работа","Willigness to work"
+"periods","Времева разбивка","Time breakdown"
+"Units","Мернa единицa","Unit of measure"
+"LFS_ReasInactivity","Причини за неактивност"," Reasons of inactivity"
+"ValueColumn","Стойност за показател Лица извън работната сила по причини за неактивност и пол  (тримесечно)","Velue of indicator Persons not in labour force by reasons of inactivity and sex (quarterly)"

@@ -1,0 +1,9 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"periods","Времева разбивка","Time breakdown"
+"NUTS","NUTS","NUTS"
+"Units","Мернa единицa","Unit of measure"
+"Ages_COD","Възраст","Age"
+"GenderID","Пол","Sex"
+"COD_ICD10ch","МКБ10","ICD10"
+"ValueColumn","Стойност за показател Умирания по причини за смъртта","Velue of indicator Deaths by causes"

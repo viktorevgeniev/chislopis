@@ -1,0 +1,8 @@
+Field,Name in Bulgarian,Name in English
+"RevisionColumn","актуализации","updates"
+"periods","Времева разбивка","Time breakdown"
+"Units","Мернa единицa","Unit of measure"
+"GenderID","Пол","Sex"
+"LFS_ReasLeaveJob","Причини за напускане на работа","Reasons leaving_job"
+"LFS_EmplExpr_Unempl","Наличие на предишна заетост (за безработните лица)","Employment experience_unempl"
+"ValueColumn","Стойност за показател Безработни лица според наличието на предишна работа, по причини за напускане и пол (тримесечно)","Velue of indicator Unemployed persons by existence of previous employment experience and reason of leaving the last job by sex (quarterly)"

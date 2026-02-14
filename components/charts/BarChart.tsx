@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import echarts from '@/lib/echarts';
+import type { EChartsOption } from '@/lib/echarts';
 
 interface BarChartProps {
   data: any[];
@@ -24,7 +25,7 @@ export function BarChart({ data, xKey, yKey, title, horizontal = false }: BarCha
     const xData = data.map(item => item[xKey]);
     const yData = data.map(item => item[yKey]);
 
-    const option: echarts.EChartsOption = {
+    const option: EChartsOption = {
       title: title ? { text: title, left: 'center' } : undefined,
       tooltip: {
         trigger: 'axis',

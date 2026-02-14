@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { CategoryNav } from '@/components/layout/CategoryNav';
+import { DatasetSearch } from '@/components/search/DatasetSearch';
 import { getAllDatasets } from '@/lib/data/datasetRegistry';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,6 +18,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           {t('subtitle')}
         </p>
+        <DatasetSearch locale={locale as 'bg' | 'en'} />
         <div className="flex items-center justify-center gap-4 pt-4">
           <div className="text-center">
             <div className="text-3xl font-bold text-primary">{datasets.length}</div>

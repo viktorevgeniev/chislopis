@@ -1,0 +1,10 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"SILC_Age","","Възраст","Age"
+"SILC_Age","2","18-64 години","Between 18 and 64 years"
+"SILC_Age","9","18 и повече години","18 years and over"
+"SILC_Edu","","Ниво на образование","Education level"
+"SILC_Edu","1","основно и по-ниско образование","(0-2) Pre-primary, primary and lower socondary education"
+"SILC_Edu","2","средно образование","(3-4) Upper secondary and post-secondary and non-tertiary education"
+"SILC_Edu","3","висше образование","(5-6) First and second stage tertiary education"
+"Units","","Мерни единици","Measuring units"
+"Units","perc_pop_fig","% от съвкупността","PC_POP"

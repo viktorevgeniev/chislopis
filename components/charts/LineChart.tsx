@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import * as echarts from 'echarts';
+import echarts from '@/lib/echarts';
+import type { EChartsOption } from '@/lib/echarts';
 
 interface LineChartProps {
   data: any[];
@@ -35,7 +36,7 @@ export function LineChart({ data, xKey, yKey, title, smooth = true }: LineChartP
       }
     }));
 
-    const option: echarts.EChartsOption = {
+    const option: EChartsOption = {
       title: title ? { text: title, left: 'center' } : undefined,
       tooltip: {
         trigger: 'axis'

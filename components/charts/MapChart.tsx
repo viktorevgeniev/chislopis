@@ -22,6 +22,7 @@ export function MapChart({ data, regionKey, valueKey, title, locale = 'en' }: Ma
     // Dynamically import Leaflet and CSS
     const loadMap = async () => {
       const L = (await import('leaflet')).default;
+      // @ts-ignore - CSS import handled by bundler
       await import('leaflet/dist/leaflet.css');
 
       // Clean up existing map
@@ -92,7 +93,7 @@ export function MapChart({ data, regionKey, valueKey, title, locale = 'en' }: Ma
       });
 
       // Add legend
-      const legend = L.control({ position: 'bottomright' });
+      const legend = (L.control as any)({ position: 'bottomright' });
       legend.onAdd = () => {
         const div = L.DomUtil.create('div', 'bg-white p-2 rounded shadow-md');
         div.innerHTML = `

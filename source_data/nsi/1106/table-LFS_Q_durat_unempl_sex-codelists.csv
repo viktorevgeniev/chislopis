@@ -1,0 +1,13 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Units","","Мерни единици","Measuring units"
+"Units","1000cp","брой лица в хиляди","Thousand persons"
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"LFS_DuratUnempl","","Продължителност на безработицата","Duration of unemployment"
+"LFS_DuratUnempl","0","Общо","Total"
+"LFS_DuratUnempl","1","До 5 месеца","Up to 5 months"
+"LFS_DuratUnempl","2","6 - 11 месеца","6 - 11 months"
+"LFS_DuratUnempl","3","12 - 23 месеца","12 - 23 months"
+"LFS_DuratUnempl","4","2 и повече години","2 and more years"

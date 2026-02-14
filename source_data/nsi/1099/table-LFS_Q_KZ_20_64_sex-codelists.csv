@@ -1,0 +1,8 @@
+Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"GenderID","","Пол","Sex"
+"GenderID","0","Общо","Total"
+"GenderID","1","Мъже","Male"
+"GenderID","2","Жени","Female"
+"GenderID","null_value","",""
+"Units","","Мерни единици","Measuring units"
+"Units","perc","процент","Per cent"
