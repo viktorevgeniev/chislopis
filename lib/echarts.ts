@@ -4,8 +4,8 @@
  */
 
 import * as echarts from 'echarts/core';
-import { BarChart, LineChart, PieChart, HeatmapChart, ScatterChart } from 'echarts/charts';
-import type { BarSeriesOption, LineSeriesOption, PieSeriesOption, HeatmapSeriesOption, ScatterSeriesOption } from 'echarts/charts';
+import { BarChart, LineChart, PieChart, HeatmapChart, ScatterChart, TreemapChart } from 'echarts/charts';
+import type { BarSeriesOption, LineSeriesOption, PieSeriesOption, HeatmapSeriesOption, ScatterSeriesOption, TreemapSeriesOption } from 'echarts/charts';
 import {
   GridComponent,
   TooltipComponent,
@@ -32,6 +32,7 @@ echarts.use([
   PieChart,
   HeatmapChart,
   ScatterChart,
+  TreemapChart,
   GridComponent,
   TooltipComponent,
   LegendComponent,
@@ -48,6 +49,7 @@ export type EChartsOption = echarts.ComposeOption<
   | PieSeriesOption
   | HeatmapSeriesOption
   | ScatterSeriesOption
+  | TreemapSeriesOption
   | GridComponentOption
   | TooltipComponentOption
   | LegendComponentOption

@@ -79,6 +79,9 @@ export async function processLocalDataset(
       const strValue = String(value ?? '');
 
       if (key === 'Units') {
+        const unitMapping = codeMappings.get('Units');
+        processed['Units'] = unitMapping?.get(strValue) || strValue;
+        processed['Units_Code'] = strValue;
         continue;
       }
 
@@ -95,7 +98,7 @@ export async function processLocalDataset(
       } else if (key === 'EKATTE') {
         processed['EKATTE'] = mapping?.get(strValue) || strValue;
         processed['EKATTE_Code'] = strValue;
-      } else if (key === 'Residence') {
+      } else if (key === 'Residence' || key === 'PlaceResidence') {
         processed['Residence'] = mapping?.get(strValue) || (strValue === '0' ? 'Total' : strValue);
         processed['Residence_Code'] = strValue;
       } else if (key === 'GenderID' || key === 'Gender' || key === 'Gender_Child') {
@@ -108,7 +111,8 @@ export async function processLocalDataset(
       } else if (key === 'periods' || key === 'Period' || key === 'Edu_schYear') {
         processed['Year'] = strValue;
       } else if (key === 'ValueColumn' || key === 'Value') {
-        processed[valueColumnName] = parseFloat(strValue) || 0;
+        const cleaned = strValue.replace(/[()]/g, '');
+        processed[valueColumnName] = parseFloat(cleaned) || 0;
       } else if (mapping) {
         processed[key] = mapping.get(strValue) || strValue;
         processed[`${key}_Code`] = strValue;

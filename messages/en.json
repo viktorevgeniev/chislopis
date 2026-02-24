@@ -62,6 +62,6 @@
     "title": "Statistical Data Visualization",
     "subtitle": "Interactive charts and maps based on data from the National Statistical Institute",
     "explore": "Explore Categories",
-    "datasetsCount": "{count} datasets"
+    "datasetsCount": "{implemented} of {count} datasets implemented"
   }
 }

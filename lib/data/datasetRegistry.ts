@@ -227,7 +227,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост за 20-64 годишни по пол',
     'Quarterly employment rates for 20-64 year-olds by sex',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmploymentRates2064Dashboard' }
   ),
   nsiDataset(
     'employment-rates-by-age-sex', '1176',
@@ -236,7 +236,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост по възрастови групи и пол',
     'Quarterly employment rates by age group and sex',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmploymentRatesByAgeDashboard' }
   ),
   nsiDataset(
     'employment-rates-by-education', '1212',
@@ -245,7 +245,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост по степен на образование',
     'Quarterly employment rates by level of education',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmploymentRatesByEducationDashboard' }
   ),
   nsiDataset(
     'employment-rates-by-residence-sex', '1210',
@@ -254,7 +254,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост по местоживеене и пол',
     'Quarterly employment rates by place of residence and sex',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmploymentRatesByResidenceDashboard' }
   ),
   nsiDataset(
     'employment-rates-10yr-age', '1722',
@@ -262,7 +262,8 @@ export const datasetRegistry: Dataset[] = [
     'Employment rates by sex and 10-year age groups',
     'Годишни коефициенти на заетост по пол и 10-годишни възрастови групи',
     'Annual employment rates by sex and 10-year age groups',
-    'labor', 'employment', 'Rate'
+    'labor', 'employment', 'Rate',
+    { updateFrequency: 'yearly', customVisualization: 'EmploymentRatesAnnualDashboard' }
   ),
   nsiDataset(
     'employment-rates-regions', '937',
@@ -271,7 +272,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на заетост по пол, статистически райони и области',
     'Quarterly employment rates by sex, statistical regions and districts',
     'labor', 'employment', 'Rate',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'EmploymentRatesAllRegionsDashboard' }
   ),
 
   // --- labor > employment (Employed Persons) ---
@@ -282,7 +283,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица на 15-64 години по пол, райони и области',
     'Quarterly employed persons aged 15-64 by sex, regions and districts',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'EmployedPersonsRegionalDashboard' }
   ),
   nsiDataset(
     'employed-20-64-sex', '1098',
@@ -291,7 +292,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица на 20-64 години по пол',
     'Quarterly employed persons aged 20-64 by sex',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedPersons2064Dashboard' }
   ),
   nsiDataset(
     'employed-by-age-sex', '1101',
@@ -300,7 +301,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица по възрастови групи и пол',
     'Quarterly employed persons by age groups and sex',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByAgeSexDashboard' }
   ),
   nsiDataset(
     'employed-by-activity-2003-2007', '1135',
@@ -309,7 +310,7 @@ export const datasetRegistry: Dataset[] = [
     'Заети лица по групи икономически дейности и пол за периода 2003-2007',
     'Employed persons by economic activity groupings and sex for 2003-2007',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByActivityDashboard' }
   ),
   nsiDataset(
     'employed-by-activity-2008', '1133',
@@ -318,7 +319,7 @@ export const datasetRegistry: Dataset[] = [
     'Заети лица по групи икономически дейности и пол от 2008 г.',
     'Employed persons by economic activity groupings and sex from 2008',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByActivity2008Dashboard' }
   ),
   nsiDataset(
     'employed-by-education', '1124',
@@ -327,7 +328,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица по степен на образование',
     'Quarterly employed persons by level of education',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByEducationLevelDashboard' }
   ),
   nsiDataset(
     'employed-by-occupation-2003-2005', '1428',
@@ -336,7 +337,7 @@ export const datasetRegistry: Dataset[] = [
     'Заети лица по класове професии и пол за периода 2003-2005',
     'Employed persons by occupational classes and sex for 2003-2005',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByOccupationDashboard' }
   ),
   nsiDataset(
     'employed-by-occupation-2006-2010', '1129',
@@ -345,7 +346,7 @@ export const datasetRegistry: Dataset[] = [
     'Заети лица по класове професии и пол за периода 2006-2010',
     'Employed persons by occupational classes and sex for 2006-2010',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByOccupationDashboard' }
   ),
   nsiDataset(
     'employed-by-occupation-2011', '1127',
@@ -354,7 +355,7 @@ export const datasetRegistry: Dataset[] = [
     'Заети лица по класове професии и пол от 2011 г.',
     'Employed persons by occupational classes and sex from 2011',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByOccupationDashboard' }
   ),
   nsiDataset(
     'employed-by-residence-sex', '1108',
@@ -363,7 +364,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица по местоживеене и пол',
     'Quarterly employed persons by place of residence and sex',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByResidenceSexDashboard' }
   ),
   nsiDataset(
     'employed-by-status-sex', '1123',
@@ -372,7 +373,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица по професионален статус и пол',
     'Quarterly employed persons by professional status and sex',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByProfStatusDashboard' }
   ),
   nsiDataset(
     'employed-by-regions-sex', '908',
@@ -381,7 +382,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за заети лица по пол, статистически райони и области',
     'Quarterly employed persons by sex, statistical regions and districts',
     'labor', 'employment', 'Persons',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'EmployedPersonsRegionalDashboard' }
   ),
 
   // --- labor > employees ---
@@ -392,7 +393,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по вид собственост',
     'Quarterly employees by kind of ownership',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByOwnershipDashboard' }
   ),
   nsiDataset(
     'employees-by-permanency', '1265',
@@ -401,7 +402,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по постоянство на работата',
     'Quarterly employees by permanency of job',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployedByPermanencyDashboard' }
   ),
   nsiDataset(
     'employees-by-residence', '1260',
@@ -410,7 +411,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по местоживеене',
     'Quarterly employees by place of residence',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployeesByResidenceDashboard' }
   ),
   nsiDataset(
     'employees-by-sex', '1259',
@@ -419,7 +420,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по пол',
     'Quarterly employees by sex',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployeesBySexDashboard' }
   ),
   nsiDataset(
     'employees-by-contract', '1263',
@@ -428,7 +429,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по вид на договора',
     'Quarterly employees by type of contract',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployeesByContractDashboard' }
   ),
   nsiDataset(
     'employees-by-working-time', '1262',
@@ -437,7 +438,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за наети лица по вид работно време',
     'Quarterly employees by type of working time',
     'labor', 'employees', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'EmployeesByWorkingTimeDashboard' }
   ),
   nsiDataset(
     'employees-labour-contract-nace', '365',
@@ -445,7 +446,8 @@ export const datasetRegistry: Dataset[] = [
     'Employees under labour contract by economic activities (A21) (2008-2024)',
     'Наети лица по трудово и служебно правоотношение по икономически дейности',
     'Employees under labour contract by economic activities',
-    'labor', 'employees', 'Persons'
+    'labor', 'employees', 'Persons',
+    { customVisualization: 'EmployeesLabourContractNaceDashboard' }
   ),
 
   // --- labor > unemployment ---
@@ -456,7 +458,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечен коефициент на продължителна безработица по пол',
     'Quarterly long-term unemployment rate by sex',
     'labor', 'unemployment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'LongTermUnemploymentRateDashboard' }
   ),
   nsiDataset(
     'unemployed-by-age-sex', '1096',
@@ -465,7 +467,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по възрастови групи и пол',
     'Quarterly unemployed persons by age groups and sex',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByAgeSexDashboard' }
   ),
   nsiDataset(
     'unemployed-by-duration-sex', '1106',
@@ -474,7 +476,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по продължителност на безработицата',
     'Quarterly unemployed persons by duration of unemployment and sex',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByDurationSexDashboard' }
   ),
   nsiDataset(
     'unemployed-by-experience', '1110',
@@ -483,7 +485,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по предишен трудов опит',
     'Quarterly unemployed persons by previous employment experience',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByExperienceDashboard' }
   ),
   nsiDataset(
     'unemployed-by-education', '1150',
@@ -492,7 +494,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по степен на образование',
     'Quarterly unemployed persons by level of education',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByEducationDashboard' }
   ),
   nsiDataset(
     'unemployed-by-job-search', '1117',
@@ -501,7 +503,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по начини на търсене на работа',
     'Quarterly unemployed persons by methods of job search and sex',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByJobSearchDashboard' }
   ),
   nsiDataset(
     'unemployed-by-residence-sex', '1119',
@@ -510,7 +512,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по местоживеене и пол',
     'Quarterly unemployed persons by place of residence and sex',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemployedByResidenceSexDashboard' }
   ),
   nsiDataset(
     'unemployed-by-regions-sex', '1112',
@@ -519,7 +521,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за безработни лица по статистически райони и пол',
     'Quarterly unemployed persons by statistical regions and sex',
     'labor', 'unemployment', 'Persons',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'UnemployedByRegionsSexDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-by-age-sex', '1103',
@@ -528,7 +530,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на безработица по възрастови групи и пол',
     'Quarterly unemployment rates by age groups and sex',
     'labor', 'unemployment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemploymentRatesByAgeSexDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-by-education', '1166',
@@ -537,7 +539,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на безработица по степен на образование',
     'Quarterly unemployment rates by level of education',
     'labor', 'unemployment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemploymentRatesByEducationDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-by-residence-sex', '1120',
@@ -546,7 +548,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на безработица по местоживеене и пол',
     'Quarterly unemployment rates by place of residence and sex',
     'labor', 'unemployment', 'Rate',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'UnemploymentRatesByResidenceSexDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-10yr-age', '1720',
@@ -554,7 +556,8 @@ export const datasetRegistry: Dataset[] = [
     'Unemployment rates by sex and 10-year age groups',
     'Годишни коефициенти на безработица по пол и 10-годишни възрастови групи',
     'Annual unemployment rates by sex and 10-year age groups',
-    'labor', 'unemployment', 'Rate'
+    'labor', 'unemployment', 'Rate',
+    { customVisualization: 'UnemploymentRatesAnnualDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-regions-annual', '1011',
@@ -563,7 +566,7 @@ export const datasetRegistry: Dataset[] = [
     'Годишни коефициенти на безработица по пол, статистически райони и области',
     'Annual unemployment rates by sex, statistical regions and districts',
     'labor', 'unemployment', 'Rate',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'UnemploymentRatesRegionalAnnualDashboard' }
   ),
   nsiDataset(
     'unemployment-rates-regions-quarterly', '1116',
@@ -572,7 +575,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни коефициенти на безработица по статистически райони и пол',
     'Quarterly unemployment rates by statistical regions and sex',
     'labor', 'unemployment', 'Rate',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'UnemploymentRatesRegionalQuarterlyDashboard' }
   ),
 
   // --- labor > labour-force ---
@@ -583,7 +586,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за работната сила по възрастови групи и пол',
     'Quarterly labour force by age groups and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'LabourForceByAgeSexDashboard' }
   ),
   nsiDataset(
     'labour-force-by-education', '1190',
@@ -592,7 +595,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за работната сила по степен на образование',
     'Quarterly labour force by level of education',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'LabourForceByEducationDashboard' }
   ),
   nsiDataset(
     'labour-force-by-residence-sex', '385',
@@ -601,7 +604,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за работната сила по местоживеене и пол',
     'Quarterly labour force by place of residence and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'LabourForceByResidenceSexDashboard' }
   ),
   nsiDataset(
     'labour-force-by-regions-sex', '1183',
@@ -610,7 +613,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за работната сила по пол и статистически райони',
     'Quarterly labour force by sex and statistical regions',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'LabourForceByRegionsSexDashboard' }
   ),
 
   // --- labor > labour-force (Not in Labour Force) ---
@@ -621,7 +624,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за лица извън работната сила по възрастови групи и пол',
     'Quarterly persons not in labour force by age groups and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'NotInLFByAgeSexDashboard' }
   ),
   nsiDataset(
     'not-in-lf-by-education', '1155',
@@ -630,7 +633,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за лица извън работната сила по степен на образование',
     'Quarterly persons not in labour force by level of education',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'NotInLFByEducationDashboard' }
   ),
   nsiDataset(
     'not-in-lf-by-residence-sex', '1158',
@@ -639,7 +642,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за лица извън работната сила по местоживеене и пол',
     'Quarterly persons not in labour force by place of residence and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'NotInLFByResidenceSexDashboard' }
   ),
   nsiDataset(
     'not-in-lf-by-reasons', '1217',
@@ -648,7 +651,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за лица извън работната сила по причини за неактивност',
     'Quarterly persons not in labour force by reasons of inactivity',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'NotInLFByReasonsDashboard' }
   ),
   nsiDataset(
     'not-in-lf-by-regions-sex', '1163',
@@ -657,7 +660,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за лица извън работната сила по статистически райони и пол',
     'Quarterly persons not in labour force by statistical regions and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly', hasGeographic: true }
+    { updateFrequency: 'quarterly', hasGeographic: true, customVisualization: 'NotInLFByRegionsSexDashboard' }
   ),
 
   // --- labor > labour-force (Discouraged Persons) ---
@@ -668,7 +671,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за обезкуражени лица по възрастови групи и пол',
     'Quarterly discouraged persons by age groups and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'DiscouragedByAgeSexDashboard' }
   ),
   nsiDataset(
     'discouraged-by-education', '1164',
@@ -677,7 +680,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за обезкуражени лица по степен на образование',
     'Quarterly discouraged persons by level of education',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'DiscouragedByEducationDashboard' }
   ),
   nsiDataset(
     'discouraged-by-residence-sex', '1153',
@@ -686,7 +689,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за обезкуражени лица по местоживеене и пол',
     'Quarterly discouraged persons by place of residence and sex',
     'labor', 'labour-force', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'DiscouragedByResidenceSexDashboard' }
   ),
 
   // --- labor > wages ---
@@ -696,7 +699,8 @@ export const datasetRegistry: Dataset[] = [
     'Average annual wages and salaries by economic activities (2008-2024)',
     'Средна годишна работна заплата на наетите по трудово и служебно правоотношение по икономически дейности',
     'Average annual wages and salaries of employees by economic activities',
-    'labor', 'wages', 'Amount'
+    'labor', 'wages', 'Amount',
+    { customVisualization: 'WagesByActivityOwnershipDashboard', suggestedChartTypes: ['line', 'bar'] }
   ),
   nsiDataset(
     'avg-weekly-hours-ownership', '1341',
@@ -705,7 +709,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни средни отработени часове седмично на заето лице по вид собственост',
     'Quarterly average weekly hours per employed person by ownership',
     'labor', 'wages', 'Hours',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'AvgHoursByOwnershipDashboard', suggestedChartTypes: ['line', 'bar'] }
   ),
   nsiDataset(
     'avg-weekly-hours-sex', '1340',
@@ -714,7 +718,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни средни отработени часове седмично на заето лице по пол',
     'Quarterly average weekly hours per employed person by sex',
     'labor', 'wages', 'Hours',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'AvgHoursBySexDashboard', suggestedChartTypes: ['line', 'bar'] }
   ),
 
   // ═══════════════════════════════════════════
@@ -728,7 +732,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate before social transfers (pensions excluded)',
     'Относителен дял на бедните преди социални трансфери, без пенсии',
     'At-risk-of-poverty rate before social transfers, pensions excluded',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { hasGeographic: true, customVisualization: 'PovertyRateBeforeTransfersDashboard' }
   ),
   nsiDataset(
     'poverty-rate-before-transfers-incl-pensions', '202',
@@ -736,7 +741,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate before social transfers (pensions included)',
     'Относителен дял на бедните преди социални трансфери, с пенсии',
     'At-risk-of-poverty rate before social transfers, pensions included',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { hasGeographic: true, customVisualization: 'PovertyRateInclPensionsDashboard' }
   ),
   nsiDataset(
     'poverty-rate-by-age-sex', '176',
@@ -744,7 +750,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate by age and sex',
     'Относителен дял на бедните по възрастови групи и пол',
     'At-risk-of-poverty rate by age groups and sex',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { hasGeographic: true, customVisualization: 'PovertyRateByAgeSexDashboard' }
   ),
   nsiDataset(
     'poverty-rate-by-household', '684',
@@ -752,7 +759,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate by household type',
     'Относителен дял на бедните по тип домакинство',
     'At-risk-of-poverty rate by household type',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'PovertyRateByHouseholdDashboard' }
   ),
   nsiDataset(
     'poverty-rate-by-activity', '189',
@@ -760,7 +768,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate by most frequent activity status',
     'Относителен дял на бедните по най-честа икономическа активност',
     'At-risk-of-poverty rate by most frequent activity status',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'PovertyRateByActivityDashboard' }
   ),
   nsiDataset(
     'poverty-rate-elderly', '212',
@@ -768,7 +777,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty rate of older people',
     'Относителен дял на бедните сред лицата на 65 и повече години',
     'At-risk-of-poverty rate of people aged 65 and over',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'PovertyRateElderlyDashboard' }
   ),
   nsiDataset(
     'poverty-thresholds', '169',
@@ -776,7 +786,8 @@ export const datasetRegistry: Dataset[] = [
     'At-risk-of-poverty thresholds',
     'Линия на бедност по размер на домакинството',
     'At-risk-of-poverty thresholds by household size',
-    'social', 'poverty', 'Threshold'
+    'social', 'poverty', 'Threshold',
+    { customVisualization: 'PovertyThresholdDashboard' }
   ),
 
   // --- social > poverty (In-Work Poverty) ---
@@ -786,7 +797,8 @@ export const datasetRegistry: Dataset[] = [
     'In-work at-risk-of-poverty rate by age and sex',
     'Относителен дял на работещите бедни по възраст и пол',
     'In-work at-risk-of-poverty rate by age and sex',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'InWorkPovertyByAgeSexDashboard' }
   ),
   nsiDataset(
     'in-work-poverty-by-education', '263',
@@ -794,7 +806,8 @@ export const datasetRegistry: Dataset[] = [
     'In-work at-risk-of-poverty rate by educational attainment level',
     'Относителен дял на работещите бедни по образователно равнище',
     'In-work at-risk-of-poverty rate by educational attainment level',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'InWorkPovertyByEducationDashboard' }
   ),
   nsiDataset(
     'in-work-poverty-by-working-time', '273',
@@ -1305,4 +1318,8 @@ export function searchDatasets(query: string, locale: 'bg' | 'en'): Dataset[] {
     dataset.title[locale].toLowerCase().includes(lowerQuery) ||
     dataset.description[locale].toLowerCase().includes(lowerQuery)
   );
+}
+
+export function getImplementedDatasets(): Dataset[] {
+  return datasetRegistry.filter(dataset => dataset.customVisualization);
 }

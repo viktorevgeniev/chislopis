@@ -1,12 +1,13 @@
 import { getTranslations } from 'next-intl/server';
 import { CategoryNav } from '@/components/layout/CategoryNav';
 import { DatasetSearch } from '@/components/search/DatasetSearch';
-import { getAllDatasets } from '@/lib/data/datasetRegistry';
+import { getAllDatasets, getImplementedDatasets } from '@/lib/data/datasetRegistry';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('home');
   const datasets = getAllDatasets();
+  const implemented = getImplementedDatasets();
 
   return (
     <div className="space-y-12">
@@ -21,9 +22,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <DatasetSearch locale={locale as 'bg' | 'en'} />
         <div className="flex items-center justify-center gap-4 pt-4">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary">{datasets.length}</div>
+            <div className="text-3xl font-bold text-primary">
+              {implemented.length} / {datasets.length}
+            </div>
             <div className="text-sm text-muted-foreground">
-              {t('datasetsCount', { count: datasets.length })}
+              {t('datasetsCount', { implemented: implemented.length, count: datasets.length })}
             </div>
           </div>
         </div>
