@@ -815,7 +815,8 @@ export const datasetRegistry: Dataset[] = [
     'In-work at-risk-of-poverty rate by full-/part-time work',
     'Относителен дял на работещите бедни по пълно и непълно работно време',
     'In-work at-risk-of-poverty rate by full-time and part-time work',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'InWorkPovertyByWorkingTimeDashboard' }
   ),
   nsiDataset(
     'in-work-poverty-by-household', '259',
@@ -823,7 +824,8 @@ export const datasetRegistry: Dataset[] = [
     'In-work at-risk-of-poverty rate by household type',
     'Относителен дял на работещите бедни по тип домакинство',
     'In-work at-risk-of-poverty rate by household type',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'InWorkPovertyByHouseholdDashboard' }
   ),
 
   // --- social > poverty (People at Risk) ---
@@ -833,7 +835,8 @@ export const datasetRegistry: Dataset[] = [
     'People at risk of poverty or social exclusion by age and sex',
     'Лица в риск от бедност или социално изключване по възраст и пол',
     'People at risk of poverty or social exclusion by age and sex',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { hasGeographic: true, customVisualization: 'RiskPovertyExclusionAgeSexDashboard' }
   ),
   nsiDataset(
     'risk-poverty-exclusion-education', '325',
@@ -841,7 +844,8 @@ export const datasetRegistry: Dataset[] = [
     'People at risk of poverty or social exclusion by education (18+)',
     'Лица на 18 и повече години в риск от бедност по образование',
     'People aged 18+ at risk of poverty or social exclusion by education',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'RiskPovertyExclusionEducationDashboard' }
   ),
   nsiDataset(
     'risk-poverty-exclusion-household', '324',
@@ -849,7 +853,8 @@ export const datasetRegistry: Dataset[] = [
     'People at risk of poverty or social exclusion by household type',
     'Лица в риск от бедност или социално изключване по тип домакинство',
     'People at risk of poverty or social exclusion by household type',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'RiskPovertyExclusionHouseholdDashboard' }
   ),
   nsiDataset(
     'risk-poverty-exclusion-activity', '320',
@@ -857,7 +862,8 @@ export const datasetRegistry: Dataset[] = [
     'People at risk of poverty or social exclusion by activity status (18+)',
     'Лица на 18 и повече години в риск от бедност по икономическа активност',
     'People aged 18+ at risk of poverty or social exclusion by activity status',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'RiskPovertyExclusionActivityDashboard' }
   ),
 
   // --- social > poverty (Material Deprivation) ---
@@ -867,7 +873,8 @@ export const datasetRegistry: Dataset[] = [
     'Material deprivation rate by age and sex',
     'Относителен дял на материално лишените лица по възраст и пол',
     'Material deprivation rate by age and sex',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'MaterialDeprivationDashboard' }
   ),
   nsiDataset(
     'severe-deprivation-household', '305',
@@ -875,7 +882,8 @@ export const datasetRegistry: Dataset[] = [
     'Severe material deprivation rate by household type',
     'Относителен дял на лицата с тежки материални лишения по тип домакинство',
     'Severe material deprivation rate by household type',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'MaterialDeprivationByHouseholdDashboard' }
   ),
   nsiDataset(
     'severe-deprivation-activity', '304',
@@ -883,7 +891,8 @@ export const datasetRegistry: Dataset[] = [
     'Severe material deprivation rate by most frequent activity status',
     'Относителен дял на лицата с тежки материални лишения по икономическа активност',
     'Severe material deprivation rate by most frequent activity status',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'MaterialDeprivationByActivityDashboard' }
   ),
 
   // --- social > poverty (Low Work Intensity) ---
@@ -893,7 +902,8 @@ export const datasetRegistry: Dataset[] = [
     'People in households with very low work intensity by age and sex (until 2020)',
     'Лица в домакинства с много нисък интензитет на работа по възраст и пол',
     'People in households with very low work intensity by age and sex',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { hasGeographic: true, customVisualization: 'LowWorkIntensityAgeSexDashboard' }
   ),
   nsiDataset(
     'low-work-intensity-education', '315',
@@ -901,7 +911,8 @@ export const datasetRegistry: Dataset[] = [
     'People in households with very low work intensity by education (until 2020)',
     'Лица в домакинства с много нисък интензитет на работа по образование',
     'People in households with very low work intensity by education',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'LowWorkIntensityEducationDashboard' }
   ),
   nsiDataset(
     'low-work-intensity-household', '312',
@@ -909,7 +920,8 @@ export const datasetRegistry: Dataset[] = [
     'People in households with very low work intensity by household type (until 2020)',
     'Лица в домакинства с много нисък интензитет на работа по тип домакинство',
     'People in households with very low work intensity by household type',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'LowWorkIntensityHouseholdDashboard' }
   ),
   nsiDataset(
     'low-work-intensity-activity', '309',
@@ -917,49 +929,65 @@ export const datasetRegistry: Dataset[] = [
     'People in households with very low work intensity by activity status (until 2020)',
     'Лица в домакинства с много нисък интензитет на работа по икономическа активност',
     'People in households with very low work intensity by activity status',
-    'social', 'poverty', 'Rate'
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'LowWorkIntensityActivityDashboard' }
   ),
 
   // --- social > income ---
   nsiDataset(
-    'aggregate-replacement-ratio', '242',
-    'Съотношение на общо заместване',
-    'Aggregate replacement ratio',
-    'Съотношение на общо заместване по пол',
-    'Aggregate replacement ratio by sex',
-    'social', 'income', 'Ratio'
+    'monetary-poverty-rate', '242',
+    'Парична бедност по пол',
+    'Monetary poverty rate by sex',
+    'Дял на лицата под прага на парична бедност по пол (% от населението), 2008–2024',
+    'Share of persons below the monetary poverty threshold by sex (% of population), 2008–2024',
+    'social', 'poverty', 'Rate',
+    { customVisualization: 'MonetaryPovertyRateDashboard' }
   ),
   nsiDataset(
     'income-distribution-deciles', '295',
     'Разпределение на дохода по децили',
     'Distribution of income by deciles (top cut-off point)',
-    'Разпределение на дохода по децили (горна граница)',
-    'Distribution of income by deciles (top cut-off point)',
-    'social', 'income', 'Amount'
+    'Разпределение на дохода по децили (горна граница на дохода), 2008–2024',
+    'Distribution of income by deciles (top cut-off point of income threshold by decile), 2008–2024',
+    'social', 'income', 'Amount',
+    { customVisualization: 'IncomeDistributionDecilesDashboard' }
   ),
   nsiDataset(
-    'gini-coefficient', '301',
-    'Коефициент на Джини',
-    'Gini coefficient',
-    'Коефициент на Джини за разпределение на доходите',
-    'Gini coefficient of income distribution',
-    'social', 'income', 'Coefficient'
+    'monetary-poverty-rate-regional', '301',
+    'Парична бедност по статистически региони и области (NUTS)',
+    'Monetary poverty rate by statistical regions and districts (NUTS)',
+    'Дял на лицата под прага на парична бедност по статистически региони и области (NUTS), 2008–2024',
+    'Share of persons below the monetary poverty threshold by statistical regions and districts (NUTS), 2008–2024',
+    'social', 'income', 'Rate',
+    {
+      hasGeographic: true,
+      suggestedChartTypes: ['line', 'bar', 'map'],
+      customVisualization: 'MonetaryPovertyRateRegionalDashboard',
+    }
   ),
   nsiDataset(
     'mean-median-income-age-sex', '296',
     'Среден и медианен доход по възраст и пол',
     'Mean and median income by age and sex',
-    'Среден и медианен доход по възрастови групи и пол',
-    'Mean and median income by age groups and sex',
-    'social', 'income', 'Amount'
+    'Среден и медианен доход по възрастови групи и пол, 2008–2024',
+    'Mean and median income by age groups and sex, 2008–2024',
+    'social', 'income', 'Amount',
+    {
+      suggestedChartTypes: ['line', 'bar'],
+      customVisualization: 'MeanMedianIncomeAgeSexDashboard',
+    }
   ),
   nsiDataset(
     'mean-median-income-household', '297',
     'Среден и медианен доход по тип домакинство',
     'Mean and median income by household type',
-    'Среден и медианен доход по тип домакинство',
-    'Mean and median income by household type',
-    'social', 'income', 'Amount'
+    'Среден и медианен доход по тип домакинство — праг на бедност за различни структури домакинства',
+    'Mean and median income by household type — monetary poverty thresholds across household structures',
+    'social', 'income', 'Amount',
+    {
+      suggestedChartTypes: ['line', 'bar'],
+      customVisualization: 'MeanMedianIncomeHouseholdDashboard',
+    }
   ),
   nsiDataset(
     'mean-median-income-activity', '298',
@@ -967,7 +995,11 @@ export const datasetRegistry: Dataset[] = [
     'Mean and median income by most frequent activity status',
     'Среден и медианен доход по най-честа икономическа активност',
     'Mean and median income by most frequent activity status',
-    'social', 'income', 'Amount'
+    'social', 'income', 'Amount',
+    {
+      suggestedChartTypes: ['line', 'bar'],
+      customVisualization: 'MeanMedianIncomeActivityDashboard',
+    }
   ),
   nsiDataset(
     'relative-median-income-ratio', '235',
@@ -975,23 +1007,30 @@ export const datasetRegistry: Dataset[] = [
     'Relative median income ratio',
     'Съотношение на относителния медианен доход по пол',
     'Relative median income ratio by sex',
-    'social', 'income', 'Ratio'
+    'social', 'income', 'Ratio',
+    { customVisualization: 'RelativeMedianIncomeRatioDashboard' }
   ),
   nsiDataset(
     's80-s20-ratio', '300',
-    'Съотношение S80/S20 на доходите',
-    'S80/S20 income quintile share ratio',
-    'Съотношение S80/S20 на разпределението на доходите по квинтилни групи',
-    'S80/S20 income quintile share ratio',
-    'social', 'income', 'Ratio'
+    'Парична бедност по статистически региони и възрастови групи',
+    'Monetary poverty rate by statistical regions and age groups (NUTS)',
+    'Дял на лицата под прага на парична бедност по NUTS региони и възрастови групи (%), 2008–2024',
+    'Share of persons below the monetary poverty threshold by NUTS regions and age groups (%), 2008–2024',
+    'social', 'income', 'PovertyRate',
+    {
+      hasGeographic: true,
+      suggestedChartTypes: ['line', 'bar'],
+      customVisualization: 'MonetaryPovertyRateNutsAgeDashboard',
+    }
   ),
   nsiDataset(
     'total-income-by-source-residence', '470',
     'Общ доход по източници и местоживеене',
     'Total income by source and place of residence',
-    'Общ доход на лицата по източници и местоживеене',
-    'Total income by source and place of residence',
-    'social', 'income', 'Amount'
+    'Общ доход на домакинствата по източници на доходи и местоживеене (лв./домакинство, лв./лице, структура %), 2008–2022',
+    'Total household income by income sources and place of residence (BGN/household, BGN/capita, structure %), 2008–2022',
+    'social', 'income', 'Amount',
+    { customVisualization: 'TotalIncomeBySourceResidenceDashboard' }
   ),
 
   // --- social > expenditure ---
@@ -1001,7 +1040,8 @@ export const datasetRegistry: Dataset[] = [
     'Household consumption of main foods and beverages',
     'Потребление на основни хранителни продукти и напитки от домакинствата',
     'Household consumption of main foods and beverages',
-    'social', 'expenditure', 'Amount'
+    'social', 'expenditure', 'Amount',
+    { customVisualization: 'FoodConsumptionDashboard' }
   ),
   nsiDataset(
     'monetary-expenditure', '727',
@@ -1009,7 +1049,8 @@ export const datasetRegistry: Dataset[] = [
     'Monetary expenditure by group and place of residence',
     'Парични разходи на домакинствата по групи и местоживеене',
     'Monetary expenditure of households by group and place of residence',
-    'social', 'expenditure', 'Amount'
+    'social', 'expenditure', 'Amount',
+    { customVisualization: 'MonetaryExpenditureResidenceDashboard' }
   ),
   nsiDataset(
     'monetary-income', '690',
@@ -1017,7 +1058,8 @@ export const datasetRegistry: Dataset[] = [
     'Monetary income by source and place of residence',
     'Парични доходи на домакинствата по източници и местоживеене',
     'Monetary income of households by source and place of residence',
-    'social', 'expenditure', 'Amount'
+    'social', 'expenditure', 'Amount',
+    { customVisualization: 'MonetaryIncomeResidenceDashboard' }
   ),
   nsiDataset(
     'total-expenditure', '715',
@@ -1025,7 +1067,8 @@ export const datasetRegistry: Dataset[] = [
     'Total expenditure by group and place of residence',
     'Общи разходи на домакинствата по групи и местоживеене',
     'Total expenditure of households by group and place of residence',
-    'social', 'expenditure', 'Amount'
+    'social', 'expenditure', 'Amount',
+    { customVisualization: 'MonetaryExpenditureResidenceDashboard' }
   ),
 
   // --- social > education ---
@@ -1036,7 +1079,7 @@ export const datasetRegistry: Dataset[] = [
     'Деца в детски градини по общини',
     'Children in kindergartens by municipalities',
     'social', 'education', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'ChildrenInKindergartensDashboard' }
   ),
   nsiDataset(
     'pedagogical-staff-kindergartens', '118',
@@ -1045,7 +1088,7 @@ export const datasetRegistry: Dataset[] = [
     'Педагогически персонал в детски градини по области и общини',
     'Pedagogical staff in kindergartens by districts and municipalities',
     'social', 'education', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'TeachingStaffKindergartensDashboard' }
   ),
   nsiDataset(
     'population-by-education-level', '1219',
@@ -1054,7 +1097,7 @@ export const datasetRegistry: Dataset[] = [
     'Тримесечни данни за населението на 15 и повече навършени години по степен на образование',
     'Quarterly population aged 15 and over by level of education',
     'social', 'education', 'Persons',
-    { updateFrequency: 'quarterly' }
+    { updateFrequency: 'quarterly', customVisualization: 'PopulationByEducationLevelDashboard' }
   ),
 
   // --- social > healthcare ---
@@ -1065,7 +1108,7 @@ export const datasetRegistry: Dataset[] = [
     'Здравни заведения по области и общини',
     'Health establishments by districts and municipalities',
     'social', 'healthcare', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'HealthEstablishmentsDashboard' }
   ),
   nsiDataset(
     'medical-personnel', '1105',
@@ -1074,7 +1117,7 @@ export const datasetRegistry: Dataset[] = [
     'Медицински персонал по области и общини',
     'Medical personnel by districts and municipalities',
     'social', 'healthcare', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'MedicalPersonnelDashboard' }
   ),
 
   // ═══════════════════════════════════════════
@@ -1088,7 +1131,8 @@ export const datasetRegistry: Dataset[] = [
     'FDI in non-financial enterprises by economic activity (NACE Rev.2)',
     'Преки чуждестранни инвестиции в нефинансовите предприятия по икономически дейности',
     'Foreign direct investment in non-financial enterprises by economic activity',
-    'economy', 'fdi', 'Amount'
+    'economy', 'fdi', 'Amount',
+    { customVisualization: 'FdiByEconomicActivityDashboard' }
   ),
   nsiDataset(
     'fdi-by-regions', '629',
@@ -1097,7 +1141,11 @@ export const datasetRegistry: Dataset[] = [
     'Преки чуждестранни инвестиции в нефинансовите предприятия по райони и области',
     'Foreign direct investment in non-financial enterprises by regions and districts',
     'economy', 'fdi', 'Amount',
-    { hasGeographic: true }
+    {
+      hasGeographic: true,
+      suggestedChartTypes: ['line', 'bar', 'map'],
+      customVisualization: 'FdiByRegionDashboard',
+    }
   ),
 
   // --- economy > business ---
@@ -1107,7 +1155,8 @@ export const datasetRegistry: Dataset[] = [
     'Main economic indicators by enterprise size and economic activity',
     'Основни икономически показатели по размер на предприятията и икономически дейности',
     'Main economic indicators by enterprise size and economic activity',
-    'economy', 'business', 'Value'
+    'economy', 'business', 'Value',
+    { customVisualization: 'BusinessIndicatorsByActivityDashboard' }
   ),
   nsiDataset(
     'business-indicators-by-size-regions', '865',
@@ -1116,15 +1165,16 @@ export const datasetRegistry: Dataset[] = [
     'Основни икономически показатели по размер на предприятията и статистически райони',
     'Main economic indicators by enterprise size and statistical regions',
     'economy', 'business', 'Value',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'BusinessIndicatorsBySizeRegionsDashboard' }
   ),
   nsiDataset(
     'prodprom-by-cpa', '1274',
     'ПРОДПРОМ по подкатегории на продукцията (КПО)',
     'PRODPROM data by product subcategories (CPA classification)',
-    'Данни от ПРОДПРОМ по подкатегории на продукцията по КПО класификация',
-    'PRODPROM data by product subcategories by CPA classification',
-    'economy', 'business', 'Value'
+    'Данни от ПРОДПРОМ по подкатегории на продукцията по КПО класификация — производство, продадена продукция по количество и стойност (хил. лв.)',
+    'PRODPROM data by product subcategories by CPA classification — production, sold output by quantity and value (thousand BGN)',
+    'economy', 'business', 'Value',
+    { suggestedChartTypes: ['line', 'bar', 'table'], customVisualization: 'ProdcomDashboard' }
   ),
 
   // --- economy > construction ---
@@ -1135,18 +1185,18 @@ export const datasetRegistry: Dataset[] = [
     'Издадени разрешителни за строеж по области',
     'Building permits issued for construction by districts',
     'economy', 'construction', 'Count',
-    { hasGeographic: true, updateFrequency: 'quarterly' }
+    { hasGeographic: true, updateFrequency: 'quarterly', customVisualization: 'BuildingPermitsDashboard', suggestedChartTypes: ['line', 'bar', 'pie'] }
   ),
 
   // --- economy > trade ---
   nsiDataset(
     'retail-sales-premises', '454',
-    'Търговски обекти за продажби на дребно към 31.12 (2007-2016)',
-    'Retail sales premises as of 31.12 (2007-2016)',
-    'Търговски обекти за продажби на дребно към 31 декември',
-    'Retail sales premises as of December 31',
+    'Търговски обекти за продажби на дребно към 31.12 (2000-2016)',
+    'Retail sales premises as of 31.12 (2000-2016)',
+    'Брой търговски обекти за продажби на дребно (магазини, павилиони, бензиностанции) по вид стока към 31 декември',
+    'Number of retail sales outlets (shops, pavilions, fuel stations) by commodity type as of December 31st',
     'economy', 'trade', 'Count',
-    { hasGeographic: true }
+    { suggestedChartTypes: ['line', 'bar', 'pie'], customVisualization: 'RetailOutletsDashboard' }
   ),
 
   // ═══════════════════════════════════════════
@@ -1161,7 +1211,7 @@ export const datasetRegistry: Dataset[] = [
     'Места за настаняване по статистически райони',
     'Accommodation establishments by statistical regions',
     'sectoral', 'tourism', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'AccommodationEstablishmentsDashboard', suggestedChartTypes: ['line', 'bar', 'scatter'] }
   ),
   nsiDataset(
     'arrivals-from-abroad', '240',
@@ -1169,7 +1219,8 @@ export const datasetRegistry: Dataset[] = [
     'Arrivals of visitors from abroad to Bulgaria (2008-2020)',
     'Посещения на чужденци в България по страни',
     'Arrivals of visitors from abroad to Bulgaria by country',
-    'sectoral', 'tourism', 'Visitors'
+    'sectoral', 'tourism', 'Visitors',
+    { customVisualization: 'VisitorsInBulgariaDashboard', suggestedChartTypes: ['line', 'bar'] }
   ),
   nsiDataset(
     'nights-by-foreigners', '1227',
@@ -1178,7 +1229,7 @@ export const datasetRegistry: Dataset[] = [
     'Нощувки на чужденци в места за настаняване по статистически райони',
     'Nights spent by foreigners in accommodation by statistical regions',
     'sectoral', 'tourism', 'Nights',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'NightsByForeignersDashboard', suggestedChartTypes: ['line', 'bar', 'scatter'] }
   ),
   nsiDataset(
     'trips-abroad', '159',
@@ -1186,7 +1237,8 @@ export const datasetRegistry: Dataset[] = [
     'Trips of Bulgarian residents abroad (2008-2020)',
     'Пътувания на български граждани в чужбина по страни',
     'Trips of Bulgarian residents abroad by country',
-    'sectoral', 'tourism', 'Trips'
+    'sectoral', 'tourism', 'Trips',
+    { hasGeographic: true, customVisualization: 'BulgarianTripsAbroadDashboard', suggestedChartTypes: ['line', 'bar'] }
   ),
 
   // --- sectoral > culture ---
@@ -1197,7 +1249,7 @@ export const datasetRegistry: Dataset[] = [
     'Музеи, музейни експонати и посещения по области',
     'Museums, museum exhibits and visits by districts',
     'sectoral', 'culture', 'Count',
-    { hasGeographic: true }
+    { hasGeographic: true, customVisualization: 'MuseumsDashboard', suggestedChartTypes: ['bar', 'line', 'scatter'] }
   ),
 
   // ═══════════════════════════════════════════
@@ -1211,7 +1263,8 @@ export const datasetRegistry: Dataset[] = [
     'Statement of financial position of insurance companies',
     'Отчет за финансовото състояние на застрахователните дружества',
     'Statement of financial position of insurance companies',
-    'finance', 'insurance', 'Amount'
+    'finance', 'insurance', 'Amount',
+    { customVisualization: 'InsuranceBalanceDashboard' }
   ),
   nsiDataset(
     'insurance-profit-loss', '1050',
@@ -1219,7 +1272,8 @@ export const datasetRegistry: Dataset[] = [
     'Statement of profit or loss of insurance companies',
     'Отчет за печалбата или загубата на застрахователните дружества',
     'Statement of profit or loss of insurance companies',
-    'finance', 'insurance', 'Amount'
+    'finance', 'insurance', 'Amount',
+    { customVisualization: 'InsuranceProfitLossDashboard' }
   ),
 
   // --- finance > pensions ---
@@ -1229,7 +1283,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized balance sheet of pension companies',
     'Обобщен баланс на пенсионноосигурителните дружества',
     'Summarized balance sheet of pension companies',
-    'finance', 'pensions', 'Amount'
+    'finance', 'pensions', 'Amount',
+    { customVisualization: 'PensionCompaniesBalanceDashboard' }
   ),
   nsiDataset(
     'pension-funds-balance', '781',
@@ -1237,7 +1292,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized balance sheet of supplementary pension insurance funds',
     'Обобщен баланс на фондовете за допълнително пенсионно осигуряване',
     'Summarized balance sheet of supplementary pension insurance funds',
-    'finance', 'pensions', 'Amount'
+    'finance', 'pensions', 'Amount',
+    { customVisualization: 'PensionFundsBalanceDashboard' }
   ),
   nsiDataset(
     'pension-companies-income', '646',
@@ -1245,7 +1301,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized income statement of pension companies',
     'Обобщен отчет за доходите на пенсионноосигурителните дружества',
     'Summarized income statement of pension companies',
-    'finance', 'pensions', 'Amount'
+    'finance', 'pensions', 'Amount',
+    { customVisualization: 'PensionCompaniesIncomeDashboard' }
   ),
   nsiDataset(
     'pension-funds-income', '785',
@@ -1253,7 +1310,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized income statement of supplementary pension insurance funds',
     'Обобщен отчет за доходите на фондовете за допълнително пенсионно осигуряване',
     'Summarized income statement of supplementary pension insurance funds',
-    'finance', 'pensions', 'Amount'
+    'finance', 'pensions', 'Amount',
+    { customVisualization: 'PensionFundsIncomeDashboard' }
   ),
 
   // --- finance > investments ---
@@ -1263,7 +1321,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized balance sheet of investment companies',
     'Обобщен баланс на инвестиционните дружества',
     'Summarized balance sheet of investment companies',
-    'finance', 'investments', 'Amount'
+    'finance', 'investments', 'Amount',
+    { customVisualization: 'InvestmentCompaniesBalanceDashboard' }
   ),
   nsiDataset(
     'investment-companies-income', '1046',
@@ -1271,7 +1330,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized income statement of investment companies',
     'Обобщен отчет за доходите на инвестиционните дружества',
     'Summarized income statement of investment companies',
-    'finance', 'investments', 'Amount'
+    'finance', 'investments', 'Amount',
+    { customVisualization: 'InvestmentCompaniesIncomeDashboard' }
   ),
 
   // --- finance > associations ---
@@ -1281,7 +1341,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized balance sheet of associations and foundations',
     'Обобщен баланс на сдруженията и фондациите',
     'Summarized balance sheet of associations and foundations',
-    'finance', 'associations', 'Amount'
+    'finance', 'associations', 'Amount',
+    { customVisualization: 'AssociationsBalanceDashboard' }
   ),
   nsiDataset(
     'associations-profit-loss', '521',
@@ -1289,7 +1350,8 @@ export const datasetRegistry: Dataset[] = [
     'Summarized profit-loss statement of associations and foundations',
     'Обобщен отчет за приходите и разходите на сдруженията и фондациите',
     'Summarized profit-loss statement of associations and foundations',
-    'finance', 'associations', 'Amount'
+    'finance', 'associations', 'Amount',
+    { customVisualization: 'AssociationsProfitLossDashboard' }
   ),
 ];
 

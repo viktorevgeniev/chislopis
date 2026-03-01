@@ -1,8 +1,8 @@
 # NSI Open Data - Dataset Implementation Checklist
 
 **Total Datasets:** 131
-**Implemented:** 73 (with custom visualizations)
-**Pending:** 58
+**Implemented:** 117 (with custom visualizations)
+**Pending:** 14
 
 ---
 
@@ -135,48 +135,48 @@
 | 14 | 169 | **At-risk-of-poverty thresholds** | **DONE** |
 | 59 | 251 | **In-work at-risk-of-poverty rate by age and sex** | **DONE** |
 | 60 | 263 | **In-work at-risk-of-poverty rate by educational attainment level** | **DONE** |
-| 61 | 273 | In-work at-risk-of-poverty rate by full-/part-time work | Pending |
-| 62 | 259 | In-work at-risk-of-poverty rate by household type | Pending |
-| 83 | 319 | People at risk of poverty or social exclusion by age and sex | Pending |
-| 84 | 325 | People at risk of poverty or social exclusion by education (18+) | Pending |
-| 85 | 324 | People at risk of poverty or social exclusion by household type | Pending |
-| 86 | 320 | People at risk of poverty or social exclusion by activity status (18+) | Pending |
+| 61 | 273 | **In-work at-risk-of-poverty rate by full-/part-time work** | **DONE** |
+| 62 | 259 | **In-work at-risk-of-poverty rate by household type** | **DONE** |
+| 83 | 319 | **People at risk of poverty or social exclusion by age and sex** | **DONE** |
+| 84 | 325 | **People at risk of poverty or social exclusion by education (18+)** | **DONE** |
+| 85 | 324 | **People at risk of poverty or social exclusion by household type** | **DONE** |
+| 86 | 320 | **People at risk of poverty or social exclusion by activity status (18+)** | **DONE** |
 
 ### Material Deprivation
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 72 | 302 | Material deprivation rate by age and sex | Pending |
-| 103 | 305 | Severe material deprivation rate by household type | Pending |
-| 104 | 304 | Severe material deprivation rate by most frequent activity status | Pending |
+| 72 | 302 | **Material deprivation rate by age and sex** | **DONE** |
+| 103 | 305 | **Severe material deprivation rate by household type** | **DONE** |
+| 104 | 304 | **Severe material deprivation rate by most frequent activity status** | **DONE** |
 
 ### Low Work Intensity Households
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 87 | 307 | People in households with very low work intensity by age and sex (until 2020) | Pending |
-| 88 | 315 | People in households with very low work intensity by education (until 2020) | Pending |
-| 89 | 312 | People in households with very low work intensity by household type (until 2020) | Pending |
-| 90 | 309 | People in households with very low work intensity by activity status (until 2020) | Pending |
+| 87 | 307 | **People in households with very low work intensity by age and sex (until 2020)** | **DONE** |
+| 88 | 315 | **People in households with very low work intensity by education (until 2020)** | **DONE** |
+| 89 | 312 | **People in households with very low work intensity by household type (until 2020)** | **DONE** |
+| 90 | 309 | **People in households with very low work intensity by activity status (until 2020)** | **DONE** |
 
 ### Income & Inequality
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 6 | 242 | Aggregate replacement ratio | Pending |
-| 26 | 295 | Distribution of income by deciles (top cut-off point) | Pending |
-| 56 | 301 | Gini coefficient | Pending |
-| 73 | 296 | Mean and median income by age and sex | Pending |
-| 74 | 297 | Mean and median income by household type | Pending |
-| 75 | 298 | Mean and median income by most frequent activity status | Pending |
-| 100 | 235 | Relative median income ratio | Pending |
-| 102 | 300 | S80/S20 income quintile share ratio | Pending |
-| 117 | 470 | Total income by source and place of residence | Pending |
+| 6 | 242 | **Monetary poverty rate by sex** | **DONE** |
+| 26 | 295 | **Distribution of income by deciles (top cut-off point)** | **DONE** |
+| 56 | 301 | **Monetary poverty rate by statistical regions and districts (NUTS)** | **DONE** |
+| 73 | 296 | **Mean and median income by age and sex** | **DONE** |
+| 74 | 297 | **Mean and median income by household type** | **DONE** |
+| 75 | 298 | **Mean and median income by most frequent activity status** | **DONE** |
+| 100 | 235 | **Relative median income ratio** | **DONE** |
+| 102 | 300 | **Monetary poverty rate by statistical regions and age groups (NUTS)** | **DONE** |
+| 117 | 470 | **Total income by source and place of residence** | **DONE** |
 
 ### Expenditure & Consumption
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 58 | 428 | Household consumption of main foods and beverages | Pending |
-| 77 | 727 | Monetary expenditure by group and place of residence | Pending |
-| 78 | 690 | Monetary income by source and place of residence | Pending |
-| 116 | 715 | Total expenditure by group and place of residence | Pending |
+| 58 | 428 | **Household consumption of main foods and beverages** | **DONE** |
+| 77 | 727 | **Monetary expenditure by group and place of residence** | **DONE** |
+| 78 | 690 | **Monetary income by source and place of residence** | **DONE** |
+| 116 | 715 | **Total expenditure by group and place of residence** | **DONE** |
 
 ---
 
@@ -184,9 +184,9 @@
 
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 19 | 107 | Children in kindergartens by municipalities | Pending |
-| 82 | 118 | Pedagogical staff in kindergartens by districts and municipalities | Pending |
-| 96 | 1219 | Population aged 15+ by level of education (Quarterly) | Pending |
+| 19 | 107 | Children in kindergartens by municipalities | **DONE** |
+| 82 | 118 | **Pedagogical staff in kindergartens by districts and municipalities** | **DONE** |
+| 96 | 1219 | **Population aged 15+ by level of education (Quarterly)** | **DONE** |
 
 ---
 
@@ -194,8 +194,8 @@
 
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 57 | 1206 | Health establishments by districts and municipalities (2011-2024) | Pending |
-| 76 | 1105 | Medical personnel by districts and municipalities (2003-2017) | Pending |
+| 57 | 1206 | **Health establishments by districts and municipalities (2011-2024)** | **DONE** |
+| 76 | 1105 | **Medical personnel by districts and municipalities (2003-2017)** | **DONE** |
 
 ---
 
@@ -204,25 +204,25 @@
 ### Foreign Direct Investment
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 54 | 860 | FDI in non-financial enterprises by economic activity (NACE Rev.2) | Pending |
-| 55 | 629 | FDI in non-financial enterprises by statistical regions and districts | Pending |
+| 54 | 860 | **FDI in non-financial enterprises by economic activity (NACE Rev.2)** | **DONE** |
+| 55 | 629 | **FDI in non-financial enterprises by statistical regions and districts** | **DONE** |
 
 ### Business Indicators
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 69 | 868 | Main economic indicators by enterprise size and economic activity | Pending |
-| 70 | 865 | Main economic indicators by enterprise size and statistical regions | Pending |
-| 99 | 1274 | PRODPROM data by product subcategories (CPA classification) | Pending |
+| 69 | 868 | **Main economic indicators by enterprise size and economic activity** | **DONE** |
+| 70 | 865 | **Main economic indicators by enterprise size and statistical regions** | **DONE** |
+| 99 | 1274 | **PRODPROM data by product subcategories (CPA classification)** | **DONE** |
 
 ### Construction
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 18 | 654 | Building permits issued for construction by districts | Pending |
+| 18 | 654 | **Building permits issued for construction by districts** | **DONE** |
 
 ### Trade
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 101 | 454 | Retail sales premises as of 31.12 (2007-2016) | Pending |
+| 101 | 454 | **Retail sales premises as of 31.12 (2000-2016)** | **DONE** |
 
 ---
 
@@ -230,10 +230,10 @@
 
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 1 | 1363 | Accommodation establishments | Pending |
-| 7 | 240 | Arrivals of visitors from abroad to Bulgaria (2008-2020) | Pending |
-| 81 | 1227 | Nights spent by foreigners in accommodation (2012-2020) | Pending |
-| 118 | 159 | Trips of Bulgarian residents abroad (2008-2020) | Pending |
+| 1 | 1363 | **Accommodation establishments** | **DONE** |
+| 7 | 240 | **Arrivals of visitors from abroad to Bulgaria (2008-2020)** | **DONE** |
+| 81 | 1227 | **Nights spent by foreigners in accommodation (2012-2020)** | **DONE** |
+| 118 | 159 | **Trips of Bulgarian residents abroad (2008-2020)** | **DONE** |
 
 ---
 
@@ -241,7 +241,7 @@
 
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 80 | 844 | Museums - exhibits and visits by districts | Pending |
+| 80 | 844 | **Museums - exhibits and visits by districts** | **DONE** |
 
 ---
 
@@ -250,28 +250,28 @@
 ### Insurance Companies
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 105 | 873 | Statement of financial position of insurance companies | Pending |
-| 106 | 1050 | Statement of profit or loss of insurance companies | Pending |
+| 105 | 873 | **Statement of financial position of insurance companies** | **DONE** |
+| 106 | 1050 | **Statement of profit or loss of insurance companies** | **DONE** |
 
 ### Pension Companies & Funds
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 110 | 1200 | Summarized balance sheet of pension companies | Pending |
-| 111 | 781 | Summarized balance sheet of supplementary pension insurance funds | Pending |
-| 113 | 646 | Summarized income statement of pension companies | Pending |
-| 114 | 785 | Summarized income statement of supplementary pension insurance funds | Pending |
+| 110 | 1200 | Summarized balance sheet of pension companies | **DONE** |
+| 111 | 781 | **Summarized balance sheet of supplementary pension insurance funds** | **DONE** |
+| 113 | 646 | **Summarized income statement of pension companies** | **DONE** |
+| 114 | 785 | **Summarized income statement of supplementary pension insurance funds** | **DONE** |
 
 ### Investment Companies
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 108 | 434 | Summarized balance sheet of investment companies | Pending |
-| 112 | 1046 | Summarized income statement of investment companies | Pending |
+| 108 | 434 | **Summarized balance sheet of investment companies** | **DONE** |
+| 112 | 1046 | **Summarized income statement of investment companies** | **DONE** |
 
 ### Associations & Foundations
 | # | NSI ID | Dataset Name | Status |
 | --- | --- | --- | --- |
-| 107 | 772 | Summarized balance sheet of associations and foundations | Pending |
-| 115 | 521 | Summarized profit-loss statement of associations and foundations | Pending |
+| 107 | 772 | **Summarized balance sheet of associations and foundations** | **DONE** |
+| 115 | 521 | **Summarized profit-loss statement of associations and foundations** | **DONE** |
 
 ---
 

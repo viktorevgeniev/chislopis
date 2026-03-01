@@ -28,6 +28,7 @@ const GENDER_COLORS: Record<string, string> = { '0': '#0f172a', '1': '#3b82f6', 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getPersons(row: any): number | null {
+  if (!row) return null;
   const v = row.Persons;
   if (v == null || v === '' || v === 0) return null;
   return typeof v === 'number' && !isNaN(v) && v > 0 ? v : null;

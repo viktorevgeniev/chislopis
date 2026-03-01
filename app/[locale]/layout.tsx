@@ -15,7 +15,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />
           <main className="container mx-auto px-4 py-8">{children}</main>

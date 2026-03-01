@@ -37,3 +37,6 @@ next-env.d.ts
 
 # pre-built data
 /public/data/
+
+# playwright mcp artifacts
+.playwright-mcp/

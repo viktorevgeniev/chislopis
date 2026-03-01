@@ -9,6 +9,7 @@ import { Dataset } from '@/types/dataset';
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getPersons(row: any): number | null {
+  if (!row) return null;
   const v = row.Persons;
   if (v == null || v === '' || v === 0) return null; // 0 means suppressed parenthesized value
   return typeof v === 'number' && !isNaN(v) && v > 0 ? v : null;
