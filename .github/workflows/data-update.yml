@@ -63,7 +63,8 @@ jobs:
         if: steps.csv-changes.outputs.changed == 'true'
         id: final-changes
         run: |
-          git add source_data/ public/data/
+          git add source_data/
+          git add --force public/data/
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
@@ -84,7 +85,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git checkout -B "$BRANCH"
-          git add source_data/ public/data/
+          git add source_data/
+          git add --force public/data/
           git commit -m "chore(data): update NSI data ($DATE)
 
           Automated daily refresh from nsi.bg/opendata.
