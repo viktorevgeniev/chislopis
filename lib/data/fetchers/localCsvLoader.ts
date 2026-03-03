@@ -72,7 +72,13 @@ export async function processLocalDataset(
   const { data, fields, codeLists } = await loadLocalCsv(nsiId);
   const codeMappings = createCodeMappings(codeLists);
 
-  let processedRows = data.map(row => {
+  // NSI sometimes emits literal "null_value" strings for missing dimension values.
+  // Filter those rows out before processing to avoid polluting the dataset.
+  const cleanData = data.filter(row =>
+    !Object.values(row).some(v => v === 'null_value')
+  );
+
+  let processedRows = cleanData.map(row => {
     const processed: Record<string, any> = {};
 
     for (const [key, value] of Object.entries(row)) {
@@ -112,7 +118,8 @@ export async function processLocalDataset(
         processed['Year'] = strValue;
       } else if (key === 'ValueColumn' || key === 'Value') {
         const cleaned = strValue.replace(/[()]/g, '');
-        processed[valueColumnName] = parseFloat(cleaned) || 0;
+        const num = parseFloat(cleaned);
+        processed[valueColumnName] = isNaN(num) ? null : num;
       } else if (mapping) {
         processed[key] = mapping.get(strValue) || strValue;
         processed[`${key}_Code`] = strValue;

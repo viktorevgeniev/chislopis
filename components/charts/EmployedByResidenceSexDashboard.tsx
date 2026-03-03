@@ -52,7 +52,7 @@ export function EmployedByResidenceSexDashboard({ data, dataset, locale = 'en' }
 
   // Helper to find a row by quarter, residence code, gender code
   const find = (quarter: string, residence: string, gender: string) =>
-    data.find(d => d.Year === quarter && d.PlaceResidence_Code === residence && d.Gender_Code === gender);
+    data.find(d => d.Year === quarter && d.Residence_Code === residence && d.Gender_Code === gender);
 
   // KPI computations
   const kpiData = useMemo(() => {
@@ -208,7 +208,7 @@ function GenderTrendChart({ data, allQuarters, locale }: {
 
     data.forEach(row => {
       // Total residence (code 0), split by gender
-      if (row.PlaceResidence_Code === '0' && row.Year) {
+      if (row.Residence_Code === '0' && row.Year) {
         const val = getPersons(row);
         if (row.Gender_Code === '1') maleByQ[row.Year] = val;
         else if (row.Gender_Code === '2') femaleByQ[row.Year] = val;
@@ -332,8 +332,8 @@ function ResidenceStackedChart({ data, allQuarters, locale }: {
       // Total gender (code 0), split by residence
       if (row.Gender_Code === '0' && row.Year) {
         const val = getPersons(row);
-        if (row.PlaceResidence_Code === '1') urbanByQ[row.Year] = val;
-        else if (row.PlaceResidence_Code === '2') ruralByQ[row.Year] = val;
+        if (row.Residence_Code === '1') urbanByQ[row.Year] = val;
+        else if (row.Residence_Code === '2') ruralByQ[row.Year] = val;
       }
     });
 
@@ -451,9 +451,9 @@ function GenderDonutChart({ data, latestQ, locale }: {
   const isBg = locale === 'bg';
 
   const pieData = useMemo(() => {
-    const maleRow = data.find(d => d.Year === latestQ && d.PlaceResidence_Code === '0' && d.Gender_Code === '1');
-    const femaleRow = data.find(d => d.Year === latestQ && d.PlaceResidence_Code === '0' && d.Gender_Code === '2');
-    const totalRow = data.find(d => d.Year === latestQ && d.PlaceResidence_Code === '0' && d.Gender_Code === '0');
+    const maleRow = data.find(d => d.Year === latestQ && d.Residence_Code === '0' && d.Gender_Code === '1');
+    const femaleRow = data.find(d => d.Year === latestQ && d.Residence_Code === '0' && d.Gender_Code === '2');
+    const totalRow = data.find(d => d.Year === latestQ && d.Residence_Code === '0' && d.Gender_Code === '0');
 
     const maleVal = maleRow ? getPersons(maleRow) : null;
     const femaleVal = femaleRow ? getPersons(femaleRow) : null;

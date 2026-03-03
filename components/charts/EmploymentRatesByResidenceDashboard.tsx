@@ -66,7 +66,7 @@ export function EmploymentRatesByResidenceDashboard({ data, dataset, locale = 'e
     if (!latestQuarter) return null;
 
     const find = (quarter: string, place: string, gender: string) =>
-      data.find(d => d.Year === quarter && d.PlaceResidence_Code === place && d.Gender_Code === gender);
+      data.find(d => d.Year === quarter && d.Residence_Code === place && d.Gender_Code === gender);
 
     const totalRow = find(latestQuarter, '0', '0');
     const totalRate = totalRow ? getRate(totalRow) : null;
@@ -203,7 +203,7 @@ function TrendsChart({ data, allQuarters, locale }: {
     if (viewMode === 'gender') {
       // Gender focus: filter to Total residence, show Male/Female/Total
       return ['0', '1', '2'].map(gCode => {
-        const filtered = data.filter(d => d.PlaceResidence_Code === '0' && d.Gender_Code === gCode);
+        const filtered = data.filter(d => d.Residence_Code === '0' && d.Gender_Code === gCode);
         const byQ: Record<string, number | null> = {};
         filtered.forEach(r => { if (r.Year) byQ[r.Year] = getRate(r); });
 
@@ -217,7 +217,7 @@ function TrendsChart({ data, allQuarters, locale }: {
     } else {
       // Location focus: filter to Total gender, show Urban/Rural/Total
       return ['0', '1', '2'].map(pCode => {
-        const filtered = data.filter(d => d.PlaceResidence_Code === pCode && d.Gender_Code === '0');
+        const filtered = data.filter(d => d.Residence_Code === pCode && d.Gender_Code === '0');
         const byQ: Record<string, number | null> = {};
         filtered.forEach(r => { if (r.Year) byQ[r.Year] = getRate(r); });
 
@@ -339,7 +339,7 @@ function SnapshotChart({ data, allQuarters, locale }: {
     places.forEach(pCode => {
       genders.forEach(gCode => {
         const row = data.find(d =>
-          d.Year === quarter && d.PlaceResidence_Code === pCode && d.Gender_Code === gCode
+          d.Year === quarter && d.Residence_Code === pCode && d.Gender_Code === gCode
         );
         result.push({
           place: pCode,
@@ -476,7 +476,7 @@ function SeasonalHeatmap({ data, allQuarters, locale }: {
     const rateMap = new Map<string, number>();
 
     data.forEach(d => {
-      if (d.PlaceResidence_Code !== pCode || d.Gender_Code !== gCode) return;
+      if (d.Residence_Code !== pCode || d.Gender_Code !== gCode) return;
       const parsed = parseQuarter(d.Year);
       if (parsed.year === 0) return;
       const rate = getRate(d);

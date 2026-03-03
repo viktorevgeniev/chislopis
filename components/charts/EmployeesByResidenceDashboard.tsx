@@ -9,6 +9,7 @@ import { Dataset } from '@/types/dataset';
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
 function getPersons(row: any): number | null {
+  if (row == null) return null;
   if (row.Persons == null || row.Persons === '' || row.Persons === '..' || row.Persons === 'null') return null;
   const v = parseFloat(row.Persons);
   return isNaN(v) ? null : v;
@@ -56,7 +57,7 @@ export function EmployeesByResidenceDashboard({ data, dataset, locale = 'en' }: 
   }, [data]);
 
   const find = (quarter: string, residence: string) =>
-    data.find(d => d.Year === quarter && d.PlaceResidence_Code === residence);
+    data.find(d => d.Year === quarter && d.Residence_Code === residence);
 
   // KPI: latest quarter values + YoY change
   const kpiData = useMemo(() => {
@@ -217,9 +218,9 @@ function TrendsLineChart({ data, allQuarters, locale }: {
     data.forEach(row => {
       if (!row.Year) return;
       const val = getPersons(row);
-      if (row.PlaceResidence_Code === '0') totalByQ[row.Year] = val;
-      else if (row.PlaceResidence_Code === '1') urbanByQ[row.Year] = val;
-      else if (row.PlaceResidence_Code === '2') ruralByQ[row.Year] = val;
+      if (row.Residence_Code === '0') totalByQ[row.Year] = val;
+      else if (row.Residence_Code === '1') urbanByQ[row.Year] = val;
+      else if (row.Residence_Code === '2') ruralByQ[row.Year] = val;
     });
 
     return {
@@ -351,8 +352,8 @@ function CompositionAreaChart({ data, allQuarters, locale }: {
     data.forEach(row => {
       if (!row.Year) return;
       const val = getPersons(row);
-      if (row.PlaceResidence_Code === '1') urbanByQ[row.Year] = val;
-      else if (row.PlaceResidence_Code === '2') ruralByQ[row.Year] = val;
+      if (row.Residence_Code === '1') urbanByQ[row.Year] = val;
+      else if (row.Residence_Code === '2') ruralByQ[row.Year] = val;
     });
 
     return {
@@ -489,8 +490,8 @@ function SeasonalityBarChart({ data, allQuarters, locale }: {
       const qKey = `Q${quarter}`;
       const val = getPersons(row);
       if (val == null) return;
-      if (row.PlaceResidence_Code === '1') buckets[qKey].urban.push(val);
-      else if (row.PlaceResidence_Code === '2') buckets[qKey].rural.push(val);
+      if (row.Residence_Code === '1') buckets[qKey].urban.push(val);
+      else if (row.Residence_Code === '2') buckets[qKey].rural.push(val);
     });
 
     const avg = (arr: number[]) => arr.length > 0 ? arr.reduce((a, b) => a + b, 0) / arr.length : 0;

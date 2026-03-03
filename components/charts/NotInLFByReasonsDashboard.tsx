@@ -384,17 +384,23 @@ function ReasonsBarChart({ latestQ, getValue, reasonLabels, willLabels, locale }
     if (groupBy === 'gender') {
       const maleLabel = isBg ? 'Мъже' : 'Male';
       const femaleLabel = isBg ? 'Жени' : 'Female';
+      // Reason breakdown only exists within willingness groups — sum across will='1' and will='2'
+      const sumWill = (gen: string, r: string) => {
+        const v1 = getValue(latestQ, '0', gen, '1', r) ?? 0;
+        const v2 = getValue(latestQ, '0', gen, '2', r) ?? 0;
+        return v1 + v2 || null;
+      };
       series = [
         {
           name: maleLabel,
           type: 'bar',
-          data: reasons.map(r => getValue(latestQ, '0', '1', '0', r)),
+          data: reasons.map(r => sumWill('1', r)),
           itemStyle: { color: GENDER_COLORS.male },
         },
         {
           name: femaleLabel,
           type: 'bar',
-          data: reasons.map(r => getValue(latestQ, '0', '2', '0', r)),
+          data: reasons.map(r => sumWill('2', r)),
           itemStyle: { color: GENDER_COLORS.female },
         },
       ];
@@ -571,6 +577,13 @@ function GenderReasonChart({ latestQ, getValue, reasonLabels, locale }: {
     const maleLabel = isBg ? 'Мъже' : 'Male';
     const femaleLabel = isBg ? 'Жени' : 'Female';
 
+    // Reason breakdown only exists within willingness groups — sum across will='1' and will='2'
+    const sumWill = (gen: string, r: string) => {
+      const v1 = getValue(latestQ, '0', gen, '1', r) ?? 0;
+      const v2 = getValue(latestQ, '0', gen, '2', r) ?? 0;
+      return v1 + v2 || null;
+    };
+
     const option: EChartsOption = {
       tooltip: {
         trigger: 'axis',
@@ -623,13 +636,13 @@ function GenderReasonChart({ latestQ, getValue, reasonLabels, locale }: {
         {
           name: maleLabel,
           type: 'bar',
-          data: reasons.map(r => getValue(latestQ, '0', '1', '0', r)),
+          data: reasons.map(r => sumWill('1', r)),
           itemStyle: { color: GENDER_COLORS.male },
         },
         {
           name: femaleLabel,
           type: 'bar',
-          data: reasons.map(r => getValue(latestQ, '0', '2', '0', r)),
+          data: reasons.map(r => sumWill('2', r)),
           itemStyle: { color: GENDER_COLORS.female },
         },
       ],

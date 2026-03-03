@@ -14,27 +14,35 @@ interface WeeklyMortalityDashboardProps {
   locale?: 'bg' | 'en';
 }
 
-// Year-specific palette: latest year is bold red, older years are muted grays/blues
-const YEAR_COLORS: Record<number, string> = {};
-const MUTED_PALETTE = [
-  '#94a3b8', '#a1a1aa', '#9ca3af', '#a3a3a3', '#b0b0b0',
-  '#8b95a2', '#7c8594', '#8e9bab', '#a0aab8', '#b4bcc8',
-  '#6b7280', '#78909c'
+// Last 5 years get distinct colors, older years are grey
+// Index 0 = oldest of the 5 recent, index 4 = latest
+const RECENT_PALETTE = [
+  '#a855f7', // -4: purple
+  '#3b82f6', // -3: blue
+  '#10b981', // -2: green
+  '#f97316', // -1: orange
+  '#ef4444', // 0: red (latest)
+];
+const GREY_PALETTE = [
+  '#c0c4cc', '#b8bcc6', '#b0b4c0', '#a8acba', '#a0a4b4',
+  '#989cae', '#9094a8', '#888ca2', '#80849c', '#787c96',
 ];
 
 function getYearColor(year: string, allYears: string[]): string {
   const idx = allYears.indexOf(year);
-  const latest = allYears.length - 1;
-  if (idx === latest) return '#ef4444'; // Latest year: bold red
-  if (idx === latest - 1) return '#f97316'; // Previous year: orange
-  return MUTED_PALETTE[idx % MUTED_PALETTE.length];
+  const fromEnd = allYears.length - 1 - idx; // 0 = latest
+  if (fromEnd < RECENT_PALETTE.length) {
+    return RECENT_PALETTE[RECENT_PALETTE.length - 1 - fromEnd];
+  }
+  return GREY_PALETTE[idx % GREY_PALETTE.length];
 }
 
 function getYearLineWidth(year: string, allYears: string[]): number {
   const idx = allYears.indexOf(year);
-  const latest = allYears.length - 1;
-  if (idx === latest) return 3;
-  if (idx === latest - 1) return 2;
+  const fromEnd = allYears.length - 1 - idx;
+  if (fromEnd === 0) return 3;   // latest
+  if (fromEnd === 1) return 2.5; // -1
+  if (fromEnd < 5) return 2;    // -2 to -4
   return 1;
 }
 
@@ -257,7 +265,7 @@ function SeasonalTrendsChart({ data, availableYears, locale }: { data: any[]; av
         itemStyle: { color: getYearColor(s.year, availableYears) },
         lineStyle: {
           width: getYearLineWidth(s.year, availableYears),
-          opacity: availableYears.indexOf(s.year) >= availableYears.length - 2 ? 1 : 0.5
+          opacity: availableYears.indexOf(s.year) >= availableYears.length - 5 ? 0.9 : 0.4
         }
       }))
     };

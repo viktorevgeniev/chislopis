@@ -19,6 +19,14 @@ export function MarriagesDashboard({ data, dataset, locale = 'en' }: MarriagesDa
     return [...new Set(data.map(d => d.Year))].filter(Boolean).sort();
   }, [data]);
 
+  const [selectedYear, setSelectedYear] = useState<string>('');
+
+  useEffect(() => {
+    if (availableYears.length > 0 && !selectedYear) {
+      setSelectedYear(availableYears[availableYears.length - 1]);
+    }
+  }, [availableYears, selectedYear]);
+
   const kpiData = useMemo(() => {
     const national = data.filter(d => d.EKATTE_Code === 'BG');
 
@@ -36,9 +44,10 @@ export function MarriagesDashboard({ data, dataset, locale = 'en' }: MarriagesDa
     const years = Object.keys(totalByYear).sort();
     if (years.length === 0) return null;
 
-    const latestYear = years[years.length - 1];
-    const prevYear = years.length >= 2 ? years[years.length - 2] : null;
-    const latest = totalByYear[latestYear];
+    const yearToUse = selectedYear && totalByYear[selectedYear] ? selectedYear : years[years.length - 1];
+    const yearIdx = years.indexOf(yearToUse);
+    const prevYear = yearIdx > 0 ? years[yearIdx - 1] : null;
+    const latest = totalByYear[yearToUse];
     const prev = prevYear ? totalByYear[prevYear] : null;
 
     const yoyChange = prev && prev.total > 0
@@ -50,13 +59,13 @@ export function MarriagesDashboard({ data, dataset, locale = 'en' }: MarriagesDa
       : 0;
 
     return {
-      latestYear,
+      latestYear: yearToUse,
       latestTotal: latest.total,
       yoyChange,
       urbanPct,
       prevYear
     };
-  }, [data]);
+  }, [data, selectedYear]);
 
   if (!data || data.length === 0 || !kpiData) {
     return (
@@ -127,7 +136,7 @@ export function MarriagesDashboard({ data, dataset, locale = 'en' }: MarriagesDa
             <UrbanRuralTrendsChart data={data} locale={locale} />
           </TabsContent>
           <TabsContent value="regional">
-            <RegionalChart data={data} availableYears={availableYears} locale={locale} />
+            <RegionalChart data={data} availableYears={availableYears} selectedYear={selectedYear} onYearChange={setSelectedYear} locale={locale} />
           </TabsContent>
           <TabsContent value="composition">
             <CompositionChart data={data} locale={locale} />
@@ -240,16 +249,8 @@ function UrbanRuralTrendsChart({ data, locale }: { data: any[]; locale: 'bg' | '
 }
 
 // Tab 2: Regional comparison - horizontal bar (districts only)
-function RegionalChart({ data, availableYears, locale }: { data: any[]; availableYears: string[]; locale: 'bg' | 'en' }) {
+function RegionalChart({ data, availableYears, selectedYear, onYearChange, locale }: { data: any[]; availableYears: string[]; selectedYear: string; onYearChange: (year: string) => void; locale: 'bg' | 'en' }) {
   const chartRef = useRef<HTMLDivElement>(null);
-
-  const [selectedYear, setSelectedYear] = useState<string>('');
-
-  useEffect(() => {
-    if (availableYears.length > 0 && !selectedYear) {
-      setSelectedYear(availableYears[availableYears.length - 1]);
-    }
-  }, [availableYears, selectedYear]);
 
   const regionalData = useMemo(() => {
     const yearToUse = selectedYear || availableYears[availableYears.length - 1];
@@ -329,7 +330,7 @@ function RegionalChart({ data, availableYears, locale }: { data: any[]; availabl
           <Select
             id="marriages-regional-year"
             value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
+            onChange={(e) => onYearChange(e.target.value)}
             className="w-[120px]"
           >
             {availableYears.map(year => (

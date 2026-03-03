@@ -79,7 +79,7 @@ const AGE_CODES = { total: '0', working: '15 - 64_gr' };
 
 export function NotInLFByEducationDashboard({ data, dataset, locale = 'en' }: DashboardProps) {
   const isBg = locale === 'bg';
-  const [ageGroup, setAgeGroup] = useState<'0' | '15 - 64_gr'>('0');
+  const [ageGroup, setAgeGroup] = useState<'0' | '15 - 64_gr'>('15 - 64_gr');
 
   const allQuarters = useMemo(() => {
     const qs = new Set<string>();
