@@ -38,5 +38,8 @@ next-env.d.ts
 # pre-built data
 /public/data/
 
+# temp dirs from update-nsi-data script
+source_data/nsi/.tmp-*
+
 # playwright mcp artifacts
 .playwright-mcp/

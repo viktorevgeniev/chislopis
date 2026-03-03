@@ -1,0 +1,128 @@
+name: Update NSI Data
+
+on:
+  schedule:
+    # Daily at 03:00 UTC (05:00 or 06:00 Sofia time depending on DST)
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dataset_ids:
+        description: 'Space-separated NSI IDs to update (leave empty for all)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download latest NSI data
+        id: download
+        continue-on-error: true
+        run: |
+          if [ -n "${{ github.event.inputs.dataset_ids }}" ]; then
+            npx tsx scripts/update-nsi-data.ts ${{ github.event.inputs.dataset_ids }}
+          else
+            npx tsx scripts/update-nsi-data.ts
+          fi
+
+      - name: Check for CSV changes
+        id: csv-changes
+        run: |
+          git add source_data/
+          if git diff --cached --quiet source_data/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No CSV changes detected."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "CSV changes detected."
+          fi
+
+      - name: Rebuild prebuilt JSON files
+        if: steps.csv-changes.outputs.changed == 'true'
+        run: npm run prebuild
+
+      - name: Check for final changes
+        if: steps.csv-changes.outputs.changed == 'true'
+        id: final-changes
+        run: |
+          git add source_data/ public/data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            CHANGED_COUNT=$(git diff --cached --name-only | wc -l)
+            echo "file_count=$CHANGED_COUNT" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create or update PR
+        if: steps.final-changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="automated/nsi-data-update"
+          DATE=$(date -u +%Y-%m-%d)
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add source_data/ public/data/
+          git commit -m "chore(data): update NSI data ($DATE)
+
+          Automated daily refresh from nsi.bg/opendata.
+          Changed files: ${{ steps.final-changes.outputs.file_count }}"
+
+          git push --force origin "$BRANCH"
+
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
+          if [ -z "$EXISTING_PR" ]; then
+            gh pr create \
+              --title "chore(data): update NSI data ($DATE)" \
+              --body "$(cat <<'EOF'
+          ## Automated NSI Data Update
+
+          Daily refresh of source CSV files and prebuilt JSON from the Bulgarian National Statistical Institute.
+
+          - **Date**: $DATE
+          - **Changed files**: ${{ steps.final-changes.outputs.file_count }}
+          - **Trigger**: ${{ github.event_name }}
+
+          This PR was created automatically by the data-update workflow.
+          EOF
+          )" \
+              --head "$BRANCH" \
+              --base "master"
+            echo "PR created."
+          else
+            echo "PR #$EXISTING_PR already exists, branch updated."
+          fi
+
+      - name: Enable auto-merge
+        if: steps.final-changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="automated/nsi-data-update"
+          PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
+          if [ -n "$PR_NUMBER" ]; then
+            gh pr merge "$PR_NUMBER" --auto --squash
+            echo "Auto-merge enabled for PR #$PR_NUMBER"
+          fi

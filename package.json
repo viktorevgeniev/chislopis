@@ -7,7 +7,8 @@
     "prebuild": "tsx scripts/prebuild-data.ts",
     "build": "npm run prebuild && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-nsi-data": "tsx scripts/update-nsi-data.ts"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.8",
