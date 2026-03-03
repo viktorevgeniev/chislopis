@@ -378,21 +378,23 @@ export function RetailOutletsDashboard({ data, locale = 'en' }: Props) {
               <Select
                 value={categorySet}
                 onChange={e => setCategorySet(e.target.value as any)}
-                options={[
-                  { value: 'top7', label: 'Top 7 overall' },
-                  { value: 'food', label: 'Food categories' },
-                  { value: 'nonfood', label: 'Non-food categories' },
-                  { value: 'stations', label: 'Fuel stations' },
-                ]}
-              />
+              >
+                <option value="top7">Top 7 overall</option>
+                <option value="food">Food categories</option>
+                <option value="nonfood">Non-food categories</option>
+                <option value="stations">Fuel stations</option>
+              </Select>
             </div>
             <div className="flex items-center gap-2">
               <label className="text-sm font-medium whitespace-nowrap">Snapshot year:</label>
               <Select
                 value={effectiveYear}
                 onChange={e => setSelectedYear(e.target.value)}
-                options={[...years].reverse().map(y => ({ value: y, label: y }))}
-              />
+              >
+                {[...years].reverse().map(y => (
+                  <option key={y} value={y}>{y}</option>
+                ))}
+              </Select>
             </div>
           </div>
         </CardContent>
@@ -466,7 +468,7 @@ export function RetailOutletsDashboard({ data, locale = 'en' }: Props) {
             <CardContent>
               <div ref={stackedRef} style={{ width: '100%', height: 500 }} />
               <p className="mt-2 text-xs text-muted-foreground">
-                Source: NSI Dataset 454. "Top 7 overall" ranks non-station categories by mean annual outlet count.
+                Source: NSI Dataset 454. &quot;Top 7 overall&quot; ranks non-station categories by mean annual outlet count.
                 Aggregate totals (7560, 7591, 7592) are excluded to avoid double-counting.
               </p>
             </CardContent>

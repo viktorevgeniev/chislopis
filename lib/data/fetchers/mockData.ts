@@ -51,7 +51,7 @@ export function generateMockData(dataset: Dataset, locale: 'bg' | 'en'): any[] {
         value: Math.floor(Math.random() * 500000) + 100000
       });
     });
-  } else if (dataset.category === 'labor' && dataset.id.includes('wages')) {
+  } else if (dataset.category === 'unemployment' && dataset.id.includes('wages')) {
     // Wages by sector
     const sectors = locale === 'bg'
       ? ['Производство', 'Търговия', 'ИТ сектор', 'Здравеопазване', 'Образование', 'Транспорт']
@@ -67,7 +67,7 @@ export function generateMockData(dataset: Dataset, locale: 'bg' | 'en'): any[] {
         });
       });
     });
-  } else if (dataset.category === 'social' && dataset.id.includes('education')) {
+  } else if (dataset.category === 'income-health' && dataset.id.includes('education')) {
     // Education enrollment
     const types = locale === 'bg'
       ? ['Начални училища', 'Средни училища', 'Гимназии', 'Университети', 'Професионални училища']

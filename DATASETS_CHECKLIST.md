@@ -272,38 +272,3 @@
 | --- | --- | --- | --- |
 | 107 | 772 | **Summarized balance sheet of associations and foundations** | **DONE** |
 | 115 | 521 | **Summarized profit-loss statement of associations and foundations** | **DONE** |
-
----
-
-## Legend
-
-- **DONE** = Fully implemented with custom visualization
-- **Pending** = Not yet implemented
-
----
-
-## Global Requirements (Apply to ALL Datasets)
-
-1. **NUTS Codes**: Always display English names from Code Lists instead of raw NUTS codes
-  - Example: Show "Severozapaden" instead of "BG31"
-  - The multiCsvFetcher already stores both `NUTS` (name) and `NUTS_Code` (code) - use `NUTS` for display
-
----
-
-## Priority Recommendations
-
-### High Priority (Core Demographics & Economy)
-1. Population by sex, residence districts (ID 1169) - Basic population data
-2. Live births / Deaths - Vital statistics
-3. Employment/Unemployment rates - Key labor metrics
-4. GDP / FDI data - Economic indicators
-
-### Medium Priority (Social Indicators)
-1. Poverty rates
-2. Income distribution (Gini, quintile ratios)
-3. Material deprivation
-
-### Lower Priority (Specialized)
-1. Tourism statistics
-2. Financial statements
-3. Historical data (limited date ranges)

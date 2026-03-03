@@ -1,10 +1,10 @@
 export type CategoryId =
   | 'demographics'
-  | 'economy'
-  | 'labor'
-  | 'social'
-  | 'regional'
-  | 'sectoral'
+  | 'employment'
+  | 'unemployment'
+  | 'poverty'
+  | 'income-health'
+  | 'economy-sectors'
   | 'finance';
 
 export type ChartType = 'line' | 'bar' | 'pie' | 'map' | 'table' | 'scatter';
