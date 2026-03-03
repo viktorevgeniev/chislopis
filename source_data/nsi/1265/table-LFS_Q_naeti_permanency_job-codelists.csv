@@ -1,7 +1,7 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"LFS_JobPermanency","","Вид на работата - постоянна/временна","Permanency of job"
-"LFS_JobPermanency","0","Общо","Total"
-"LFS_JobPermanency","1","Наети на постоянна работа","Employees with permanent job"
-"LFS_JobPermanency","2","Наети на работа за определен период от време","Employees with temporary  job"
-"Units","","Мерни единици","Measuring units"
-"Units","1000cp","брой лица в хиляди","Thousand persons"
+"LFS_JobPermanency","","пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ/пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ","Permanency of job"
+"LFS_JobPermanency","0","пїЅпїЅпїЅпїЅ","Total"
+"LFS_JobPermanency","1","пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ","Employees with permanent job"
+"LFS_JobPermanency","2","пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ","Employees with temporary  job"
+"Units","","пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ","Measuring units"
+"Units","1000cp","пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ","Thousand persons"
