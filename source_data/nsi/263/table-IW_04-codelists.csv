@@ -1,7 +1,7 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"SILC_Edu","","���� �� �����������","Education level"
 "SILC_Edu","1","������� � ��-����� �����������","(0-2) Pre-primary, primary and lower socondary education"
 "SILC_Edu","2","������ �����������","(3-4) Upper secondary and post-secondary and non-tertiary education"
 "SILC_Edu","3","����� �����������","(5-6) First and second stage tertiary education"
 "Units","","����� �������","Measuring units"
 "Units","perc_pop_fig","% �� ������������","PC_POP"
+"SILC_Edu","","���� �� �����������","Education level"
