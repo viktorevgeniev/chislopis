@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Header } from '@/components/layout/Header';
+import { Analytics } from '@vercel/analytics/next';
 import '../globals.css';
 
 export default async function LocaleLayout({
@@ -20,6 +21,7 @@ export default async function LocaleLayout({
           <Header locale={locale} />
           <main className="container mx-auto px-4 py-8">{children}</main>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
