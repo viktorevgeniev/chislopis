@@ -319,11 +319,11 @@ function TrendTab({ rows, years, firstYear, latestYear, personnelNames, locale }
       tooltip: {
         trigger: 'axis',
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
+        formatter: (params: any) => {
           const yr = params[0]?.axisValue ?? '';
           const total = (params as any[]).reduce((s: number, p: any) => s + (p.value ?? 0), 0);
           return `<div style="font-weight:600;margin-bottom:4px">${yr}</div>` +
-            params.map((p: any) =>
+            (params as any[]).map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.seriesName}</span>
@@ -444,11 +444,11 @@ function RegionalTab({ rows, latestYear, personnelNames, locale }: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
+        formatter: (params: any) => {
           const region = params[0]?.axisValue ?? '';
           const total = (params as any[]).reduce((s: number, p: any) => s + (p.value ?? 0), 0);
           return `<div style="font-weight:600;margin-bottom:4px">${region}</div>` +
-            params.map((p: any) =>
+            (params as any[]).map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.seriesName}</span>
@@ -560,11 +560,11 @@ function CompositionTab({ rows, years, latestYear, personnelNames, locale }: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
+        formatter: (params: any) => {
           const yr = params[0]?.axisValue ?? '';
           const total = (params as any[]).reduce((s: number, p: any) => s + (p.value ?? 0), 0);
           return `<div style="font-weight:600;margin-bottom:4px">${yr}</div>` +
-            params.map((p: any) =>
+            (params as any[]).map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.seriesName}</span>

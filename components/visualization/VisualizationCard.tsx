@@ -194,24 +194,28 @@ export function VisualizationCard({ dataset, locale }: VisualizationCardProps) {
 
   if (error) {
     return (
-      <Card>
-        <CardContent className="flex items-center justify-center h-64">
-          <div className="text-center text-destructive">
-            <p className="font-medium mb-2">Error loading data</p>
-            <p className="text-sm">{error}</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div data-testid={`dataset-${dataset.id}`}>
+        <Card>
+          <CardContent className="flex items-center justify-center h-64">
+            <div className="text-center text-destructive">
+              <p className="font-medium mb-2">Error loading data</p>
+              <p className="text-sm">{error}</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 
   if (!data || data.length === 0) {
     return (
-      <Card>
-        <CardContent className="flex items-center justify-center h-64">
-          <p className="text-muted-foreground">No data available</p>
-        </CardContent>
-      </Card>
+      <div data-testid={`dataset-${dataset.id}`}>
+        <Card>
+          <CardContent className="flex items-center justify-center h-64">
+            <p className="text-muted-foreground">No data available</p>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 
@@ -227,5 +231,9 @@ export function VisualizationCard({ dataset, locale }: VisualizationCardProps) {
     );
   }
 
-  return <Dashboard data={data} dataset={dataset} locale={locale} />;
+  return (
+    <div data-testid={`dataset-${dataset.id}`}>
+      <Dashboard data={data} dataset={dataset} locale={locale} />
+    </div>
+  );
 }

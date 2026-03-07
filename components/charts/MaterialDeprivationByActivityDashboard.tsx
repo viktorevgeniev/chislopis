@@ -139,8 +139,8 @@ export function MaterialDeprivationByActivityDashboard({ data, locale = 'en' }: 
 
     return {
       latestYear,
-      highestCode, highestRate,
-      lowestCode, lowestRate,
+      highestCode, highestRate: highestRate as number | null,
+      lowestCode, lowestRate: lowestRate as number | null,
       unemployLatest, unemployChange,
     };
   }, [data, allYears, latestYear]);

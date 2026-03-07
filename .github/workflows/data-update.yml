@@ -55,6 +55,13 @@ jobs:
             echo "CSV changes detected."
           fi
 
+      - name: Validate NSI data structure
+        if: steps.csv-changes.outputs.changed == 'true'
+        run: npm run validate-data
+        # No continue-on-error: validation failures block rebuild and auto-merge.
+        # A FAIL exit means NSI changed column names or removed required filter codes,
+        # which would break dashboards. The maintainer must investigate before merging.
+
       - name: Rebuild prebuilt JSON files
         if: steps.csv-changes.outputs.changed == 'true'
         run: npm run prebuild

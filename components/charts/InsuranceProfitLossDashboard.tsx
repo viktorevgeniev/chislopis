@@ -407,7 +407,7 @@ function NonLifeTrendChart({ dataMap, years, isBg, label }: {
           ...makeSeries(label(C.NL_PREMIUMS_NET), series.premiums, NL_COLORS.premiums),
           areaStyle: {
             color: {
-              type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+              type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
                 { offset: 0, color: 'rgba(59,130,246,0.15)' },
                 { offset: 1, color: 'rgba(59,130,246,0)' },
@@ -509,7 +509,7 @@ function LifeTrendChart({ dataMap, years, isBg, label }: {
           smooth: true, symbol: 'circle', symbolSize: 5, connectNulls: true,
           areaStyle: {
             color: {
-              type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+              type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
                 { offset: 0, color: 'rgba(6,182,212,0.15)' },
                 { offset: 1, color: 'rgba(6,182,212,0)' },

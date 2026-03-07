@@ -147,7 +147,7 @@ async function main() {
       const rows = aggregator ? aggregator(processed.rows) : processed.rows;
       const normalized = normalizeData(rows);
 
-      if (aggregator) {
+      if (nsiId in DATASET_AGGREGATORS) {
         console.log(`  [AGG] ${dataset.id} (${nsiId}) — ${processed.rows.length} → ${rows.length} rows`);
       }
 

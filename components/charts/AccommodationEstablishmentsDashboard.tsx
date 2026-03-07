@@ -463,7 +463,7 @@ function TrendLineChart({ index, periods, nutsCode, isBg }: {
           connectNulls: true,
           areaStyle: {
             color: {
-              type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+              type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
                 { offset: 0, color: 'rgba(59,130,246,0.18)' },
                 { offset: 1, color: 'rgba(59,130,246,0)' },

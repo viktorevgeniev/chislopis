@@ -548,7 +548,6 @@ function ExperiencePieChart({ data, quarter, locale, exprLabels }: {
           fontSize: 20,
           fontWeight: 'bold',
           fill: '#0f172a',
-          textAlign: 'center',
         },
       }, {
         type: 'text',
@@ -558,7 +557,6 @@ function ExperiencePieChart({ data, quarter, locale, exprLabels }: {
           text: isBg ? 'Общо' : 'Total',
           fontSize: 11,
           fill: '#94a3b8',
-          textAlign: 'center',
         },
       }],
     };

@@ -152,6 +152,7 @@ export function LowWorkIntensityAgeSexDashboard({ data, locale = 'en' }: Props) 
 
     return {
       latestYear,
+      prevYear,
       latestPct,
       prevPct,
       change: latestPct != null && prevPct != null ? latestPct - prevPct : null,

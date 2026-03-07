@@ -60,6 +60,44 @@ const HIGHLIGHT_CATS: CatDef[] = [
   CAT_MAP['11102'], // Alcohol & tobacco
 ];
 
+// ── HBS_PR category definitions (dataset 727 — monetary expenditure only) ────
+// HBS_PR uses a different code scheme from HBS_OR (shorter codes, no "total" level)
+
+const PR_TOP_CATS: CatDef[] = [
+  { code: '1',  en: 'Total Monetary Expenditure',        bg: 'Общи парични разходи',                  color: '#0ea5e9' },
+  { code: '11', en: 'Consumer Monetary Expenditure',     bg: 'Потребителски парични разходи',          color: '#10b981' },
+  { code: '12', en: 'Taxes',                             bg: 'Данъци',                                color: '#f59e0b' },
+  { code: '13', en: 'Social Insurance Contributions',    bg: 'Социални осигуровки',                   color: '#8b5cf6' },
+  { code: '14', en: 'Transfers to Other Households',     bg: 'Трансфери към домакинства',             color: '#ef4444' },
+  { code: '15', en: 'Other Monetary Expenditure',        bg: 'Други парични разходи',                 color: '#64748b' },
+];
+
+const PR_CONSUMER_CATS: CatDef[] = [
+  { code: '1101', en: 'Foods & Non-Alcoholic Beverages', bg: 'Храни и безалкохолни напитки',          color: '#22c55e' },
+  { code: '1102', en: 'Alcoholic Beverages & Tobacco',   bg: 'Алкохолни напитки и тютюн',             color: '#eab308' },
+  { code: '1103', en: 'Clothing & Footwear',             bg: 'Облекло и обувки',                      color: '#3b82f6' },
+  { code: '1104', en: 'Housing, Water & Energy',         bg: 'Жилище, вода, ел. и газ',               color: '#f97316' },
+  { code: '1105', en: 'Furnishing & Maintenance',        bg: 'Обзавеждане и поддръжка',               color: '#14b8a6' },
+  { code: '1106', en: 'Health',                          bg: 'Здравеопазване',                        color: '#ef4444' },
+  { code: '1107', en: 'Transport',                       bg: 'Транспорт',                             color: '#6366f1' },
+  { code: '1108', en: 'Communication',                   bg: 'Съобщения',                             color: '#84cc16' },
+  { code: '1109', en: 'Recreation, Culture & Education', bg: 'Отдих, култура и образование',          color: '#a855f7' },
+  { code: '1110', en: 'Miscellaneous Goods & Services',  bg: 'Разни стоки и услуги',                  color: '#f43f5e' },
+];
+
+const PR_CAT_MAP: Record<string, CatDef> = Object.fromEntries(
+  [...PR_TOP_CATS, ...PR_CONSUMER_CATS].map(c => [c.code, c])
+);
+
+const PR_HIGHLIGHT_CATS: CatDef[] = [
+  PR_CAT_MAP['1101'], // Food
+  PR_CAT_MAP['1104'], // Housing & energy
+  PR_CAT_MAP['1106'], // Health
+  PR_CAT_MAP['1107'], // Transport
+  PR_CAT_MAP['1109'], // Recreation
+  PR_CAT_MAP['1102'], // Alcohol & tobacco
+];
+
 const RESIDENCE_EN: Record<string, string>     = { '0': 'Total',  '1': 'Urban',   '2': 'Rural' };
 const RESIDENCE_BG: Record<string, string>     = { '0': 'Общо',   '1': 'Градско', '2': 'Селско' };
 const RESIDENCE_COLORS: Record<string, string> = { '0': '#0ea5e9', '1': '#3b82f6', '2': '#10b981' };
@@ -87,7 +125,7 @@ function buildIndex(data: any[]): DataIndex {
   const idx: DataIndex = new Map();
   for (const row of data) {
     const measure = String(row.HBS_Meassure_Code ?? row.HBS_Meassure ?? '');
-    const expCode = String(row.HBS_OR_Code ?? row.HBS_OR ?? '');
+    const expCode = String(row.HBS_OR_Code ?? row.HBS_OR ?? row.HBS_PR_Code ?? row.HBS_PR ?? '');
     const res     = String(row.Residence_Code ?? '');
     const yr      = String(row.Year ?? '');
     const val     = parseValue(row.Amount ?? row.ValueColumn);
@@ -130,6 +168,13 @@ interface Props {
 export function MonetaryExpenditureResidenceDashboard({ data, locale = 'en' }: Props) {
   const isBg = locale === 'bg';
 
+  // Detect whether this dataset uses HBS_PR (dataset 727) vs HBS_OR (dataset 715)
+  const isHBSPR = data.length > 0 && 'HBS_PR_Code' in data[0];
+  const activeTopCats     = isHBSPR ? PR_TOP_CATS      : TOP_CATS;
+  const activeConsumerCats = isHBSPR ? PR_CONSUMER_CATS : CONSUMER_CATS;
+  const activeCatMap      = isHBSPR ? PR_CAT_MAP       : CAT_MAP;
+  const activeHighlight   = isHBSPR ? PR_HIGHLIGHT_CATS : HIGHLIGHT_CATS;
+
   const { allYears, latestYear, firstYear, idx } = useMemo(() => {
     const years = new Set<string>();
     data.forEach(d => { if (d.Year) years.add(String(d.Year)); });
@@ -145,29 +190,30 @@ export function MonetaryExpenditureResidenceDashboard({ data, locale = 'en' }: P
   const get = (measure: string, expCode: string, res: string, yr: string): number | null =>
     idx.get(measure)?.get(expCode)?.get(res)?.get(yr) ?? null;
 
-  const kpi = useMemo(() => {
-    if (!latestYear) return null;
-    const prevYear = allYears.length > 1 ? allYears[allYears.length - 2] : null;
-    // '11' = Total expenditure
-    const total = get('1', '11', '0', latestYear);
-    const urban = get('1', '11', '1', latestYear);
-    const rural = get('1', '11', '2', latestYear);
-    const totalPrev = prevYear ? get('1', '11', '0', prevYear) : null;
-    const yoy = total != null && totalPrev != null && totalPrev > 0
-      ? ((total - totalPrev) / totalPrev) * 100 : null;
-    const urbanRuralRatio = urban != null && rural != null && rural > 0 ? urban / rural : null;
-    // '11101' = Food share in structure %
-    const foodShare = get('3', '11101', '0', latestYear);
-    return { total, urban, rural, yoy, urbanRuralRatio, foodShare };
-  }, [idx, latestYear, allYears]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  if (!data || data.length === 0) {
+  if (!data || data.length === 0 || idx.size === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
         {isBg ? 'Няма налични данни' : 'No data available'}
       </div>
     );
   }
+
+  const kpi = (() => {
+    if (!latestYear) return null;
+    const prevYear = allYears.length > 1 ? allYears[allYears.length - 2] : null;
+    // top-level code differs: '1' for HBS_PR, '11' for HBS_OR
+    const topCode  = isHBSPR ? '1' : '11';
+    const foodCode = isHBSPR ? '1101' : '11101';
+    const total = get('1', topCode, '0', latestYear);
+    const urban = get('1', topCode, '1', latestYear);
+    const rural = get('1', topCode, '2', latestYear);
+    const totalPrev = prevYear ? get('1', topCode, '0', prevYear) : null;
+    const yoy = total != null && totalPrev != null && totalPrev > 0
+      ? ((total - totalPrev) / totalPrev) * 100 : null;
+    const urbanRuralRatio = urban != null && rural != null && rural > 0 ? urban / rural : null;
+    const foodShare = get('3', foodCode, '0', latestYear);
+    return { total, urban, rural, yoy, urbanRuralRatio, foodShare };
+  })();
 
   const currency = isBg ? ' лв.' : ' BGN';
 
@@ -237,15 +283,15 @@ export function MonetaryExpenditureResidenceDashboard({ data, locale = 'en' }: P
           </TabsList>
 
           <TabsContent value="trends">
-            <TrendsSection idx={idx} allYears={allYears} firstYear={firstYear} latestYear={latestYear} isBg={isBg} />
+            <TrendsSection idx={idx} allYears={allYears} firstYear={firstYear} latestYear={latestYear} isBg={isBg} topCats={activeTopCats} consumerCats={activeConsumerCats} catMap={activeCatMap} />
           </TabsContent>
 
           <TabsContent value="structure">
-            <StructureSection idx={idx} allYears={allYears} latestYear={latestYear} isBg={isBg} />
+            <StructureSection idx={idx} allYears={allYears} latestYear={latestYear} isBg={isBg} consumerCats={activeConsumerCats} />
           </TabsContent>
 
           <TabsContent value="comparison">
-            <ComparisonSection idx={idx} allYears={allYears} latestYear={latestYear} isBg={isBg} />
+            <ComparisonSection idx={idx} allYears={allYears} latestYear={latestYear} isBg={isBg} highlightCats={activeHighlight} measureCodes={isHBSPR ? ['1', '2'] : ['1', '2']} />
           </TabsContent>
         </Tabs>
 
@@ -287,14 +333,15 @@ function KpiCard({
 // ══════════════════════════════════════════════════════════════════════════════
 
 function TrendsSection({
-  idx, allYears, firstYear, latestYear, isBg,
+  idx, allYears, firstYear, latestYear, isBg, topCats, consumerCats, catMap,
 }: {
   idx: DataIndex; allYears: string[]; firstYear: string; latestYear: string; isBg: boolean;
+  topCats: CatDef[]; consumerCats: CatDef[]; catMap: Record<string, CatDef>;
 }) {
   const [measureCode, setMeasureCode] = useState('1');
-  const [catCode, setCatCode]         = useState('11');
+  const [catCode, setCatCode]         = useState(topCats[0]?.code ?? '11');
 
-  const catLabel     = isBg ? (CAT_MAP[catCode]?.bg ?? catCode) : (CAT_MAP[catCode]?.en ?? catCode);
+  const catLabel     = isBg ? (catMap[catCode]?.bg ?? catCode) : (catMap[catCode]?.en ?? catCode);
   const measureLabel = isBg ? MEASURE_BG[measureCode] : MEASURE_EN[measureCode];
 
   return (
@@ -308,12 +355,12 @@ function TrendsSection({
             <label className="text-xs text-slate-500">{isBg ? 'Категория:' : 'Category:'}</label>
             <Select value={catCode} onChange={e => setCatCode(e.target.value)} className="text-xs py-1 px-2 h-8 w-52">
               <optgroup label={isBg ? 'Главни групи' : 'Top-level'}>
-                {TOP_CATS.map(c => (
+                {topCats.map(c => (
                   <option key={c.code} value={c.code}>{isBg ? c.bg : c.en}</option>
                 ))}
               </optgroup>
               <optgroup label={isBg ? 'Потребителски подгрупи' : 'Consumer sub-categories'}>
-                {CONSUMER_CATS.map(c => (
+                {consumerCats.map(c => (
                   <option key={c.code} value={c.code}>{isBg ? c.bg : c.en}</option>
                 ))}
               </optgroup>
@@ -446,9 +493,9 @@ function TrendsChart({
 // ══════════════════════════════════════════════════════════════════════════════
 
 function StructureSection({
-  idx, allYears, latestYear, isBg,
+  idx, allYears, latestYear, isBg, consumerCats,
 }: {
-  idx: DataIndex; allYears: string[]; latestYear: string; isBg: boolean;
+  idx: DataIndex; allYears: string[]; latestYear: string; isBg: boolean; consumerCats: CatDef[];
 }) {
   const [residenceCode, setResidenceCode] = useState('0');
   const [viewMode, setViewMode]           = useState<'stacked-time' | 'grouped-year'>('stacked-time');
@@ -500,22 +547,22 @@ function StructureSection({
               : `Comparison by residence | Structure % | ${compareYear || latestYear}`)}
       </p>
       {viewMode === 'stacked-time'
-        ? <StackedTimeChart idx={idx} allYears={allYears} residenceCode={residenceCode} isBg={isBg} />
-        : <GroupedYearChart idx={idx} year={compareYear || latestYear} isBg={isBg} />}
-      <StructureTable idx={idx} year={compareYear || latestYear} isBg={isBg} />
+        ? <StackedTimeChart idx={idx} allYears={allYears} residenceCode={residenceCode} isBg={isBg} consumerCats={consumerCats} />
+        : <GroupedYearChart idx={idx} year={compareYear || latestYear} isBg={isBg} consumerCats={consumerCats} />}
+      <StructureTable idx={idx} year={compareYear || latestYear} isBg={isBg} consumerCats={consumerCats} />
     </div>
   );
 }
 
 function StackedTimeChart({
-  idx, allYears, residenceCode, isBg,
+  idx, allYears, residenceCode, isBg, consumerCats,
 }: {
-  idx: DataIndex; allYears: string[]; residenceCode: string; isBg: boolean;
+  idx: DataIndex; allYears: string[]; residenceCode: string; isBg: boolean; consumerCats: CatDef[];
 }) {
   const chartRef = useRef<HTMLDivElement>(null);
 
   const seriesData = useMemo(() => (
-    CONSUMER_CATS.map(c => ({
+    consumerCats.map(c => ({
       code:   c.code,
       label:  isBg ? c.bg : c.en,
       color:  c.color,
@@ -589,15 +636,15 @@ function StackedTimeChart({
   return <div ref={chartRef} style={{ width: '100%', height: '420px' }} />;
 }
 
-function GroupedYearChart({ idx, year, isBg }: { idx: DataIndex; year: string; isBg: boolean }) {
+function GroupedYearChart({ idx, year, isBg, consumerCats }: { idx: DataIndex; year: string; isBg: boolean; consumerCats: CatDef[] }) {
   const chartRef = useRef<HTMLDivElement>(null);
 
   const chartData = useMemo(() => ({
-    categories: CONSUMER_CATS.map(c => isBg ? c.bg : c.en),
+    categories: consumerCats.map(c => isBg ? c.bg : c.en),
     series: ['0', '1', '2'].map(res => ({
       name:   isBg ? RESIDENCE_BG[res] : RESIDENCE_EN[res],
       color:  RESIDENCE_COLORS[res],
-      values: CONSUMER_CATS.map(c => idx.get('3')?.get(c.code)?.get(res)?.get(year) ?? null),
+      values: consumerCats.map(c => idx.get('3')?.get(c.code)?.get(res)?.get(year) ?? null),
     })),
   }), [idx, year, isBg]);
 
@@ -669,9 +716,9 @@ function GroupedYearChart({ idx, year, isBg }: { idx: DataIndex; year: string; i
   return <div ref={chartRef} style={{ width: '100%', height: '420px' }} />;
 }
 
-function StructureTable({ idx, year, isBg }: { idx: DataIndex; year: string; isBg: boolean }) {
+function StructureTable({ idx, year, isBg, consumerCats }: { idx: DataIndex; year: string; isBg: boolean; consumerCats: CatDef[] }) {
   const rows = useMemo(() => (
-    CONSUMER_CATS.map(c => ({
+    consumerCats.map(c => ({
       code:  c.code,
       label: isBg ? c.bg : c.en,
       color: c.color,
@@ -722,9 +769,10 @@ function StructureTable({ idx, year, isBg }: { idx: DataIndex; year: string; isB
 // ══════════════════════════════════════════════════════════════════════════════
 
 function ComparisonSection({
-  idx, allYears, latestYear, isBg,
+  idx, allYears, latestYear, isBg, highlightCats, measureCodes,
 }: {
   idx: DataIndex; allYears: string[]; latestYear: string; isBg: boolean;
+  highlightCats: CatDef[]; measureCodes: string[];
 }) {
   const [measureCode, setMeasureCode]   = useState('1');
   const [selectedYear, setSelectedYear] = useState(latestYear);
@@ -739,7 +787,7 @@ function ComparisonSection({
           <div className="flex items-center gap-1">
             <label className="text-xs text-slate-500">{isBg ? 'Мерна единица:' : 'Measure:'}</label>
             <Select value={measureCode} onChange={e => setMeasureCode(e.target.value)} className="text-xs py-1 px-2 h-8 w-48">
-              {['1', '2'].map(m => (
+              {measureCodes.map(m => (
                 <option key={m} value={m}>{isBg ? MEASURE_BG[m] : MEASURE_EN[m]}</option>
               ))}
             </Select>
@@ -759,25 +807,25 @@ function ComparisonSection({
           ? `Сравнение Градско/Селско | ${MEASURE_BG[measureCode]} | ${selectedYear || latestYear}`
           : `Urban/Rural comparison | ${MEASURE_EN[measureCode]} | ${selectedYear || latestYear}`}
       </p>
-      <ComparisonBarChart idx={idx} year={selectedYear || latestYear} measureCode={measureCode} isBg={isBg} />
+      <ComparisonBarChart idx={idx} year={selectedYear || latestYear} measureCode={measureCode} isBg={isBg} highlightCats={highlightCats} />
       <MeasuresTrendChart idx={idx} allYears={allYears} measureCode={measureCode} isBg={isBg} />
     </div>
   );
 }
 
 function ComparisonBarChart({
-  idx, year, measureCode, isBg,
+  idx, year, measureCode, isBg, highlightCats,
 }: {
-  idx: DataIndex; year: string; measureCode: string; isBg: boolean;
+  idx: DataIndex; year: string; measureCode: string; isBg: boolean; highlightCats: CatDef[];
 }) {
   const chartRef   = useRef<HTMLDivElement>(null);
   const isBGN      = measureCode !== '3';
   const unitSuffix = isBGN ? (isBg ? ' лв.' : ' BGN') : '%';
 
   const chartData = useMemo(() => ({
-    categories: HIGHLIGHT_CATS.map(c => isBg ? c.bg : c.en),
-    urban: HIGHLIGHT_CATS.map(c => idx.get(measureCode)?.get(c.code)?.get('1')?.get(year) ?? null),
-    rural: HIGHLIGHT_CATS.map(c => idx.get(measureCode)?.get(c.code)?.get('2')?.get(year) ?? null),
+    categories: highlightCats.map(c => isBg ? c.bg : c.en),
+    urban: highlightCats.map(c => idx.get(measureCode)?.get(c.code)?.get('1')?.get(year) ?? null),
+    rural: highlightCats.map(c => idx.get(measureCode)?.get(c.code)?.get('2')?.get(year) ?? null),
   }), [idx, year, measureCode, isBg]);
 
   useEffect(() => {

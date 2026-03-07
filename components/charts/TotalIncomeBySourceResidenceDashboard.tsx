@@ -354,7 +354,7 @@ function IncomeTrendChart({
         emphasis: { lineStyle: { width: 4 } },
         areaStyle: s.res === '0' ? {
           color: {
-            type: 'linear',
+            type: 'linear' as const,
             x: 0, y: 0, x2: 0, y2: 1,
             colorStops: [
               { offset: 0, color: 'rgba(99,102,241,0.12)' },

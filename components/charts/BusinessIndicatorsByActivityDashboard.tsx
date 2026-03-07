@@ -784,7 +784,7 @@ function SizeSection({
         center: ['40%', '50%'],
         data: pieData.map(d => ({
           name: d.name,
-          value: d.value,
+          value: d.value as number,
           itemStyle: { color: d.color },
         })),
         label: {

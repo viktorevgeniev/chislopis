@@ -510,7 +510,7 @@ function MacroTrendChart({ dataMap, years, isBg, label }: {
       ...(areaColor ? {
         areaStyle: {
           color: {
-            type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+            type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1,
             colorStops: [
               { offset: 0, color: areaColor.replace(')', ',0.15)').replace('rgb', 'rgba') },
               { offset: 1, color: areaColor.replace(')', ',0)').replace('rgb', 'rgba') },

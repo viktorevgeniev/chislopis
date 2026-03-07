@@ -8,7 +8,10 @@
     "build": "npm run prebuild && next build",
     "start": "next start",
     "lint": "next lint",
-    "update-nsi-data": "tsx scripts/update-nsi-data.ts"
+    "update-nsi-data": "tsx scripts/update-nsi-data.ts",
+    "validate-data": "node --stack-size=65536 -r tsx/cjs scripts/validate-nsi-data.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.8",
@@ -30,6 +33,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
     "@types/papaparse": "^5.3.14",

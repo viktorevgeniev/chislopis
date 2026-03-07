@@ -639,7 +639,7 @@ function UrbanRuralGapChart({ data, allQuarters, locale }: {
         data: gapValues,
         areaStyle: {
           color: {
-            type: 'linear',
+            type: 'linear' as const,
             x: 0, y: 0, x2: 0, y2: 1,
             colorStops: [
               { offset: 0, color: 'rgba(245,158,11,0.25)' },

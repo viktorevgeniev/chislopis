@@ -370,7 +370,7 @@ function TrendChart({ dataMap, years, isBg, label }: {
           connectNulls: true,
           areaStyle: {
             color: {
-              type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
+              type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
                 { offset: 0, color: 'rgba(99,102,241,0.18)' },
                 { offset: 1, color: 'rgba(99,102,241,0)' },

@@ -303,10 +303,11 @@ function TrendTab({ pivoted, years, firstYear, latestYear, locale }: {
       tooltip: {
         trigger: 'axis',
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
-          const yr = params[0]?.axisValue ?? '';
+        formatter: (params: any) => {
+          const arr: any[] = Array.isArray(params) ? params : [params];
+          const yr = arr[0]?.axisValue ?? '';
           return `<div style="font-weight:600;margin-bottom:4px">${yr}</div>` +
-            params.map((p: any) =>
+            arr.map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span>${p.seriesName}</span>
@@ -356,7 +357,7 @@ function TrendTab({ pivoted, years, firstYear, latestYear, locale }: {
           symbolSize: 7,
           lineStyle: { width: 2.5, color: C.blue },
           itemStyle: { color: C.blue, borderWidth: 2, borderColor: '#fff' },
-          areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(59,130,246,0.15)' }, { offset: 1, color: 'rgba(59,130,246,0)' }] } },
+          areaStyle: { color: { type: 'linear' as const, x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(59,130,246,0.15)' }, { offset: 1, color: 'rgba(59,130,246,0)' }] } },
         },
         {
           name: t.beds,
@@ -437,10 +438,11 @@ function RegionalTab({ pivoted, latestYear, locale }: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
-          const region = params[0]?.axisValue ?? '';
+        formatter: (params: any) => {
+          const arr: any[] = Array.isArray(params) ? params : [params];
+          const region = arr[0]?.axisValue ?? '';
           return `<div style="font-weight:600;margin-bottom:4px">${region}</div>` +
-            params.map((p: any) =>
+            arr.map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span>${p.seriesName}</span>
@@ -562,11 +564,12 @@ function CompositionTab({ pivoted, years, latestYear, locale }: {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
         ...tooltipStyle(),
-        formatter: (params: any[]) => {
-          const yr = params[0]?.axisValue ?? '';
-          const total = (params as any[]).reduce((s: number, p: any) => s + (p.value ?? 0), 0);
+        formatter: (params: any) => {
+          const arr: any[] = Array.isArray(params) ? params : [params];
+          const yr = arr[0]?.axisValue ?? '';
+          const total = arr.reduce((s: number, p: any) => s + (p.value ?? 0), 0);
           return `<div style="font-weight:600;margin-bottom:4px">${yr}</div>` +
-            params.map((p: any) =>
+            arr.map((p: any) =>
               `<div style="display:flex;align-items:center;gap:6px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${p.color}"></span>
                 <span style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.seriesName}</span>

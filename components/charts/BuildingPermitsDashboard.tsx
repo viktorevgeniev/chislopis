@@ -343,6 +343,12 @@ export function BuildingPermitsDashboard({ data, locale = 'en' }: Props) {
 
   // ── Render ───────────────────────────────────────────────────────────────────
 
+  if (rows.length === 0) {
+    return (
+      <div className="text-center py-8 text-muted-foreground">No data available</div>
+    );
+  }
+
   const metricInfo = METRICS.find(m => m.code === metricCode);
   const districtLabel = districts.find(d => d.code === districtCode)?.label ?? districtCode;
 
@@ -358,38 +364,39 @@ export function BuildingPermitsDashboard({ data, locale = 'en' }: Props) {
               <Select
                 value={metricCode}
                 onChange={e => setMetricCode(e.target.value)}
-                options={METRICS.map(m => ({ value: m.code, label: m.label }))}
-              />
+              >
+                {METRICS.map(m => <option key={m.code} value={m.code}>{m.label}</option>)}
+              </Select>
             </div>
             <div className="flex items-center gap-2">
               <label className="text-sm font-medium whitespace-nowrap">Building type:</label>
               <Select
                 value={buildTypeFilter}
                 onChange={e => setBuildTypeFilter(e.target.value)}
-                options={[
-                  { value: 'all', label: 'All types' },
-                  ...buildTypes.map(bt => ({
-                    value: bt.code,
-                    label: BUILD_TYPE_LABELS[bt.code] || bt.label,
-                  })),
-                ]}
-              />
+              >
+                <option value="all">All types</option>
+                {buildTypes.map(bt => (
+                  <option key={bt.code} value={bt.code}>{BUILD_TYPE_LABELS[bt.code] || bt.label}</option>
+                ))}
+              </Select>
             </div>
             <div className="flex items-center gap-2">
               <label className="text-sm font-medium whitespace-nowrap">District:</label>
               <Select
                 value={districtCode}
                 onChange={e => setDistrictCode(e.target.value)}
-                options={districts.map(d => ({ value: d.code, label: d.label }))}
-              />
+              >
+                {districts.map(d => <option key={d.code} value={d.code}>{d.label}</option>)}
+              </Select>
             </div>
             <div className="flex items-center gap-2">
               <label className="text-sm font-medium whitespace-nowrap">Year:</label>
               <Select
                 value={effectiveYear}
                 onChange={e => setSelectedYear(e.target.value)}
-                options={[...years].reverse().map(y => ({ value: y, label: y }))}
-              />
+              >
+                {[...years].reverse().map(y => <option key={y} value={y}>{y}</option>)}
+              </Select>
             </div>
           </div>
         </CardContent>

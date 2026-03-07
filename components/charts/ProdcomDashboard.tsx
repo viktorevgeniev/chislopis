@@ -326,6 +326,12 @@ export function ProdcomDashboard({ data, locale = 'en' }: Props) {
 
   // ── Render ─────────────────────────────────────────────────────────────────
 
+  if (rows.length === 0) {
+    return (
+      <div className="text-center py-8 text-muted-foreground">No data available</div>
+    );
+  }
+
   return (
     <div className="space-y-4">
       <Tabs defaultValue="trends">
@@ -372,8 +378,11 @@ export function ProdcomDashboard({ data, locale = 'en' }: Props) {
                   <Select
                     value={selectedYear}
                     onChange={e => setSelectedYear(e.target.value)}
-                    options={[...years].reverse().map(y => ({ value: y, label: y }))}
-                  />
+                  >
+                    {[...years].reverse().map(y => (
+                      <option key={y} value={y}>{y}</option>
+                    ))}
+                  </Select>
                 </div>
               </div>
             </CardHeader>
@@ -401,25 +410,24 @@ export function ProdcomDashboard({ data, locale = 'en' }: Props) {
                   <Select
                     value={tableFilter}
                     onChange={e => handleTableFilter(e.target.value)}
-                    options={[
-                      { value: 'all', label: 'All sectors' },
-                      ...sectors.map(s => ({
-                        value: s,
-                        label: `${s} – ${SECTOR[s]?.en || s}`,
-                      })),
-                    ]}
-                  />
+                  >
+                    <option value="all">All sectors</option>
+                    {sectors.map(s => (
+                      <option key={s} value={s}>{s} – {SECTOR[s]?.en || s}</option>
+                    ))}
+                  </Select>
                 </div>
                 <div className="flex items-center gap-2">
                   <label className="text-sm font-medium">Year:</label>
                   <Select
                     value={tableYearFilter}
                     onChange={e => handleTableYearFilter(e.target.value)}
-                    options={[
-                      { value: 'all', label: 'All years' },
-                      ...[...years].reverse().map(y => ({ value: y, label: y })),
-                    ]}
-                  />
+                  >
+                    <option value="all">All years</option>
+                    {[...years].reverse().map(y => (
+                      <option key={y} value={y}>{y}</option>
+                    ))}
+                  </Select>
                 </div>
                 <span className="ml-auto self-center text-sm text-muted-foreground">
                   {tableRows.length.toLocaleString()} rows
