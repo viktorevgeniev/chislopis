@@ -1,4 +1,7 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Residence","0","����","Total"
+"Residence","1","� ���������","Urban"
+"Residence","2","� ������","Rural"
 "HBS_Meassure","","���������","Meassure"
 "HBS_Meassure","1","������ �� ����������� -  ������","Average per household -BGN"
 "HBS_Meassure","2","������ �� ���� - ������","Average per capita - BGN"
@@ -23,6 +26,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "HBS_OR","12","����","Saving deposits"
 "HBS_OR","13","�������� ���� � ����� ����","Debt paid out and loan granted"
 "Residence","","������������ ","Residence"
-"Residence","0","����","Total"
-"Residence","1","� ���������","Urban"
-"Residence","2","� ������","Rural"
