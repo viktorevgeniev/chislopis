@@ -39,7 +39,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
-"Units","","����� �������","Measuring units"
 "Units","perc_pop_fig","% �� ������������","PC_POP"
 "SILC_Age","","�������","Age"
 "SILC_Age","0","����","Total"
@@ -49,3 +48,4 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "SILC_Age","6","0-5 ������","Less than 6 years"
 "SILC_Age","7","6-11 ������","Between 6 and 11 years"
 "SILC_Age","8","12-17 ������","Between 12 and 17 years"
+"Units","","����� �������","Measuring units"
