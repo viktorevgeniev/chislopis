@@ -1,11 +1,11 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"NUTS","","NUTS","NUTS"
 "Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
 "GenderID","","���","Sex"
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
+"NUTS","","NUTS","NUTS"
 "NUTS","BG","���� �� ��������","Total for the country"
 "NUTS","BG31","�������������","Severozapaden"
 "NUTS","BG32","������� ���������","Severen tsentralen"

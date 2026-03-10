@@ -3,6 +3,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
+"Age10_LFS","","������������ ���������� �����  - ���������� �� ��������� ����","10-years age groups - LFS"
 "Age10_LFS","0","����","Total"
 "Age10_LFS","15 - 24","15 - 24","15 - 24"
 "Age10_LFS","15 - 29","15 - 29","15 - 29"
@@ -15,4 +16,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Age10_LFS","65+","65  � ������","65 and over"
 "Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
-"Age10_LFS","","������������ ���������� �����  - ���������� �� ��������� ����","10-years age groups - LFS"

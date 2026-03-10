@@ -1,4 +1,5 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"LFS_EmplExpr_Unempl","","������� �� �������� ������� (�� ������������ ����)","Employment experience_unempl"
 "Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
 "GenderID","","���","Sex"
@@ -13,7 +14,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "LFS_ReasLeaveJob","5","�����","Others"
 "LFS_ReasLeaveJob","6","���������� (���. ���������� ���� ���������� 8 ������)","Unknown (incl. non-working during the last 8 years)"
 "LFS_ReasLeaveJob","8","������� �������","Family reasons"
-"LFS_EmplExpr_Unempl","","������� �� �������� ������� (�� ������������ ����)","Employment experience_unempl"
 "LFS_EmplExpr_Unempl","0","����","Total"
 "LFS_EmplExpr_Unempl","1","���������� ���� � �������� �������","Unemployed with previous employment experience"
 "LFS_EmplExpr_Unempl","2","���������� ����, ������� ����� ������","Unemployed looking for their first job"
