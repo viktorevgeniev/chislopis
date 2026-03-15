@@ -35,6 +35,12 @@ export function Header({ locale }: HeaderProps) {
           >
             {nav('categories')}
           </Link>
+          <Link
+            href={`/${locale}/about`}
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            {nav('about')}
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">

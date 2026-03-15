@@ -14,6 +14,9 @@ export function LanguageSwitch({ locale }: LanguageSwitchProps) {
   const switchLanguage = (newLocale: string) => {
     if (newLocale === locale) return;
 
+    // Save preference so geo-detection doesn't override it on future visits
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+
     // Replace the locale in the pathname
     const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
     router.push(newPathname);
