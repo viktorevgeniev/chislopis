@@ -1,4 +1,7 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Units","","����� �������","Measuring units"
+"Units","num","����","Number"
+"EKATTE","","������","EKATTE"
 "EKATTE","BG","���� �� ��������","Total for the country"
 "EKATTE","BG3","������� � ���������� ��������","Severna i Yugoiztochna Bulgaria"
 "EKATTE","BG31","�������������","Severozapaden"
@@ -238,9 +241,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "EKATTE","SOF46","��������","Sofia"
 "EKATTE","SZR","����� ������","Stara Zagora"
 "EKATTE","SZR04","����� ���������","Bratya Daskalovi"
-"Units","","����� �������","Measuring units"
-"Units","num","����","Number"
-"EKATTE","","������","EKATTE"
 "EKATTE","SZR07","��������","Galabovo"
 "EKATTE","SZR12","��������","Kazanlak"
 "EKATTE","SZR22","������","Maglizh"

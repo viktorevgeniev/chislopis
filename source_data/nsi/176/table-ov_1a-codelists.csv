@@ -1,4 +1,6 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Units","1000cp","���� ���� � ������","Thousand persons"
+"Units","perc_pop_fig","% �� ������������","PC_POP"
 "NUTS","","NUTS","NUTS"
 "NUTS","BG","���� �� ��������","Total for the country"
 "NUTS","BG31","�������������","Severozapaden"
@@ -50,5 +52,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "SILC_Age","2","18-64 ������","Between 18 and 64 years"
 "SILC_Age","3","65 � ������ ������","65 years and over"
 "Units","","����� �������","Measuring units"
-"Units","1000cp","���� ���� � ������","Thousand persons"
-"Units","perc_pop_fig","% �� ������������","PC_POP"
