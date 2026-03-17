@@ -15,7 +15,7 @@ export default async function AboutPage({
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed">
           {loc === 'bg'
-            ? 'В ежедневието лесно се изгубваме в детайлите и губим представа за голямата картина. Трудно е да преценим дали вървим напред, назад или просто стоим на едно място. Числопис е създаден, за да направи данните достъпни и тенденциите видими — превръщайки сухата статистика в ясни, интерактивни визуализации, достъпни за всеки.'
+            ? 'В ежедневието лесно се изгубваме в детайлите и губим представа за общата картина. Трудно е да преценим дали вървим напред, назад или просто стоим на едно място. Числопис е създаден, за да направи данните достъпни и тенденциите видими — превръщайки сухата статистика в ясни, интерактивни визуализации, достъпни за всеки.'
             : 'In the rush of daily life it is easy to lose sight of the bigger picture. It becomes hard to tell whether we are making progress, falling behind, or simply standing still. Chislopis exists to make data digestible and trends visible — turning raw statistics into clear, interactive charts that anyone can explore.'}
         </p>
       </section>
@@ -66,8 +66,8 @@ export default async function AboutPage({
             <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-blue-500" />
             <span>
               {loc === 'bg'
-                ? 'CSV файловете се изтеглят автоматично от НСИ и се съхраняват локално, за да се осигури бърза работа без зависимост от наличността на外部ния API.'
-                : 'CSV files are downloaded automatically from NSI and stored locally, ensuring fast load times without relying on external API availability.'}
+                ? 'Данните се теглят от НСИ и се пресъздават директно в платформата.'
+                : 'The data is downloaded from NSI and directly in the platform.'}
             </span>
           </li>
           <li className="flex gap-3">
@@ -84,14 +84,6 @@ export default async function AboutPage({
               {loc === 'bg'
                 ? 'Данните се дедублират по ревизия — при наличие на няколко версии на един запис се показва само най-новата ревизия за всяка комбинация от измерения.'
                 : 'Data is deduplicated by revision — when multiple versions of a record exist, only the latest revision for each dimension combination is shown.'}
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-blue-500" />
-            <span>
-              {loc === 'bg'
-                ? 'Диаграмите се генерират в браузъра с помощта на Apache ECharts — мощна библиотека за интерактивни визуализации.'
-                : 'Charts are rendered client-side using Apache ECharts — a powerful library for interactive data visualizations.'}
             </span>
           </li>
         </ul>

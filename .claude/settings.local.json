@@ -54,7 +54,22 @@
       "Bash(git diff --stat HEAD -- DATASETS_CHECKLIST.md app/[locale]/page.tsx components/layout/CategoryNav.tsx components/visualization/VisualizationCard.tsx lib/data/datasetRegistry.ts lib/data/fetchers/localCsvLoader.ts lib/echarts.ts messages/bg.json messages/en.json)",
       "Bash(test -f \"c:/Users/vikto/Documents/chislopis/components/charts/LowWorkIntensityEducationDashboard.tsx\")",
       "Bash(node scripts/verify-agg.js)",
-      "Bash(sed 's/\"\"//g')"
+      "Bash(sed 's/\"\"//g')",
+      "Bash(npm run lint)",
+      "Bash(node --stack-size=65536 -e \"require\\(''tsx/cjs''\\); require\\(''./scripts/validate-nsi-data.ts''\\)\")",
+      "Bash(npx playwright test --list)",
+      "Bash(while read f)",
+      "Bash(do if ! grep -q \"No data available\" \"$f\")",
+      "Bash(then basename \"$f\")",
+      "Bash(fi)",
+      "Bash(git pull --rebase)",
+      "Bash(git stash)",
+      "Bash(git stash pop)",
+      "WebFetch(domain:help.featurebase.app)",
+      "WebFetch(domain:do.featurebase.app)",
+      "WebFetch(domain:developers.featurebase.app)",
+      "WebFetch(domain:www.featurebase.app)",
+      "Bash(git diff app/[locale]/about/page.tsx)"
     ]
   },
   "enabledPlugins": {
