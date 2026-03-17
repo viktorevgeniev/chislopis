@@ -1,7 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"Units","","����� �������","Measuring units"
-"Units","num","����","Number"
-"EKATTE","","������","EKATTE"
 "EKATTE","BG","���� �� ��������","Total for the country"
 "EKATTE","BG3","������� � ���������� ��������","Severna i Yugoiztochna Bulgaria"
 "EKATTE","BG31","�������������","Severozapaden"
@@ -309,3 +306,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Residence","0","����","Total"
 "Residence","1","� ���������","Urban"
 "Residence","2","� ������","Rural"
+"Units","","����� �������","Measuring units"
+"Units","num","����","Number"
+"EKATTE","","������","EKATTE"
