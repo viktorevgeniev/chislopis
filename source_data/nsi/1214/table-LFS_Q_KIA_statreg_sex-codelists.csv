@@ -1,4 +1,6 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"Units","","����� �������","Measuring units"
+"Units","perc","�������","Per cent"
 "Age10_LFS","","������������ ���������� �����  - ���������� �� ��������� ����","10-years age groups - LFS"
 "Age10_LFS","0","����","Total"
 "Age10_LFS","15 - 64_gr","� �.�. 15 - 64 ��������� ������","of which 15 - 64 years"
@@ -14,5 +16,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
-"Units","","����� �������","Measuring units"
-"Units","perc","�������","Per cent"
