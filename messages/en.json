@@ -8,6 +8,7 @@
   },
   "nav": {
     "home": "Home",
+    "stories": "Stories",
     "categories": "Categories",
     "about": "About"
   },
@@ -58,10 +59,30 @@
     "births": "Births",
     "deaths": "Deaths"
   },
+  "stories": {
+    "step": "Step",
+    "loading": "Loading chart data...",
+    "viewFullDataset": "View full dataset",
+    "nextStory": "Next story",
+    "allStories": "All Stories",
+    "allStoriesSubtitle": "Data-driven stories about Bulgaria",
+    "stepsCount": "{count, plural, one {# step} other {# steps}}",
+    "readStory": "Read story"
+  },
   "home": {
     "title": "Statistical Data Visualization",
     "subtitle": "Interactive charts and maps based on data from the National Statistical Institute",
     "explore": "Explore Categories",
-    "datasetsCount": "{implemented} of {count} datasets implemented"
+    "datasetsCount": "{implemented} of {count} datasets implemented",
+    "featuredInsight": "Featured Insight",
+    "featuredStory": "Featured Story",
+    "readStory": "Read this story",
+    "storySteps": "In this story",
+    "trendUp": "Trending up",
+    "trendDown": "Trending down",
+    "nsiSource": "Data Source: NSI",
+    "exploreDataset": "Explore Dataset",
+    "discoverMore": "Discover More",
+    "discoverMoreSubtitle": "Topics you haven't explored yet"
   }
 }

@@ -30,6 +30,12 @@ export function Header({ locale }: HeaderProps) {
             {nav('home')}
           </Link>
           <Link
+            href={`/${locale}/stories`}
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
+            {nav('stories')}
+          </Link>
+          <Link
             href={`/${locale}/categories`}
             className="text-sm font-medium transition-colors hover:text-primary"
           >

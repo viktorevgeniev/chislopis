@@ -15,6 +15,7 @@ import {
   VisualMapComponent,
   DataZoomComponent,
   GraphicComponent,
+  DatasetComponent,
 } from 'echarts/components';
 import type {
   GridComponentOption,
@@ -25,6 +26,7 @@ import type {
   VisualMapComponentOption,
   DataZoomComponentOption,
   GraphicComponentOption,
+  DatasetComponentOption,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
@@ -43,6 +45,7 @@ echarts.use([
   VisualMapComponent,
   DataZoomComponent,
   GraphicComponent,
+  DatasetComponent,
   CanvasRenderer,
 ]);
 
@@ -61,6 +64,7 @@ export type EChartsOption = echarts.ComposeOption<
   | VisualMapComponentOption
   | DataZoomComponentOption
   | GraphicComponentOption
+  | DatasetComponentOption
 >;
 
 export default echarts;

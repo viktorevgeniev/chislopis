@@ -43,3 +43,12 @@ source_data/nsi/.tmp-*
 
 # playwright mcp artifacts
 .playwright-mcp/
+
+# local claude settings
+.claude/settings.local.json
+
+# design assets / inspiration
+design-inspiration/
+
+# playwright test results
+test-results/

@@ -8,6 +8,7 @@
   },
   "nav": {
     "home": "Начало",
+    "stories": "Истории",
     "categories": "Категории",
     "about": "За проекта"
   },
@@ -58,10 +59,30 @@
     "births": "Раждания",
     "deaths": "Смъртност"
   },
+  "stories": {
+    "step": "Стъпка",
+    "loading": "Зареждане на данните...",
+    "viewFullDataset": "Виж пълния набор от данни",
+    "nextStory": "Следваща история",
+    "allStories": "Всички истории",
+    "allStoriesSubtitle": "Истории за България, разказани чрез данни",
+    "stepsCount": "{count, plural, one {# стъпка} other {# стъпки}}",
+    "readStory": "Прочети"
+  },
   "home": {
     "title": "Визуализация на статистически данни",
     "subtitle": "Интерактивни диаграми и карти на база данни от Националния статистически институт",
     "explore": "Разгледай категориите",
-    "datasetsCount": "{implemented} от {count} набора от данни реализирани"
+    "datasetsCount": "{implemented} от {count} набора от данни реализирани",
+    "featuredInsight": "Избрана статистика",
+    "featuredStory": "Избрана история",
+    "readStory": "Прочети историята",
+    "storySteps": "В тази история",
+    "trendUp": "Нагоре",
+    "trendDown": "Надолу",
+    "nsiSource": "Източник: НСИ",
+    "exploreDataset": "Разгледай набора",
+    "discoverMore": "Открий повече",
+    "discoverMoreSubtitle": "Теми, които още не си разглеждал"
   }
 }

@@ -2,6 +2,9 @@ import { getTranslations } from 'next-intl/server';
 import { CategoryNav } from '@/components/layout/CategoryNav';
 import { DatasetSearch } from '@/components/search/DatasetSearch';
 import { getAllDatasets, getImplementedDatasets } from '@/lib/data/datasetRegistry';
+import { StorySnippet } from '@/components/StorySnippet';
+import { DiscoverMore } from '@/components/DiscoverMore';
+import { categories } from '@/lib/data/categories';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -32,6 +35,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      {/* Featured Story */}
+      <StorySnippet locale={locale as 'bg' | 'en'} />
+
       {/* Categories Section */}
       <section className="space-y-6">
         <div className="text-center">
@@ -42,6 +48,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
         <CategoryNav locale={locale as 'bg' | 'en'} />
       </section>
+
+      {/* Discover More */}
+      <DiscoverMore locale={locale as 'bg' | 'en'} categories={categories} />
 
       {/* Footer */}
       <footer className="text-center text-sm text-muted-foreground pt-12 pb-6 border-t">
