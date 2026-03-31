@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Manrope, Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
+import { FeedbackButton } from '@/components/layout/FeedbackButton';
 import { Analytics } from '@vercel/analytics/next';
 import '../globals.css';
 
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />
           <main className="mx-auto max-w-7xl px-4 md:px-8 pt-10 pb-16">{children}</main>
+          <FeedbackButton />
         </NextIntlClientProvider>
         <Analytics />
       </body>

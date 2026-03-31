@@ -83,6 +83,9 @@
     "nsiSource": "Източник: НСИ",
     "exploreDataset": "Разгледай набора",
     "discoverMore": "Открий повече",
-    "discoverMoreSubtitle": "Теми, които още не си разглеждал"
+    "discoverMoreSubtitle": "Теми, които още не си разглеждал",
+    "exploreSubtitle": "Избери категория, за да видиш интерактивни визуализации",
+    "dataSource": "Източник на данни:",
+    "dataSourceName": "Национален статистически институт (НСИ)"
   }
 }

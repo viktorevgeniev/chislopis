@@ -41,7 +41,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <div className="text-center">
           <h2 className="text-3xl font-headline font-bold mb-2">{t('explore')}</h2>
           <p className="text-muted-foreground">
-            Select a category to view interactive visualizations
+            {t('exploreSubtitle')}
           </p>
         </div>
         <CategoryNav locale={locale as 'bg' | 'en'} />
@@ -53,14 +53,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* Footer */}
       <footer className="text-center text-sm text-muted-foreground pt-16 pb-8 border-t border-outline/20">
         <p>
-          Data source:{' '}
+          {t('dataSource')}{' '}
           <a
             href="https://www.nsi.bg"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-primary"
           >
-            National Statistical Institute of Bulgaria (NSI)
+            {t('dataSourceName')}
           </a>
         </p>
       </footer>

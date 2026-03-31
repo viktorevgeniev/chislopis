@@ -83,6 +83,9 @@
     "nsiSource": "Data Source: NSI",
     "exploreDataset": "Explore Dataset",
     "discoverMore": "Discover More",
-    "discoverMoreSubtitle": "Topics you haven't explored yet"
+    "discoverMoreSubtitle": "Topics you haven't explored yet",
+    "exploreSubtitle": "Select a category to view interactive visualizations",
+    "dataSource": "Data source:",
+    "dataSourceName": "National Statistical Institute of Bulgaria (NSI)"
   }
 }
