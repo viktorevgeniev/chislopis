@@ -69,7 +69,14 @@
       "WebFetch(domain:do.featurebase.app)",
       "WebFetch(domain:developers.featurebase.app)",
       "WebFetch(domain:www.featurebase.app)",
-      "Bash(git diff app/[locale]/about/page.tsx)"
+      "Bash(git diff app/[locale]/about/page.tsx)",
+      "Bash(git pull --rebase origin master)",
+      "Bash(gh pr:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)",
+      "Bash(git diff:*)",
+      "Bash(git rm:*)"
     ]
   },
   "enabledPlugins": {

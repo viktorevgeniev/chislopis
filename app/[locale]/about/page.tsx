@@ -7,10 +7,10 @@ export default async function AboutPage({
   const loc = locale as 'bg' | 'en';
 
   return (
-    <div className="max-w-3xl mx-auto space-y-10 py-10">
+    <div className="max-w-3xl mx-auto space-y-12 py-10">
       {/* Hero */}
       <section className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-foreground">
           {loc === 'bg' ? 'За проекта' : 'About the Project'}
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed">
@@ -21,8 +21,8 @@ export default async function AboutPage({
       </section>
 
       {/* Data Source */}
-      <section className="rounded-2xl border bg-muted/30 p-8 space-y-3">
-        <h2 className="text-2xl font-bold">
+      <section className="rounded-2xl border bg-muted/30 p-6 shadow-ambient space-y-3">
+        <h2 className="text-2xl font-headline font-bold">
           {loc === 'bg' ? 'Данните' : 'The Data'}
         </h2>
         <p className="text-muted-foreground leading-relaxed">
@@ -57,13 +57,13 @@ export default async function AboutPage({
       </section>
 
       {/* Methodology */}
-      <section className="rounded-2xl border bg-muted/30 p-8 space-y-4">
-        <h2 className="text-2xl font-bold">
+      <section className="rounded-2xl border bg-muted/30 p-6 shadow-ambient space-y-4">
+        <h2 className="text-2xl font-headline font-bold">
           {loc === 'bg' ? 'Методология' : 'Methodology'}
         </h2>
         <ul className="space-y-3 text-muted-foreground leading-relaxed list-none">
           <li className="flex gap-3">
-            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-blue-500" />
+            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary" />
             <span>
               {loc === 'bg'
                 ? 'Данните се теглят от НСИ и се пресъздават директно в платформата.'
@@ -71,7 +71,7 @@ export default async function AboutPage({
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-blue-500" />
+            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary" />
             <span>
               {loc === 'bg'
                 ? 'Файловете с кодови списъци (codelists) свързват числовите и кодирани стойности с четими за хора означения — региони, възрастови групи, категории и др.'
@@ -79,7 +79,7 @@ export default async function AboutPage({
             </span>
           </li>
           <li className="flex gap-3">
-            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-blue-500" />
+            <span className="mt-1 shrink-0 w-2 h-2 rounded-full bg-primary" />
             <span>
               {loc === 'bg'
                 ? 'Данните се дедублират по ревизия — при наличие на няколко версии на един запис се показва само най-новата ревизия за всяка комбинация от измерения.'
@@ -90,8 +90,8 @@ export default async function AboutPage({
       </section>
 
       {/* Author */}
-      <section className="rounded-2xl border bg-muted/30 p-8 space-y-3">
-        <h2 className="text-2xl font-bold">
+      <section className="rounded-2xl border bg-muted/30 p-6 shadow-ambient space-y-3">
+        <h2 className="text-2xl font-headline font-bold">
           {loc === 'bg' ? 'Авторът' : 'The Author'}
         </h2>
         <p className="text-muted-foreground leading-relaxed">
@@ -102,7 +102,7 @@ export default async function AboutPage({
       </section>
 
       {/* Footer note */}
-      <footer className="text-center text-sm text-muted-foreground pt-6 pb-4 border-t">
+      <footer className="text-center text-sm text-muted-foreground pt-6 pb-4 border-t border-outline/20">
         {loc === 'bg' ? 'Данни от' : 'Data from'}{' '}
         <a
           href="https://www.nsi.bg"

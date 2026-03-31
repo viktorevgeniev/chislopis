@@ -8,7 +8,6 @@ import {
 import { categories } from '@/lib/data/categories';
 import {
   getAllDatasets,
-  getImplementedDatasets,
   getDatasetsByCategory,
   getDatasetsBySubcategory,
 } from '@/lib/data/datasetRegistry';
@@ -51,13 +50,13 @@ const cardStyles: Record<string, {
   bg: string; border: string; chip: string;
   iconBg: string; iconText: string; badge: string;
 }> = {
-  blue:    { bg: 'bg-blue-50',    border: 'border-blue-200',    chip: 'bg-blue-100 text-blue-700',    iconBg: 'bg-blue-600',    iconText: 'text-white', badge: 'bg-blue-100 text-blue-800'    },
-  green:   { bg: 'bg-green-50',   border: 'border-green-200',   chip: 'bg-green-100 text-green-700',  iconBg: 'bg-green-600',   iconText: 'text-white', badge: 'bg-green-100 text-green-800'  },
-  purple:  { bg: 'bg-purple-50',  border: 'border-purple-200',  chip: 'bg-purple-100 text-purple-700', iconBg: 'bg-purple-600', iconText: 'text-white', badge: 'bg-purple-100 text-purple-800' },
-  red:     { bg: 'bg-rose-50',    border: 'border-rose-200',    chip: 'bg-rose-100 text-rose-700',    iconBg: 'bg-rose-600',    iconText: 'text-white', badge: 'bg-rose-100 text-rose-800'    },
-  orange:  { bg: 'bg-amber-50',   border: 'border-amber-200',   chip: 'bg-amber-100 text-amber-700',  iconBg: 'bg-amber-500',   iconText: 'text-white', badge: 'bg-amber-100 text-amber-800'  },
-  indigo:  { bg: 'bg-indigo-50',  border: 'border-indigo-200',  chip: 'bg-indigo-100 text-indigo-700', iconBg: 'bg-indigo-600', iconText: 'text-white', badge: 'bg-indigo-100 text-indigo-800' },
-  emerald: { bg: 'bg-emerald-50', border: 'border-emerald-200', chip: 'bg-emerald-100 text-emerald-700', iconBg: 'bg-emerald-600', iconText: 'text-white', badge: 'bg-emerald-100 text-emerald-800' },
+  blue:    { bg: 'bg-cat-blue-bg',    border: 'border-cat-blue-border',    chip: 'bg-cat-blue-chip text-cat-blue-fg',       iconBg: 'bg-cat-blue-solid',    iconText: 'text-white', badge: 'bg-cat-blue-chip text-cat-blue-fg'    },
+  green:   { bg: 'bg-cat-green-bg',   border: 'border-cat-green-border',   chip: 'bg-cat-green-chip text-cat-green-fg',     iconBg: 'bg-cat-green-solid',   iconText: 'text-white', badge: 'bg-cat-green-chip text-cat-green-fg'  },
+  purple:  { bg: 'bg-cat-purple-bg',  border: 'border-cat-purple-border',  chip: 'bg-cat-purple-chip text-cat-purple-fg',   iconBg: 'bg-cat-purple-solid',  iconText: 'text-white', badge: 'bg-cat-purple-chip text-cat-purple-fg' },
+  red:     { bg: 'bg-cat-red-bg',     border: 'border-cat-red-border',     chip: 'bg-cat-red-chip text-cat-red-fg',         iconBg: 'bg-cat-red-solid',     iconText: 'text-white', badge: 'bg-cat-red-chip text-cat-red-fg'      },
+  orange:  { bg: 'bg-cat-orange-bg',  border: 'border-cat-orange-border',  chip: 'bg-cat-orange-chip text-cat-orange-fg',   iconBg: 'bg-cat-orange-solid',  iconText: 'text-white', badge: 'bg-cat-orange-chip text-cat-orange-fg' },
+  indigo:  { bg: 'bg-cat-indigo-bg',  border: 'border-cat-indigo-border',  chip: 'bg-cat-indigo-chip text-cat-indigo-fg',   iconBg: 'bg-cat-indigo-solid',  iconText: 'text-white', badge: 'bg-cat-indigo-chip text-cat-indigo-fg' },
+  emerald: { bg: 'bg-cat-emerald-bg', border: 'border-cat-emerald-border', chip: 'bg-cat-emerald-chip text-cat-emerald-fg', iconBg: 'bg-cat-emerald-solid', iconText: 'text-white', badge: 'bg-cat-emerald-chip text-cat-emerald-fg' },
 };
 
 export default async function CategoriesPage({
@@ -69,14 +68,13 @@ export default async function CategoriesPage({
   const loc = locale as 'bg' | 'en';
 
   const totalDatasets = getAllDatasets().length;
-  const implementedDatasets = getImplementedDatasets().length;
   const totalSubcategories = categories.flatMap((c) => c.subcategories ?? []).length;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       {/* Hero */}
       <section className="text-center space-y-4 py-10">
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           {loc === 'bg' ? 'Категории статистики' : 'Browse by Category'}
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -97,7 +95,7 @@ export default async function CategoriesPage({
           <div className="w-px h-8 bg-border" />
           <div className="text-center">
             <div className="text-2xl font-bold text-primary">
-              {implementedDatasets} / {totalDatasets}
+              {totalDatasets}
             </div>
             <div className="text-xs text-muted-foreground">{loc === 'bg' ? 'набора данни' : 'datasets'}</div>
           </div>
@@ -109,12 +107,11 @@ export default async function CategoriesPage({
         {categories.map((category) => {
           const style = cardStyles[category.color] ?? cardStyles.blue;
           const allDs = getDatasetsByCategory(category.id as CategoryId);
-          const implDs = allDs.filter((d) => d.customVisualization);
 
           return (
             <div
               key={category.id}
-              className={`rounded-2xl border-2 ${style.bg} ${style.border} overflow-hidden`}
+              className={`rounded-2xl border ${style.bg} ${style.border} overflow-hidden`}
             >
               {/* Category Header Row */}
               <Link href={`/${locale}/category/${category.id}`}>
@@ -132,7 +129,7 @@ export default async function CategoriesPage({
                   </div>
                   <div className="shrink-0 text-right">
                     <div className={`inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-full ${style.badge}`}>
-                      {implDs.length} / {allDs.length}
+                      {allDs.length}
                       <span className="hidden sm:inline font-normal opacity-70">
                         {loc === 'bg' ? ' набора' : ' datasets'}
                       </span>
@@ -150,14 +147,13 @@ export default async function CategoriesPage({
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                     {category.subcategories.map((sub) => {
                       const subAll = getDatasetsBySubcategory(category.id as CategoryId, sub.id);
-                      const subImpl = subAll.filter((d) => d.customVisualization);
                       return (
                         <Link
                           key={sub.id}
                           href={`/${locale}/category/${category.id}/${sub.id}`}
                           className="group/sub block"
                         >
-                          <div className="h-full flex flex-col rounded-xl border bg-white/70 hover:bg-white p-4 shadow-sm hover:shadow-md transition-all">
+                          <div className="h-full flex flex-col rounded-xl border bg-card/70 hover:bg-card p-4 shadow-sm hover:shadow-md transition-all">
                             <div className="flex items-center gap-2 mb-2">
                               <span className={`p-1.5 rounded-lg ${style.chip}`}>
                                 <Icon name={sub.icon} size={14} />
@@ -171,7 +167,7 @@ export default async function CategoriesPage({
                             </p>
                             <div className="mt-3 flex items-center justify-between">
                               <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${style.chip}`}>
-                                {subImpl.length} / {subAll.length}
+                                {subAll.length}
                                 {' '}{loc === 'bg' ? 'набора' : 'datasets'}
                               </span>
                               <span className="text-xs text-muted-foreground group-hover/sub:translate-x-0.5 transition-transform">→</span>

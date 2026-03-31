@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitch } from './LanguageSwitch';
 import { HeaderSearch } from '@/components/search/HeaderSearch';
@@ -12,41 +13,36 @@ interface HeaderProps {
 export function Header({ locale }: HeaderProps) {
   const t = useTranslations('common');
   const nav = useTranslations('nav');
+  const pathname = usePathname();
 
   return (
-    <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="border-b border-outline/20 bg-white/80 dark:bg-background/80 backdrop-blur-md sticky top-0 z-50">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 h-20 flex items-center justify-between">
         <Link href={`/${locale}`} className="flex items-center space-x-2">
-          <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+          <span className="text-2xl font-headline font-extrabold text-primary">
             {t('appName')}
           </span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <Link
-            href={`/${locale}`}
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {nav('home')}
-          </Link>
-          <Link
-            href={`/${locale}/stories`}
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {nav('stories')}
-          </Link>
-          <Link
-            href={`/${locale}/categories`}
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {nav('categories')}
-          </Link>
-          <Link
-            href={`/${locale}/about`}
-            className="text-sm font-medium transition-colors hover:text-primary"
-          >
-            {nav('about')}
-          </Link>
+          {[
+            { href: `/${locale}`, label: nav('home') },
+            { href: `/${locale}/stories`, label: nav('stories') },
+            { href: `/${locale}/categories`, label: nav('categories') },
+            { href: `/${locale}/about`, label: nav('about') },
+          ].map(({ href, label }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`text-sm font-medium tracking-wide transition-colors hover:text-primary${isActive ? ' text-primary' : ''}`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4">

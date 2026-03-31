@@ -1381,7 +1381,3 @@ export function searchDatasets(query: string, locale: 'bg' | 'en'): Dataset[] {
     dataset.description[locale].toLowerCase().includes(lowerQuery)
   );
 }
-
-export function getImplementedDatasets(): Dataset[] {
-  return datasetRegistry.filter(dataset => dataset.customVisualization);
-}

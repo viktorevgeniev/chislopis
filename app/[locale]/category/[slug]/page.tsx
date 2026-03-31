@@ -31,7 +31,7 @@ export default async function CategoryPage({
     <div className="space-y-8">
       {/* Category Header */}
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold">{category.name[loc]}</h1>
+        <h1 className="text-4xl font-headline font-bold">{category.name[loc]}</h1>
         <p className="text-lg text-muted-foreground">
           {category.description[loc]}
         </p>
@@ -51,8 +51,8 @@ export default async function CategoryPage({
                 href={`/${locale}/category/${slug}/${sub.id}`}
                 className="group block"
               >
-                <div className="rounded-xl border bg-card p-6 shadow-sm transition-all duration-200 hover:shadow-lg hover:scale-[1.02] hover:border-primary/50">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                <div className="rounded-xl border bg-card p-6 shadow-ambient transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/50">
+                  <h3 className="text-xl font-headline font-semibold mb-2 group-hover:text-primary transition-colors">
                     {sub.name[loc]}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-4">

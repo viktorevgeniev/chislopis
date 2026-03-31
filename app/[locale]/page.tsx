@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { CategoryNav } from '@/components/layout/CategoryNav';
 import { DatasetSearch } from '@/components/search/DatasetSearch';
-import { getAllDatasets, getImplementedDatasets } from '@/lib/data/datasetRegistry';
+import { getAllDatasets } from '@/lib/data/datasetRegistry';
 import { StorySnippet } from '@/components/StorySnippet';
 import { DiscoverMore } from '@/components/DiscoverMore';
 import { categories } from '@/lib/data/categories';
@@ -10,26 +10,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations('home');
   const datasets = getAllDatasets();
-  const implemented = getImplementedDatasets();
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       {/* Hero Section */}
-      <section className="text-center space-y-4 py-12">
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+      <section className="text-center space-y-6 py-16 md:py-24">
+        <h1 className="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-foreground animate-fade-up">
           {t('title')}
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-up delay-100">
           {t('subtitle')}
         </p>
-        <DatasetSearch locale={locale as 'bg' | 'en'} />
-        <div className="flex items-center justify-center gap-4 pt-4">
+        <div className="animate-fade-up delay-200">
+          <DatasetSearch locale={locale as 'bg' | 'en'} />
+        </div>
+        <div className="flex items-center justify-center gap-4 pt-4 animate-fade-up delay-300">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary">
-              {implemented.length} / {datasets.length}
-            </div>
             <div className="text-sm text-muted-foreground">
-              {t('datasetsCount', { implemented: implemented.length, count: datasets.length })}
+              {t('datasetsCount', { count: datasets.length })}
             </div>
           </div>
         </div>
@@ -41,7 +39,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* Categories Section */}
       <section className="space-y-6">
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-2">{t('explore')}</h2>
+          <h2 className="text-3xl font-headline font-bold mb-2">{t('explore')}</h2>
           <p className="text-muted-foreground">
             Select a category to view interactive visualizations
           </p>
@@ -53,7 +51,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <DiscoverMore locale={locale as 'bg' | 'en'} categories={categories} />
 
       {/* Footer */}
-      <footer className="text-center text-sm text-muted-foreground pt-12 pb-6 border-t">
+      <footer className="text-center text-sm text-muted-foreground pt-16 pb-8 border-t border-outline/20">
         <p>
           Data source:{' '}
           <a

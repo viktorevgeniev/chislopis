@@ -70,10 +70,10 @@
     "readStory": "Read story"
   },
   "home": {
-    "title": "Statistical Data Visualization",
-    "subtitle": "Interactive charts and maps based on data from the National Statistical Institute",
+    "title": "Bulgaria in numbers and data",
+    "subtitle": "Interactive charts and maps",
     "explore": "Explore Categories",
-    "datasetsCount": "{implemented} of {count} datasets implemented",
+    "datasetsCount": "{count} datasets",
     "featuredInsight": "Featured Insight",
     "featuredStory": "Featured Story",
     "readStory": "Read this story",

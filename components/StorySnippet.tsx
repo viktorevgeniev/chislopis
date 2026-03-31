@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { TrendingUp, TrendingDown, Minus, ArrowRight } from 'lucide-react';
+import { TrendingUp, TrendingDown, Minus, ArrowRight, BarChart3 } from 'lucide-react';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { getRandomStory } from '@/lib/data/stories';
 import type { Story } from '@/types/story';
 
@@ -29,78 +31,96 @@ export function StorySnippet({ locale }: StorySnippetProps) {
         ? TrendingDown
         : Minus;
 
-  const trendColor =
-    story.trend === 'up'
-      ? 'text-rose-500'
-      : story.trend === 'down'
-        ? 'text-emerald-500'
-        : 'text-muted-foreground';
+  const trendColor = 'text-foreground';
 
   return (
     <section>
-      <div className="mb-4 flex items-center gap-2">
-        <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+      {/* Featured Story badge */}
+      <div className="mb-6">
+        <span className="inline-flex items-center px-3 py-1 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase">
+          <span className="mr-1.5">&#10022;</span>
           {t('featuredStory')}
         </span>
-        <div className="h-px flex-1 bg-border" />
       </div>
 
-      <Link href={`/${locale}/stories/${story.slug}`}>
-        <div className="rounded-2xl border border-blue-200 bg-blue-50 dark:bg-blue-950/20 dark:border-blue-900 p-6 md:p-8 transition-all hover:shadow-lg cursor-pointer">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            {/* Main content */}
-            <div className="flex-1 space-y-3">
-              <h2 className="text-xl font-bold text-foreground">
-                {story.title[locale]}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {story.description[locale]}
-              </p>
+      {/* Big editorial header */}
+      <div className="mb-8">
+        <h2 className="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter text-foreground leading-[1.05] mb-4">
+          {story.title[locale]}
+        </h2>
+        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+          {story.description[locale]}
+        </p>
+      </div>
 
-              {/* Steps table of contents */}
-              <div className="pt-2 space-y-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  {t('storySteps')}
-                </span>
-                <ol className="space-y-0.5">
-                  {story.steps.map((step, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-muted-foreground flex items-baseline gap-2"
-                    >
-                      <span className="text-xs font-medium text-primary/60">
-                        {i + 1}.
-                      </span>
-                      {step.title[locale]}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              <div className="inline-flex items-center gap-1.5 text-sm font-medium text-primary pt-1">
-                {t('readStory')} <ArrowRight className="h-4 w-4" />
-              </div>
-            </div>
-
-            {/* Stat badge */}
+      {/* Bento grid: hero metric + chapters sidebar */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Hero Metric Card */}
+        <div className="lg:col-span-8 bg-card rounded-xl overflow-hidden relative shadow-ambient border border-outline/10">
+          <div className="p-8 md:p-12 flex flex-col justify-between h-full">
+            {/* Stat */}
             {story.highlightValue && (
-              <div className="flex flex-col items-center md:items-end gap-2 shrink-0">
-                <div className="text-4xl font-bold tabular-nums text-primary">
-                  {story.highlightValue}
+              <div>
+                <div className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-2 opacity-80">
+                  {t('storySteps')}
+                </div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-7xl md:text-8xl font-extrabold font-headline tracking-tighter text-foreground">
+                    {story.highlightValue}
+                  </span>
                 </div>
                 {story.trend && (
-                  <div
-                    className={`flex items-center gap-1 text-sm font-medium ${trendColor}`}
-                  >
-                    <TrendIcon className="h-4 w-4" />
-                    {story.trend === 'up' ? t('trendUp') : story.trend === 'down' ? t('trendDown') : ''}
+                  <div className={`flex items-center gap-2 mt-3 font-semibold ${trendColor}`}>
+                    <TrendIcon
+                      className="w-5 h-5"
+                      aria-label={story.trend === 'up' ? t('trendUp') : story.trend === 'down' ? t('trendDown') : undefined}
+                    />
+                    <span className="text-base tracking-tight">
+                      {story.trend === 'up' ? t('trendUp') : story.trend === 'down' ? t('trendDown') : ''}
+                    </span>
                   </div>
                 )}
               </div>
             )}
+
+            {/* CTA buttons */}
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href={`/${locale}/stories/${story.slug}`}
+                className={cn(buttonVariants({ size: 'lg' }), 'font-headline gap-2')}
+              >
+                {t('readStory')}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </div>
-      </Link>
+
+        {/* Side: In This Story */}
+        <div className="lg:col-span-4 flex flex-col gap-6">
+          <div className="bg-card p-6 md:p-8 rounded-xl flex-grow shadow-ambient border border-outline/10">
+            <h3 className="font-headline text-xl font-bold mb-5 flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-primary" />
+              {t('storySteps')}
+            </h3>
+            <nav className="space-y-3">
+              {story.steps.map((step, i) => (
+                <div
+                  key={i}
+                  className="block p-3 bg-muted rounded-lg"
+                >
+                  <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
+                    {locale === 'bg' ? 'Глава' : 'Chapter'} {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div className="text-base font-bold font-headline text-foreground">
+                    {step.title[locale]}
+                  </div>
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

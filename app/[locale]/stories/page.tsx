@@ -16,7 +16,7 @@ export default async function StoriesPage({
   return (
     <div className="space-y-8">
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">{t('allStories')}</h1>
+        <h1 className="text-4xl font-headline font-bold">{t('allStories')}</h1>
         <p className="text-muted-foreground">{t('allStoriesSubtitle')}</p>
       </div>
 
@@ -30,16 +30,16 @@ export default async function StoriesPage({
                 : Minus;
           const trendColor =
             story.trend === 'up'
-              ? 'text-rose-500'
+              ? 'text-destructive'
               : story.trend === 'down'
-                ? 'text-emerald-500'
+                ? 'text-secondary'
                 : 'text-muted-foreground';
 
           return (
             <Link key={story.slug} href={`/${locale}/stories/${story.slug}`}>
-              <div className="h-full flex flex-col rounded-2xl border p-6 transition-all hover:shadow-lg hover:border-primary/30 cursor-pointer">
+              <div className="h-full flex flex-col rounded-2xl border p-6 shadow-ambient transition-all hover:-translate-y-0.5 hover:shadow-lg hover:border-primary/30 cursor-pointer">
                 <div className="flex items-start justify-between gap-4 mb-3">
-                  <h2 className="text-lg font-bold">{story.title[loc]}</h2>
+                  <h2 className="text-lg font-headline font-bold">{story.title[loc]}</h2>
                   {story.highlightValue && (
                     <div className="flex flex-col items-end shrink-0">
                       <span className="text-2xl font-bold tabular-nums text-primary">
