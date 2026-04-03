@@ -46,7 +46,7 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
 
   // Apply focusFilter, then build and push the ECharts option
   const applyStepToChart = useCallback(
-    (step: StoryStep, normalized: NormalizedData) => {
+    (step: StoryStep, normalized: NormalizedData, loc: 'bg' | 'en') => {
       // 1. Filter rows
       let rows: Record<string, unknown>[] = normalized.rows as Record<string, unknown>[];
       if (step.focusFilter) {
@@ -101,6 +101,21 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
         };
       }
 
+      // Translate series names based on locale
+      if (step.chartTranslations) {
+        const tr = (eng: string): string => {
+          const entry = step.chartTranslations![eng];
+          return entry ? entry[loc] : eng;
+        };
+        if (Array.isArray(option.series)) {
+          for (const s of option.series as Array<{ name?: string }>) {
+            if (s.name && step.chartTranslations[s.name]) {
+              s.name = tr(s.name);
+            }
+          }
+        }
+      }
+
       chartRef.current?.setOption(option, { notMerge: false });
     },
     [],
@@ -111,7 +126,7 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
     async (step: StoryStep, stepIndex: number) => {
       const cached = dataCache.current.get(step.datasetId);
       if (cached) {
-        applyStepToChart(step, cached);
+        applyStepToChart(step, cached, locale);
         return;
       }
 
@@ -124,7 +139,7 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
         const json = await res.json();
         const normalized: NormalizedData = json.data.data;
         dataCache.current.set(step.datasetId, normalized);
-        applyStepToChart(step, normalized);
+        applyStepToChart(step, normalized, locale);
       } catch (err) {
         console.error('StoryEngine: failed to fetch', step.datasetId, err);
       } finally {

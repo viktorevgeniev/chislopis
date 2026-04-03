@@ -25,6 +25,12 @@ export interface StoryStep {
    * tell the engine which columns to use for x and y values.
    */
   seriesGroupBy?: string;
+  /**
+   * Maps English strings (series names, axis names) to locale-specific
+   * translations. The engine replaces these at render time based on locale.
+   * Keys are the English strings as they appear in echartsConfig or data.
+   */
+  chartTranslations?: Record<string, { bg: string; en: string }>;
 }
 
 export interface Story {

@@ -76,7 +76,16 @@
       "Bash(git checkout:*)",
       "Bash(git branch:*)",
       "Bash(git diff:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(sed \"s/''''//g\")",
+      "Bash(sort -t',' -k6 -rn)",
+      "Bash(for id:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/vikto/Documents/chislopis/source_data/nsi/**)",
+      "Read(//c/Users/vikto/Documents/chislopis/**)",
+      "Bash(__NEW_LINE_c8f6d2645ca2373e__ echo:*)",
+      "Bash(tail -5 \"c:/Users/vikto/Documents/chislopis/source_data/nsi/612/\"*data.csv)",
+      "Bash(sort -t',' -k6 -n)"
     ]
   },
   "enabledPlugins": {

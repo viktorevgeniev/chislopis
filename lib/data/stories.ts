@@ -68,6 +68,9 @@ export const STORIES: Story[] = [
           Gender_Code: '0',
           Age: 'Total',
         },
+        chartTranslations: {
+          'Population': { bg: 'Население', en: 'Population' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: { trigger: 'axis' },
@@ -106,6 +109,10 @@ export const STORIES: Story[] = [
           Age: 'Total',
         },
         seriesGroupBy: 'Gender',
+        chartTranslations: {
+          'Male': { bg: 'Мъже', en: 'Male' },
+          'Female': { bg: 'Жени', en: 'Female' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -141,6 +148,10 @@ export const STORIES: Story[] = [
           Residence_Code: ['1', '2'],
         },
         seriesGroupBy: 'Residence',
+        chartTranslations: {
+          'Urban': { bg: 'В градовете', en: 'Urban' },
+          'Rural': { bg: 'В селата', en: 'Rural' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
           legend: {},
@@ -170,6 +181,9 @@ export const STORIES: Story[] = [
         focusFilter: {
           EKATTE_Code: 'BG',
           Gender_Code: '0',
+        },
+        chartTranslations: {
+          'Live Births': { bg: 'Живородени', en: 'Live Births' },
         },
         echartsConfig: {
           dataset: { source: '__injected__' },
@@ -222,6 +236,9 @@ export const STORIES: Story[] = [
         focusFilter: {
           Age10_LFS: 'Total',
           Gender_Code: '0',
+        },
+        chartTranslations: {
+          'Unemployment Rate': { bg: 'Безработица', en: 'Unemployment Rate' },
         },
         echartsConfig: {
           dataset: { source: '__injected__' },
@@ -292,6 +309,10 @@ export const STORIES: Story[] = [
           Gender_Code: ['1', '2'],
         },
         seriesGroupBy: 'Gender',
+        chartTranslations: {
+          'Male': { bg: 'Мъже', en: 'Male' },
+          'Female': { bg: 'Жени', en: 'Female' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -325,6 +346,11 @@ export const STORIES: Story[] = [
           LFS_EDUlevel_Code: ['1', '2', '4'],
         },
         seriesGroupBy: 'LFS_EDUlevel',
+        chartTranslations: {
+          'Higher': { bg: 'Висше', en: 'Higher' },
+          'Upper secondary': { bg: 'Средно', en: 'Upper secondary' },
+          'Primary or lower': { bg: 'Основно и по-ниско', en: 'Primary or lower' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -372,6 +398,9 @@ export const STORIES: Story[] = [
         focusFilter: {
           Gender_Code: '0',
         },
+        chartTranslations: {
+          'Poverty Rate': { bg: 'Риск от бедност', en: 'Poverty Rate' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: {
@@ -410,6 +439,10 @@ export const STORIES: Story[] = [
           Gender_Code: ['1', '2'],
         },
         seriesGroupBy: 'Gender',
+        chartTranslations: {
+          'Male': { bg: 'Мъже', en: 'Male' },
+          'Female': { bg: 'Жени', en: 'Female' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -449,6 +482,11 @@ export const STORIES: Story[] = [
           SILC_Age_Code: ['1', '2', '3'],
         },
         seriesGroupBy: 'SILC_Age',
+        chartTranslations: {
+          'Less than 18 years': { bg: 'Под 18 години', en: 'Less than 18 years' },
+          'Between 18 and 64 years': { bg: 'Между 18 и 64 години', en: 'Between 18 and 64 years' },
+          '65 years and over': { bg: '65 и повече години', en: '65 years and over' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -483,6 +521,9 @@ export const STORIES: Story[] = [
         focusFilter: {
           Gender_Code: '0',
           SILC_Age_Code: '9',
+        },
+        chartTranslations: {
+          'In-Work Poverty Rate': { bg: 'Бедност сред работещите', en: 'In-Work Poverty Rate' },
         },
         echartsConfig: {
           dataset: { source: '__injected__' },
@@ -522,6 +563,14 @@ export const STORIES: Story[] = [
           NUTS_Code: ['BG31', 'BG32', 'BG33', 'BG34', 'BG41', 'BG42'],
         },
         seriesGroupBy: 'NUTS',
+        chartTranslations: {
+          'Severozapaden': { bg: 'Северозападен', en: 'Severozapaden' },
+          'Severen tsentralen': { bg: 'Северен централен', en: 'Severen tsentralen' },
+          'Severoiztochen': { bg: 'Североизточен', en: 'Severoiztochen' },
+          'Yugoiztochen': { bg: 'Югоизточен', en: 'Yugoiztochen' },
+          'Yugozapaden': { bg: 'Югозападен', en: 'Yugozapaden' },
+          'Yuzhen tsentralen': { bg: 'Южен централен', en: 'Yuzhen tsentralen' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -599,6 +648,9 @@ export const STORIES: Story[] = [
             },
           ],
         },
+        chartTranslations: {
+          'Average Wage': { bg: 'Средна заплата', en: 'Average Wage' },
+        },
       },
       {
         title: {
@@ -615,6 +667,10 @@ export const STORIES: Story[] = [
           Ownership_Code: ['1', '2'],
         },
         seriesGroupBy: 'Ownership',
+        chartTranslations: {
+          'Public sector': { bg: 'Публичен сектор', en: 'Public sector' },
+          'Private sector': { bg: 'Частен сектор', en: 'Private sector' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -652,6 +708,9 @@ export const STORIES: Story[] = [
             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
           ],
         },
+        chartTranslations: {
+          'Annual Wage (2024)': { bg: 'Годишна заплата (2024)', en: 'Annual Wage (2024)' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: { trigger: 'axis' },
@@ -688,6 +747,10 @@ export const STORIES: Story[] = [
           NACE2008A21_Code: ['J', 'I'],
         },
         seriesGroupBy: 'NACE2008A21',
+        chartTranslations: {
+          'Information and communication': { bg: 'Информация и комуникация', en: 'Information and communication' },
+          'Accommodation and food service activities': { bg: 'Хотелиерство и ресторантьорство', en: 'Accommodation and food service activities' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -742,6 +805,9 @@ export const STORIES: Story[] = [
           BUILD_Permit1_Code: '4',
           periods_name_Code: 'Q1',
         },
+        chartTranslations: {
+          'Residential Permits (Q1)': { bg: 'Жилищни разрешителни (Q1)', en: 'Residential Permits (Q1)' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: { trigger: 'axis' },
@@ -774,6 +840,11 @@ export const STORIES: Story[] = [
           periods_name_Code: 'Q1',
         },
         seriesGroupBy: 'BUILD_Permit',
+        chartTranslations: {
+          'Residential buildings': { bg: 'Жилищни сгради', en: 'Residential buildings' },
+          'Administrative buildings': { bg: 'Административни сгради', en: 'Administrative buildings' },
+          'Other buildings': { bg: 'Други сгради', en: 'Other buildings' },
+        },
         echartsConfig: {
           tooltip: { trigger: 'axis' },
           legend: {},
@@ -802,6 +873,9 @@ export const STORIES: Story[] = [
           BUILD_Permit_Code: '1',
           BUILD_Permit1_Code: '5',
           periods_name_Code: 'Q1',
+        },
+        chartTranslations: {
+          'Dwellings in Permits (Q1)': { bg: 'Жилища в разрешителни (Q1)', en: 'Dwellings in Permits (Q1)' },
         },
         echartsConfig: {
           dataset: { source: '__injected__' },
@@ -834,6 +908,9 @@ export const STORIES: Story[] = [
           BUILD_Permit1_Code: '4',
           periods_name_Code: 'Q1',
           Year: '2024',
+        },
+        chartTranslations: {
+          'Residential Permits Q1 2024': { bg: 'Жилищни разрешителни Q1 2024', en: 'Residential Permits Q1 2024' },
         },
         echartsConfig: {
           dataset: { source: '__injected__' },
@@ -883,6 +960,9 @@ export const STORIES: Story[] = [
             '2014', '2015', '2016', '2017', '2018', '2019', '2020',
           ],
         },
+        chartTranslations: {
+          'Total Arrivals': { bg: 'Общо пристигания', en: 'Total Arrivals' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: {
@@ -927,6 +1007,11 @@ export const STORIES: Story[] = [
           ],
         },
         seriesGroupBy: 'Indicators',
+        chartTranslations: {
+          'Arrivals of visitors from abroad to Bulgaria holiday and recreation purpose': { bg: 'Почивка и отдих', en: 'Holiday and recreation' },
+          'Arrivals of visitors from abroad to Bulgaria by professional purpose': { bg: 'Делова цел', en: 'Professional purpose' },
+          'Arrivals of visitors from abroad to Bulgaria by other purposes': { bg: 'Други цели', en: 'Other purposes' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -964,6 +1049,9 @@ export const STORIES: Story[] = [
           Year: '2019',
           Countries_TOUR_Code: ['RO', 'TR', 'RS', 'UA', 'RoW', 'RU', 'PL', 'DE', 'GR', 'GB'],
         },
+        chartTranslations: {
+          'Arrivals': { bg: 'Пристигания', en: 'Arrivals' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: {
@@ -999,6 +1087,12 @@ export const STORIES: Story[] = [
           ],
         },
         seriesGroupBy: 'Countries_TOUR',
+        chartTranslations: {
+          'Romania': { bg: 'Румъния', en: 'Romania' },
+          'Germany': { bg: 'Германия', en: 'Germany' },
+          'Russian Federation': { bg: 'Русия', en: 'Russian Federation' },
+          'Turkiye': { bg: 'Турция', en: 'Turkiye' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -1051,6 +1145,9 @@ export const STORIES: Story[] = [
         focusFilter: {
           Indicators_Code: '3.1.2.4.3.0.1',
         },
+        chartTranslations: {
+          'Total Assets': { bg: 'Общо активи', en: 'Total Assets' },
+        },
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: {
@@ -1096,6 +1193,12 @@ export const STORIES: Story[] = [
           ],
         },
         seriesGroupBy: 'Indicators',
+        chartTranslations: {
+          'Financial assets issued by issuers headquarters in the Republic of Bulgaria': { bg: 'Финансови активи — емитенти в България', en: 'Domestic financial assets' },
+          'Financial assets issued by issuers headquarters  outside the Republic of Bulgaria': { bg: 'Финансови активи — емитенти в чужбина', en: 'Foreign financial assets' },
+          'Deposits in banks': { bg: 'Банкови депозити', en: 'Deposits in banks' },
+          'Investment estate': { bg: 'Инвестиционни имоти', en: 'Investment estate' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -1133,6 +1236,10 @@ export const STORIES: Story[] = [
           Indicators_Code: ['3.1.2.4.3.0.1', '3.1.2.4.3.0.2'],
         },
         seriesGroupBy: 'Indicators',
+        chartTranslations: {
+          'Total Assets': { bg: 'Общо активи', en: 'Total Assets' },
+          'Total Liabilities': { bg: 'Общо задължения', en: 'Total Liabilities' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
@@ -1168,6 +1275,10 @@ export const STORIES: Story[] = [
           Indicators_Code: ['3.1.2.4.1.0.2.1', '3.1.2.4.1.0.1.1'],
         },
         seriesGroupBy: 'Indicators',
+        chartTranslations: {
+          'Total revenues': { bg: 'Общо приходи', en: 'Total revenues' },
+          'Total expenditure': { bg: 'Общо разходи', en: 'Total expenditure' },
+        },
         echartsConfig: {
           tooltip: {
             trigger: 'axis',
