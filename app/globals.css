@@ -40,13 +40,13 @@
     --chart-5: 170 90% 71%;
 
     /* Categorical color palette (7 slots for category cards) */
-    --cat-blue-bg: 214 100% 97%; --cat-blue-border: 214 95% 87%; --cat-blue-chip: 214 95% 93%; --cat-blue-fg: 221 76% 45%; --cat-blue-solid: 221 83% 53%;
-    --cat-green-bg: 138 76% 97%; --cat-green-border: 140 76% 84%; --cat-green-chip: 140 76% 92%; --cat-green-fg: 142 72% 40%; --cat-green-solid: 142 76% 44%;
-    --cat-purple-bg: 270 100% 98%; --cat-purple-border: 268 100% 93%; --cat-purple-chip: 269 100% 96%; --cat-purple-fg: 273 72% 54%; --cat-purple-solid: 271 91% 65%;
-    --cat-red-bg: 355 100% 97%; --cat-red-border: 353 96% 89%; --cat-red-chip: 354 100% 94%; --cat-red-fg: 347 77% 45%; --cat-red-solid: 347 77% 50%;
-    --cat-orange-bg: 48 100% 96%; --cat-orange-border: 45 97% 84%; --cat-orange-chip: 48 96% 89%; --cat-orange-fg: 32 95% 40%; --cat-orange-solid: 38 92% 50%;
-    --cat-indigo-bg: 226 100% 97%; --cat-indigo-border: 228 100% 92%; --cat-indigo-chip: 226 100% 95%; --cat-indigo-fg: 239 68% 58%; --cat-indigo-solid: 239 84% 67%;
-    --cat-emerald-bg: 151 81% 96%; --cat-emerald-border: 152 76% 84%; --cat-emerald-chip: 152 81% 92%; --cat-emerald-fg: 161 64% 40%; --cat-emerald-solid: 161 71% 46%;
+    --cat-blue-bg: 206 100% 97%; --cat-blue-border: 206 90% 85%; --cat-blue-chip: 206 90% 92%; --cat-blue-fg: 206 100% 28%; --cat-blue-solid: 206 100% 24%;
+    --cat-green-bg: 248 80% 97%; --cat-green-border: 248 60% 88%; --cat-green-chip: 248 70% 93%; --cat-green-fg: 248 40% 40%; --cat-green-solid: 248 25% 52%;
+    --cat-purple-bg: 200 100% 97%; --cat-purple-border: 200 90% 84%; --cat-purple-chip: 200 90% 91%; --cat-purple-fg: 200 100% 30%; --cat-purple-solid: 200 100% 31%;
+    --cat-red-bg: 166 100% 97%; --cat-red-border: 166 80% 83%; --cat-red-chip: 166 80% 91%; --cat-red-fg: 166 100% 28%; --cat-red-solid: 166 100% 38%;
+    --cat-orange-bg: 184 100% 97%; --cat-orange-border: 184 90% 83%; --cat-orange-chip: 184 90% 91%; --cat-orange-fg: 184 100% 27%; --cat-orange-solid: 184 100% 33%;
+    --cat-indigo-bg: 308 80% 97%; --cat-indigo-border: 308 60% 88%; --cat-indigo-chip: 308 70% 93%; --cat-indigo-fg: 308 55% 42%; --cat-indigo-solid: 308 41% 63%;
+    --cat-emerald-bg: 326 100% 97%; --cat-emerald-border: 326 80% 88%; --cat-emerald-chip: 326 90% 93%; --cat-emerald-fg: 326 65% 42%; --cat-emerald-solid: 326 80% 74%;
   }
 
   .dark {
@@ -85,13 +85,13 @@
     --chart-5: 174 50% 60%;
 
     /* Categorical color palette — dark */
-    --cat-blue-bg: 222 47% 10%; --cat-blue-border: 219 56% 27%; --cat-blue-chip: 222 39% 16%; --cat-blue-fg: 213 97% 76%; --cat-blue-solid: 221 82% 58%;
-    --cat-green-bg: 143 35% 10%; --cat-green-border: 145 47% 24%; --cat-green-chip: 143 28% 16%; --cat-green-fg: 142 77% 67%; --cat-green-solid: 142 72% 50%;
-    --cat-purple-bg: 270 35% 10%; --cat-purple-border: 268 48% 26%; --cat-purple-chip: 270 28% 16%; --cat-purple-fg: 272 87% 77%; --cat-purple-solid: 271 91% 70%;
-    --cat-red-bg: 356 35% 10%; --cat-red-border: 353 50% 26%; --cat-red-chip: 355 28% 16%; --cat-red-fg: 350 87% 74%; --cat-red-solid: 348 77% 56%;
-    --cat-orange-bg: 38 35% 10%; --cat-orange-border: 37 50% 26%; --cat-orange-chip: 40 30% 16%; --cat-orange-fg: 38 97% 72%; --cat-orange-solid: 38 90% 56%;
-    --cat-indigo-bg: 228 35% 10%; --cat-indigo-border: 228 53% 26%; --cat-indigo-chip: 228 28% 16%; --cat-indigo-fg: 234 89% 78%; --cat-indigo-solid: 238 84% 70%;
-    --cat-emerald-bg: 158 35% 10%; --cat-emerald-border: 160 47% 24%; --cat-emerald-chip: 160 28% 16%; --cat-emerald-fg: 161 72% 69%; --cat-emerald-solid: 161 71% 52%;
+    --cat-blue-bg: 206 47% 10%; --cat-blue-border: 206 60% 27%; --cat-blue-chip: 206 40% 16%; --cat-blue-fg: 206 97% 74%; --cat-blue-solid: 206 80% 58%;
+    --cat-green-bg: 248 35% 10%; --cat-green-border: 248 35% 28%; --cat-green-chip: 248 28% 16%; --cat-green-fg: 248 65% 80%; --cat-green-solid: 248 35% 62%;
+    --cat-purple-bg: 200 47% 10%; --cat-purple-border: 200 58% 27%; --cat-purple-chip: 200 40% 16%; --cat-purple-fg: 200 97% 73%; --cat-purple-solid: 200 80% 56%;
+    --cat-red-bg: 166 47% 10%; --cat-red-border: 166 55% 26%; --cat-red-chip: 166 40% 16%; --cat-red-fg: 166 97% 72%; --cat-red-solid: 166 75% 52%;
+    --cat-orange-bg: 184 47% 10%; --cat-orange-border: 184 58% 26%; --cat-orange-chip: 184 40% 16%; --cat-orange-fg: 184 97% 72%; --cat-orange-solid: 184 80% 52%;
+    --cat-indigo-bg: 308 35% 10%; --cat-indigo-border: 308 42% 28%; --cat-indigo-chip: 308 28% 16%; --cat-indigo-fg: 308 65% 80%; --cat-indigo-solid: 308 41% 68%;
+    --cat-emerald-bg: 326 35% 10%; --cat-emerald-border: 326 50% 28%; --cat-emerald-chip: 326 28% 16%; --cat-emerald-fg: 326 80% 85%; --cat-emerald-solid: 326 75% 74%;
   }
 }
 
