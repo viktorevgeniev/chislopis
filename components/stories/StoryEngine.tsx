@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { getDatasetById } from '@/lib/data/datasetRegistry';
 import { getStoryBySlug, getNextStory } from '@/lib/data/stories';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { StoryChart, type StoryChartHandle } from './StoryChart';
 import { StoryStepCard } from './StoryStepCard';
 import { cn } from '@/lib/utils';
@@ -116,7 +116,7 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
         }
       }
 
-      chartRef.current?.setOption(option, { notMerge: false });
+      chartRef.current?.setOption(option, { notMerge: true });
     },
     [],
   );
@@ -189,16 +189,15 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
 
   return (
     <div className="relative">
-      {/* Story header */}
-      <div className="mb-8 space-y-2">
-        <h1 className="text-3xl font-bold">{story.title[locale]}</h1>
-        <p className="text-muted-foreground">{story.description[locale]}</p>
-      </div>
-
       {/* Two-column layout */}
       <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
-        {/* Left: sticky chart */}
+        {/* Left: sticky chart + header */}
         <div className="lg:sticky lg:top-20 mb-6 lg:mb-0">
+          {/* Story header */}
+          <div className="mb-4 space-y-1">
+            <h1 className="text-3xl font-bold">{story.title[locale]}</h1>
+            <p className="text-muted-foreground">{story.description[locale]}</p>
+          </div>
           <StoryChart
             ref={chartRef}
             isLoading={loadingSteps.has(activeIndex)}
@@ -251,29 +250,56 @@ export function StoryEngine({ slug, locale }: StoryEngineProps) {
         </div>
       </div>
 
-      {/* Next Story footer */}
+      {/* Story footer: Explore Dataset + Next Story */}
       {(() => {
         const nextStory = getNextStory(slug);
-        if (!nextStory) return null;
+        const firstStep = story.steps[0];
+        const exploreUrl = getDatasetUrl(firstStep);
+        const dataset = getDatasetById(firstStep.datasetId);
+
         return (
-          <div className="mt-16 max-w-md mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              {t('nextStory')}
-            </span>
-            <Link
-              href={`/${locale}/stories/${nextStory.slug}`}
-              className="mt-2 flex items-center gap-4 rounded-xl border p-4 transition-all hover:shadow-lg hover:border-primary/30"
-            >
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-foreground truncate">
-                  {nextStory.title[locale]}
-                </h3>
-                <p className="text-sm text-muted-foreground truncate">
-                  {nextStory.description[locale]}
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground" />
-            </Link>
+          <div className="mt-16 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Explore Dataset card */}
+              <Link
+                href={exploreUrl}
+                className="flex items-center gap-4 rounded-xl border p-4 transition-all hover:shadow-lg hover:border-primary/30"
+              >
+                <div className="flex-1 min-w-0">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    {t('exploreDataset')}
+                  </span>
+                  <h3 className="mt-1 font-semibold text-foreground truncate">
+                    {dataset?.title[locale] ?? firstStep.title[locale]}
+                  </h3>
+                  <p className="text-sm text-muted-foreground truncate">
+                    {t('viewFullDataset')}
+                  </p>
+                </div>
+                <ExternalLink className="h-5 w-5 shrink-0 text-muted-foreground" />
+              </Link>
+
+              {/* Next Story card */}
+              {nextStory && (
+                <Link
+                  href={`/${locale}/stories/${nextStory.slug}`}
+                  className="flex items-center gap-4 rounded-xl border p-4 transition-all hover:shadow-lg hover:border-primary/30"
+                >
+                  <div className="flex-1 min-w-0">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                      {t('nextStory')}
+                    </span>
+                    <h3 className="mt-1 font-semibold text-foreground truncate">
+                      {nextStory.title[locale]}
+                    </h3>
+                    <p className="text-sm text-muted-foreground truncate">
+                      {nextStory.description[locale]}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground" />
+                </Link>
+              )}
+            </div>
           </div>
         );
       })()}

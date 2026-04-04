@@ -714,17 +714,20 @@ export const STORIES: Story[] = [
         echartsConfig: {
           dataset: { source: '__injected__' },
           tooltip: { trigger: 'axis' },
-          grid: { left: '30%', right: '4%', bottom: '3%', containLabel: true },
+          grid: { left: 240, right: 20, bottom: 30, containLabel: true },
           xAxis: {
             type: 'value',
+            max: (value: { max: number }) => Math.ceil(value.max / 20000) * 20000,
             axisLabel: {
+              hideOverlap: true,
               formatter: (v: number) =>
-                v >= 10_000
-                  ? (v / 1000).toFixed(0) + 'K лв'
-                  : v.toLocaleString() + ' лв',
+                v === 0 ? '0' : (v / 1000).toFixed(0) + 'K лв',
             },
           },
-          yAxis: { type: 'category' },
+          yAxis: {
+            type: 'category',
+            axisLabel: { width: 215, overflow: 'truncate' },
+          },
           series: [
             {
               type: 'bar',

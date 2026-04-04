@@ -181,7 +181,7 @@ export const categories: Category[] = [
       en: 'Income and inequality, education, healthcare'
     },
     icon: 'bar-chart',
-    color: 'teal',
+    color: 'indigo',
     subcategories: [
       {
         id: 'income',
