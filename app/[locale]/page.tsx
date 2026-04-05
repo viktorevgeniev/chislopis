@@ -12,9 +12,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const datasets = getAllDatasets();
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-10">
       {/* Hero Section */}
-      <section className="text-center space-y-6 py-16 md:py-24">
+      <section className="text-center space-y-6 py-8 md:py-16">
         <h1 className="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-foreground animate-fade-up">
           {t('title')}
         </h1>

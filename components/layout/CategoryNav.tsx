@@ -1,6 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { categories } from '@/lib/data/categories';
 import { getDatasetsByCategory } from '@/lib/data/datasetRegistry';
 
@@ -53,8 +56,9 @@ export function CategoryNav({ locale }: CategoryNavProps) {
                     return `${all.length} ${locale === 'bg' ? 'набора данни' : 'datasets'}`;
                   })()}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-white/70 border border-current/10 hover:bg-white transition-colors">
-                  {locale === 'bg' ? 'Разгледай' : 'Explore'} →
+                <span className={cn(buttonVariants({ size: 'default' }), 'gap-2 font-headline pointer-events-none')}>
+                  {locale === 'bg' ? 'Разгледай' : 'Explore'}
+                  <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </div>

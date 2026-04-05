@@ -4,6 +4,7 @@ import { Manrope, Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { FeedbackButton } from '@/components/layout/FeedbackButton';
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import '../globals.css';
 
 const manrope = Manrope({
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
           <FeedbackButton />
         </NextIntlClientProvider>
         <Analytics />
+        <GoogleAnalytics gaId="G-ZGZ0DGRRH1" />
       </body>
     </html>
   );
