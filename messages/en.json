@@ -73,6 +73,7 @@
   "home": {
     "title": "Bulgaria in numbers and data",
     "subtitle": "Interactive charts and maps",
+    "intro": "Ever wondered what Bulgaria actually looks like in numbers? Chislopis turns official NSI statistics into interactive charts and maps you can explore yourself - 130+ datasets.",
     "explore": "Explore Categories",
     "datasetsCount": "{count} datasets",
     "featuredInsight": "Featured Insight",

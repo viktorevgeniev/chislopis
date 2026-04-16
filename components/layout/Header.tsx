@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { LanguageSwitch } from './LanguageSwitch';
@@ -19,6 +20,7 @@ export function Header({ locale }: HeaderProps) {
     <header className="border-b border-outline/20 bg-white/80 dark:bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 md:px-8 h-20 flex items-center justify-between">
         <Link href={`/${locale}`} className="flex items-center space-x-2">
+          <Image src="/logo.png" alt="" width={56} height={56} className="shrink-0" />
           <span className="text-2xl font-headline font-extrabold text-primary">
             {t('appName')}
           </span>

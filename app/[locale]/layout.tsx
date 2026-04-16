@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { Manrope, Inter } from 'next/font/google';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { FeedbackButton } from '@/components/layout/FeedbackButton';
 import { Analytics } from '@vercel/analytics/next';
@@ -20,6 +21,28 @@ const inter = Inter({
   weight: ['400', '500', '600'],
   display: 'swap',
 });
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string }> }
+): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'home' });
+  const tCommon = await getTranslations({ locale, namespace: 'common' });
+
+  return {
+    title: {
+      default: `${tCommon('appName')} – ${t('title')}`,
+      template: `%s | ${tCommon('appName')}`,
+    },
+    description: t('intro'),
+    openGraph: {
+      title: `${tCommon('appName')} – ${t('title')}`,
+      description: t('intro'),
+      locale: locale === 'bg' ? 'bg_BG' : 'en_US',
+      type: 'website',
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

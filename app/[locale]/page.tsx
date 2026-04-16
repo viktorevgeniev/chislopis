@@ -1,7 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { CategoryNav } from '@/components/layout/CategoryNav';
 import { DatasetSearch } from '@/components/search/DatasetSearch';
-import { getAllDatasets } from '@/lib/data/datasetRegistry';
 import { StorySnippet } from '@/components/StorySnippet';
 import { DiscoverMore } from '@/components/DiscoverMore';
 import { categories } from '@/lib/data/categories';
@@ -9,7 +8,6 @@ import { categories } from '@/lib/data/categories';
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('home');
-  const datasets = getAllDatasets();
 
   return (
     <div className="space-y-10">
@@ -21,15 +19,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-up delay-100">
           {t('subtitle')}
         </p>
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-up delay-150 leading-relaxed">
+          {t('intro')}
+        </p>
         <div className="animate-fade-up delay-200">
           <DatasetSearch locale={locale as 'bg' | 'en'} />
-        </div>
-        <div className="flex items-center justify-center gap-4 pt-4 animate-fade-up delay-300">
-          <div className="text-center">
-            <div className="text-sm text-muted-foreground">
-              {t('datasetsCount', { count: datasets.length })}
-            </div>
-          </div>
         </div>
       </section>
 
