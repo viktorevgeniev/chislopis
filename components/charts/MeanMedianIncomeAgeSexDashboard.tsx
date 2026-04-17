@@ -510,10 +510,8 @@ function GenderAgeBarChart({ index, year, incomeType, isBg, currLabel }: {
         {
           name: isBg ? 'Мъже' : 'Male',
           type: 'bar' as const,
-          data: chartData.maleSeries.map(v => ({
-            value: v,
-            itemStyle: { color: GENDER_COLORS['1'], borderRadius: [4, 4, 0, 0] },
-          })),
+          itemStyle: { color: GENDER_COLORS['1'], borderRadius: [4, 4, 0, 0] },
+          data: chartData.maleSeries,
           barMaxWidth: 60,
           label: {
             show: true,
@@ -527,10 +525,8 @@ function GenderAgeBarChart({ index, year, incomeType, isBg, currLabel }: {
         {
           name: isBg ? 'Жени' : 'Female',
           type: 'bar' as const,
-          data: chartData.femaleSeries.map(v => ({
-            value: v,
-            itemStyle: { color: GENDER_COLORS['2'], borderRadius: [4, 4, 0, 0] },
-          })),
+          itemStyle: { color: GENDER_COLORS['2'], borderRadius: [4, 4, 0, 0] },
+          data: chartData.femaleSeries,
           barMaxWidth: 60,
           label: {
             show: true,

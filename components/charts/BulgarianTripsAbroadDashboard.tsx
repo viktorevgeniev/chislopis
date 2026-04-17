@@ -91,7 +91,12 @@ export function BulgarianTripsAbroadDashboard({ data, locale = 'en' }: Props) {
 
   const latestYear = allYears[allYears.length - 1] ?? '';
   const firstYear  = allYears[0] ?? '';
-  const prevYear   = allYears[allYears.length - 2] ?? '';
+
+  // Annual-only years (exclude monthly periods like "2020XII")
+  const annualYears = useMemo(() => allYears.filter(y => /^\d{4}$/.test(y)), [allYears]);
+  const latestAnnualYear = annualYears[annualYears.length - 1] ?? latestYear;
+  const firstAnnualYear  = annualYears[0] ?? firstYear;
+  const prevAnnualYear   = annualYears[annualYears.length - 2] ?? latestAnnualYear;
 
   // ── Individual countries (non-aggregate) ──
   const individualCountries = useMemo<CountryEntry[]>(() => {
@@ -110,25 +115,25 @@ export function BulgarianTripsAbroadDashboard({ data, locale = 'en' }: Props) {
   // ── KPI values ──
   const kpi = useMemo(() => {
     const byTotal = index.get('total');
-    const total   = byTotal?.get(IND.TOTAL)?.get(latestYear) ?? null;
-    const prev    = byTotal?.get(IND.TOTAL)?.get(prevYear) ?? null;
+    const total   = byTotal?.get(IND.TOTAL)?.get(latestAnnualYear) ?? null;
+    const prev    = byTotal?.get(IND.TOTAL)?.get(prevAnnualYear) ?? null;
     const yoy     = total != null && prev != null && prev > 0
       ? ((total - prev) / prev) * 100 : null;
 
     let topCountry = '', topVal = 0;
     for (const c of individualCountries) {
-      const v = index.get(c.code)?.get(IND.TOTAL)?.get(latestYear) ?? 0;
+      const v = index.get(c.code)?.get(IND.TOTAL)?.get(latestAnnualYear) ?? 0;
       if (v > topVal) { topVal = v; topCountry = c.name; }
     }
 
-    const holiday    = byTotal?.get(IND.HOLIDAY)?.get(latestYear) ?? null;
+    const holiday    = byTotal?.get(IND.HOLIDAY)?.get(latestAnnualYear) ?? null;
     const holidayPct = total != null && holiday != null && total > 0
       ? (holiday / total * 100).toFixed(1) : null;
 
-    return { total, yoy, topCountry, topVal, holiday, holidayPct, prevYear };
-  }, [index, latestYear, prevYear, individualCountries]);
+    return { total, yoy, topCountry, topVal, holiday, holidayPct, prevAnnualYear };
+  }, [index, latestAnnualYear, prevAnnualYear, individualCountries]);
 
-  const [rankYear, setRankYear] = useState<string>(latestYear);
+  const [rankYear, setRankYear] = useState<string>(latestAnnualYear);
 
   if (!data || data.length === 0) {
     return <div className="py-8 text-center text-muted-foreground">No data available</div>;
@@ -144,8 +149,8 @@ export function BulgarianTripsAbroadDashboard({ data, locale = 'en' }: Props) {
         </CardTitle>
         <CardDescription className="text-slate-500">
           {isBg
-            ? `Данни по дестинация и цел на пътуване (${firstYear}–${latestYear})`
-            : `Data by destination and purpose of travel (${firstYear}–${latestYear})`}
+            ? `Данни по дестинация и цел на пътуване (${firstAnnualYear}–${latestAnnualYear})`
+            : `Data by destination and purpose of travel (${firstAnnualYear}–${latestAnnualYear})`}
         </CardDescription>
       </CardHeader>
 
@@ -156,13 +161,13 @@ export function BulgarianTripsAbroadDashboard({ data, locale = 'en' }: Props) {
           <KpiCard
             label={isBg ? 'Общо пътувания' : 'Total Trips'}
             value={kpi.total != null ? fmtNum(kpi.total) : '—'}
-            sub={latestYear}
+            sub={latestAnnualYear}
             color="text-indigo-600"
           />
           <KpiCard
             label={isBg ? 'Промяна (год./год.)' : 'YoY Change'}
             value={kpi.yoy != null ? `${kpi.yoy >= 0 ? '+' : ''}${kpi.yoy.toFixed(1)}%` : '—'}
-            sub={`${kpi.prevYear} → ${latestYear}`}
+            sub={`${kpi.prevAnnualYear} → ${latestAnnualYear}`}
             color={kpi.yoy == null ? 'text-slate-400' : kpi.yoy >= 0 ? 'text-emerald-600' : 'text-red-500'}
           />
           <KpiCard
@@ -174,7 +179,7 @@ export function BulgarianTripsAbroadDashboard({ data, locale = 'en' }: Props) {
           <KpiCard
             label={isBg ? 'Дял за отдих' : 'Holiday Share'}
             value={kpi.holidayPct ? `${kpi.holidayPct}%` : '—'}
-            sub={latestYear}
+            sub={latestAnnualYear}
             color="text-amber-500"
           />
         </div>

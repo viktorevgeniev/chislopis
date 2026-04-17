@@ -507,10 +507,8 @@ function ComparisonBarChart({ index, year, isBg }: {
       series: chartData.series.map(s => ({
         name: s.name,
         type: 'bar' as const,
-        data: s.values.map(v => ({
-          value: v,
-          itemStyle: { color: s.color, borderRadius: [4, 4, 0, 0] },
-        })),
+        itemStyle: { color: s.color, borderRadius: [4, 4, 0, 0] },
+        data: s.values,
         barMaxWidth: 70,
         label: {
           show: true,
