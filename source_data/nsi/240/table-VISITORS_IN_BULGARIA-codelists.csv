@@ -1,9 +1,9 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
 "Indicators","","����������","Indicators"
-"Indicators","3.5.1.2","��������� �� �������� � �������� � ����","Arrivals of visitors from abroad to Bulgaria - total"
-"Indicators","3.5.1.2.1","��������� �� �������� � �������� � ��� ������� � ���������","Arrivals of visitors from abroad to Bulgaria holiday and recreation purpose"
-"Indicators","3.5.1.2.2","��������� �� �������� � �������� ��� �������� ���","Arrivals of visitors from abroad to Bulgaria by professional purpose"
-"Indicators","3.5.1.2.3","��������� �� �������� � �������� � ����� ����","Arrivals of visitors from abroad to Bulgaria by other purposes"
+"Indicators","3.5.1.2","��������� �� ����� �������� � �������� � ����","Arrivals of visitors from abroad to Bulgaria - total"
+"Indicators","3.5.1.2.1","��������� �� ����� �������� � �������� � ��� ������� � ���������","Arrivals of visitors from abroad to Bulgaria holiday and recreation purpose"
+"Indicators","3.5.1.2.2","��������� �� ����� �������� � �������� ��� �������� ���","Arrivals of visitors from abroad to Bulgaria by professional purpose"
+"Indicators","3.5.1.2.3","��������� �� ����� �������� � �������� � ����� ����","Arrivals of visitors from abroad to Bulgaria by other purposes"
 "Units","","����� �������","Measuring units"
 "Units","num","����","Number"
 "Countries_TOUR","","������������� �� �������� �� ������ �� ������������ �� �������","Nomenclature on the countries for tourism statistics purposes"
