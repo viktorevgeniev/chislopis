@@ -216,3 +216,6 @@ RevisionColumn,Ownership_LFS,Units,periods,ValueColumn
 "r_50","total","hours","2025Q4","38.6"
 "r_50","3","hours","2025Q4","38.7"
 "r_50","4","hours","2025Q4","38.5"
+"r_51","total","hours","2026Q1","38.3"
+"r_51","3","hours","2026Q1","38.4"
+"r_51","4","hours","2026Q1","38.1"

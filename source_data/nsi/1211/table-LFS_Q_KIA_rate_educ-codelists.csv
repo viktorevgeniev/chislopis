@@ -2,7 +2,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Age10_LFS","","������������ ���������� �����  - ���������� �� ��������� ����","10-years age groups - LFS"
 "Age10_LFS","0","����","Total"
 "Age10_LFS","15 - 64_gr","� �.�. 15 - 64 ��������� ������","of which 15 - 64 years"
-"LFS_EDUlevel","","������������ �� ��������� �� ��������� ����������� - �� ���������� �� ��������� ���","Internatonal Standard  Classification of Education (R&D)"
+"LFS_EDUlevel","","������������ �� ��������� �� ��������� ����������� - �� ���������� �� ��������� ����","Internatonal Standard  Classification of Education (R&D)"
 "LFS_EDUlevel","0","����","Total"
 "LFS_EDUlevel","1","�����","Higher"
 "LFS_EDUlevel","2","������","Upper secondary"

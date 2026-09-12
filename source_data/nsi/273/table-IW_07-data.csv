@@ -33,3 +33,5 @@ RevisionColumn,SILC_Activity,Units,periods,ValueColumn
 "r_11","7","perc_pop_fig","2023","10.3"
 "r_12","6","perc_pop_fig","2024","29.2"
 "r_12","7","perc_pop_fig","2024","10.6"
+"r_13","6","perc_pop_fig","2025","34.2"
+"r_13","7","perc_pop_fig","2025","10"
