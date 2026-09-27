@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   update-data:
@@ -23,6 +22,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: master
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -58,9 +59,9 @@ jobs:
       - name: Validate NSI data structure
         if: steps.csv-changes.outputs.changed == 'true'
         run: npm run validate-data
-        # No continue-on-error: validation failures block rebuild and auto-merge.
+        # No continue-on-error: validation failures block rebuild and push.
         # A FAIL exit means NSI changed column names or removed required filter codes,
-        # which would break dashboards. The maintainer must investigate before merging.
+        # which would break dashboards. The maintainer must investigate before pushing.
 
       - name: Rebuild prebuilt JSON files
         if: steps.csv-changes.outputs.changed == 'true'
@@ -80,18 +81,14 @@ jobs:
             echo "file_count=$CHANGED_COUNT" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create or update PR
+      - name: Commit and push changes directly to master
         if: steps.final-changes.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          BRANCH="automated/nsi-data-update"
           DATE=$(date -u +%Y-%m-%d)
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git checkout -B "$BRANCH"
           git add source_data/
           git add --force public/data/
           git commit -m "chore(data): update NSI data ($DATE)
@@ -99,39 +96,4 @@ jobs:
           Automated daily refresh from nsi.bg/opendata.
           Changed files: ${{ steps.final-changes.outputs.file_count }}"
 
-          git push --force origin "$BRANCH"
-
-          EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
-          if [ -z "$EXISTING_PR" ]; then
-            gh pr create \
-              --title "chore(data): update NSI data ($DATE)" \
-              --body "$(cat <<'EOF'
-          ## Automated NSI Data Update
-
-          Daily refresh of source CSV files and prebuilt JSON from the Bulgarian National Statistical Institute.
-
-          - **Date**: $DATE
-          - **Changed files**: ${{ steps.final-changes.outputs.file_count }}
-          - **Trigger**: ${{ github.event_name }}
-
-          This PR was created automatically by the data-update workflow.
-          EOF
-          )" \
-              --head "$BRANCH" \
-              --base "master"
-            echo "PR created."
-          else
-            echo "PR #$EXISTING_PR already exists, branch updated."
-          fi
-
-      - name: Enable auto-merge
-        if: steps.final-changes.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          BRANCH="automated/nsi-data-update"
-          PR_NUMBER=$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')
-          if [ -n "$PR_NUMBER" ]; then
-            gh pr merge "$PR_NUMBER" --auto --squash
-            echo "Auto-merge enabled for PR #$PR_NUMBER"
-          fi
+          git push origin HEAD:master
