@@ -97,3 +97,32 @@ jobs:
           Changed files: ${{ steps.final-changes.outputs.file_count }}"
 
           git push origin HEAD:master
+
+  # This job satisfies the "build" required status check on the master branch.
+  # Branch protection requires it to pass; the CI workflow only runs on PRs,
+  # so direct pushes from update-data were always failing the check.
+  build:
+    needs: update-data
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate NSI data
+        run: npm run validate-data
+
+      - name: Build
+        run: npm run build
