@@ -9,7 +9,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "LFS_ProfStatus","4","��������� ������� ���������","Unpaid family workers"
 "Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
-"GenderID","","���","Sex"
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
+"GenderID","","���","Sex"

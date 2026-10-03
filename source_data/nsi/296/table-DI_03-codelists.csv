@@ -11,6 +11,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "SILC_Median","","������ �����","Mean/Median income"
 "SILC_Median","5","������ �����","Mean income"
 "SILC_Median","6","�������� �����","Median income"
-"Units","","����� �������","Measuring units"
 "Units","BGN_fig","��.","BGN"
 "Units","euro","����","euro"
+"Units","","����� �������","Measuring units"
