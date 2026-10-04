@@ -1,5 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"EKATTE","","������","EKATTE"
 "EKATTE","BG","���� �� ��������","Total for the country"
 "EKATTE","BG3","������� � ���������� ��������","Severna i Yugoiztochna Bulgaria"
 "EKATTE","BG31","�������������","Severozapaden"
@@ -239,7 +238,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "EKATTE","SZR04","����� ���������","Bratya Daskalovi"
 "EKATTE","SZR07","��������","Galabovo"
 "EKATTE","SZR12","��������","Kazanlak"
-"EKATTE","SZR22","������","Maglizh"
+"EKATTE","","������","EKATTE"
 "EKATTE","SZR23","����","Opan"
 "EKATTE","SZR24","����� ����","Pavel banya"
 "EKATTE","SZR27","�������","Radnevo"
@@ -319,3 +318,4 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Edu_schYear","2012/2013","2012/2013","2012/2013"
 "Edu_schYear","2013/2014","2013/2014","2013/2014"
 "Edu_schYear","2014/2015","2014/2015","2014/2015"
+"EKATTE","SZR22","������","Maglizh"
