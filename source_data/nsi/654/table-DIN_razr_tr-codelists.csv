@@ -1,8 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"periods_name","Q1","����� ����������","first quarter"
-"periods_name","Q2","����� ����������","second quarter"
-"periods_name","Q3","����� ����������","third quarter"
-"periods_name","Q4","�������� ����������","fourth quarter"
 "BUILD_Permit","","������ ������","Type of buildings"
 "BUILD_Permit","1","������� ������","Residential buildings"
 "BUILD_Permit","2","��������������� ������","Administrative buildings"
@@ -42,3 +38,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "District_Projection","VRC","�����","Vratsa"
 "District_Projection","VTR","������ �������","Veliko Tarnovo"
 "periods_name","","�������","periods"
+"periods_name","Q1","����� ����������","first quarter"
+"periods_name","Q2","����� ����������","second quarter"
+"periods_name","Q3","����� ����������","third quarter"
+"periods_name","Q4","�������� ����������","fourth quarter"
