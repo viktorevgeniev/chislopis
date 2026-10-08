@@ -1,8 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"GenderID","0","����","Total"
-"GenderID","1","����","Male"
-"GenderID","2","����","Female"
-"COD_Shortlist","","���������� �������� ������ �������� �� �������","COD Shortlist"
 "Units","","����� �������","Measuring units"
 "Units","cp/100000","���� �� 100000 ����","Number by 100000 persons"
 "NUTS","","NUTS","NUTS"
@@ -42,3 +38,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "NUTS","BG424","������","Smolyan"
 "NUTS","BG425","��������","Kardzhali"
 "GenderID","","���","Sex"
+"GenderID","0","����","Total"
+"GenderID","1","����","Male"
+"GenderID","2","����","Female"
+"COD_Shortlist","","���������� �������� ������ �������� �� �������","COD Shortlist"
