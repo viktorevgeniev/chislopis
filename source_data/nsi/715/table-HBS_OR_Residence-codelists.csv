@@ -1,9 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"HBS_Meassure","","���������","Meassure"
-"HBS_Meassure","1","������ �� ����������� -  ������","Average per household -BGN"
-"HBS_Meassure","2","������ �� ���� - ������","Average per capita - BGN"
-"HBS_Meassure","3","��������� - %","Structure - %"
-"HBS_OR","","��� ������","Total expenditure"
 "HBS_OR","11","��� ������","Total expenditure"
 "HBS_OR","111","������������� ��� ������","Consumer total expenditure"
 "HBS_OR","11101","����� � ������������ �������","Foods and non-alcoholic beverages"
@@ -26,3 +21,8 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Residence","0","����","Total"
 "Residence","1","� ���������","Urban"
 "Residence","2","� ������","Rural"
+"HBS_Meassure","","���������","Meassure"
+"HBS_Meassure","1","������ �� ����������� -  ������","Average per household -BGN"
+"HBS_Meassure","2","������ �� ���� - ������","Average per capita - BGN"
+"HBS_Meassure","3","��������� - %","Structure - %"
+"HBS_OR","","��� ������","Total expenditure"
