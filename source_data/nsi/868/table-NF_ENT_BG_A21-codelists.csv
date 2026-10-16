@@ -1,4 +1,5 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"SZCLS_EMPL","","�������� �� ������� ������ ���� �� ������� ����","Size class by employed"
 "NACE2008A21","","���������� ������������ �21 �� ������ �� ���-2008 (������ ���)","Aggregated Nomenclature of Economic Activities A21 (2008)"
 "NACE2008A21","1","���� (������ ������������ ��������, � ���������� �� ������� K, O, T � U)","Total (all NACE aktivities except K, O, T and U)"
 "NACE2008A21","A","������, ������ � ����� ����������","Agriculture, forestry and fishing"
@@ -18,7 +19,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "NACE2008A21","Q","������� �������������� � �������� ������","Human health and social work activities"
 "NACE2008A21","R","�������, ����� � �����������","Arts, entertainment and recreation"
 "NACE2008A21","S","����� ��������","Other service activities"
-"SZCLS_EMPL","","�������� �� ������� ������ ���� �� ������� ����","Size class by employed"
 "SZCLS_EMPL","0","����","Total"
 "SZCLS_EMPL","1","0 - 9","0 - 9"
 "SZCLS_EMPL","4","10 - 49","10 - 49"
