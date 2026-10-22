@@ -1,4 +1,5 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
+"NACE2008A21","","���������� ������������ �21 �� ������ �� ���-2008 (������ ���)","Aggregated Nomenclature of Economic Activities A21 (2008)"
 "NACE2008A21","0","����","Total"
 "NACE2008A21","A","������, ������ � ����� ����������","Agriculture, forestry and fishing"
 "NACE2008A21","B","������� ������������","Mining and quarrying"
@@ -25,4 +26,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Ownership","total","����","Total"
 "Units","","����� �������","Measuring units"
 "Units","AvNum/Y","������ ������� ����","Average annual number"
-"NACE2008A21","","���������� ������������ �21 �� ������ �� ���-2008 (������ ���)","Aggregated Nomenclature of Economic Activities A21 (2008)"
