@@ -1,5 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"NUTS","","NUTS","NUTS"
 "NUTS","BG","���� �� ��������","Total for the country"
 "NUTS","BG31","�������������","Severozapaden"
 "NUTS","BG311","�����","Vidin"
@@ -36,6 +35,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "NUTS","BG424","������","Smolyan"
 "NUTS","BG425","��������","Kardzhali"
 "SILC_Median","","������ �����","Mean/Median income"
+"NUTS","","NUTS","NUTS"
 "SILC_Median","1","40%  �� ��������� ������������ �����","40% of median equivalised income"
 "SILC_Median","2","50%  �� ��������� ������������ �����","50% of median equivalised income"
 "SILC_Median","3","60%  �� ��������� ������������ �����","60% of median equivalised income"
