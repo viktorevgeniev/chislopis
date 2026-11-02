@@ -1,5 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"Units","","����� �������","Measuring units"
 "GenderID","","���","Sex"
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
@@ -15,4 +14,5 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Age10_LFS","45 - 54","45 - 54","45 - 54"
 "Age10_LFS","55 - 64","55 - 64","55 - 64"
 "Age10_LFS","65+","65  � ������","65 and over"
+"Units","","����� �������","Measuring units"
 "Units","perc","�������","Per cent"

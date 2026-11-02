@@ -2,6 +2,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Units","","����� �������","Measuring units"
 "Units","BGN_tabl","������","BGN"
 "Units","num","����","Number"
+"Indicators","","����������","Indicators"
 "Indicators","3.5.2.1","����������� ���� � ����� �� ����������� - ����","Arrivals in accommodation establishments � Total"
 "Indicators","3.5.2.1.1","����������� ���� � ������� �� ����������� � ��������� ��������","Arrivals in accommodation establishments � Bulgarians"
 "Indicators","3.5.2.1.2","����������� ���� � ������� �� ����������� � ����� ��������","Arrivals in accommodation establishments � foreigners"
@@ -52,4 +53,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "NUTS","BG423","���������","Pazardzhik"
 "NUTS","BG424","������","Smolyan"
 "NUTS","BG425","��������","Kardzhali"
-"Indicators","","����������","Indicators"
