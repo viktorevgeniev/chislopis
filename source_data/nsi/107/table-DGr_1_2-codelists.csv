@@ -1,8 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"EKATTE","KRZ35","����������","Chernoochene"
-"EKATTE","LOV","�����","Lovech"
-"EKATTE","LOV02","�������","Apriltsi"
-"EKATTE","LOV17","�������","Letnitsa"
 "EKATTE","LOV18","�����","Lovech"
 "EKATTE","LOV19","�������","Lukovit"
 "EKATTE","LOV33","�������","Teteven"
@@ -319,3 +315,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "EKATTE","KRZ15","����������","Krumovgrad"
 "EKATTE","KRZ16","��������","Kardzhali"
 "EKATTE","KRZ21","����������","Momchilgrad"
+"EKATTE","KRZ35","����������","Chernoochene"
+"EKATTE","LOV","�����","Lovech"
+"EKATTE","LOV02","�������","Apriltsi"
+"EKATTE","LOV17","�������","Letnitsa"
