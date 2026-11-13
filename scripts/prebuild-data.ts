@@ -162,6 +162,11 @@ async function main() {
     }
   }
 
+  // Write last-updated timestamp
+  const lastUpdatedPath = path.join(OUTPUT_DIR, 'last-updated.json');
+  fs.writeFileSync(lastUpdatedPath, JSON.stringify({ updatedAt: new Date().toISOString() }));
+  console.log(`\nWrote last-updated.json`);
+
   console.log(`\nDone: ${success} succeeded, ${failed} failed out of ${localDatasets.length}.`);
 
   if (errors.length > 0) {

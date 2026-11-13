@@ -4,10 +4,32 @@ import { DatasetSearch } from '@/components/search/DatasetSearch';
 import { StorySnippet } from '@/components/StorySnippet';
 import { DiscoverMore } from '@/components/DiscoverMore';
 import { categories } from '@/lib/data/categories';
+import fs from 'fs';
+import path from 'path';
+
+function getLastUpdated(): string | null {
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'data', 'last-updated.json');
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const json = JSON.parse(raw);
+    return json.updatedAt ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations('home');
+
+  const updatedAt = getLastUpdated();
+  const formattedDate = updatedAt
+    ? new Date(updatedAt).toLocaleDateString(locale === 'bg' ? 'bg-BG' : 'en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+    : null;
 
   return (
     <div className="space-y-10">
@@ -45,7 +67,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <DiscoverMore locale={locale as 'bg' | 'en'} categories={categories} />
 
       {/* Footer */}
-      <footer className="text-center text-sm text-muted-foreground pt-16 pb-8 border-t border-outline/20">
+      <footer className="text-center text-sm text-muted-foreground pt-16 pb-8 border-t border-outline/20 space-y-1">
         <p>
           {t('dataSource')}{' '}
           <a
@@ -57,6 +79,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {t('dataSourceName')}
           </a>
         </p>
+        {formattedDate && (
+          <p className="text-xs text-muted-foreground/70">
+            {t('lastUpdated')} {formattedDate}
+          </p>
+        )}
       </footer>
     </div>
   );
