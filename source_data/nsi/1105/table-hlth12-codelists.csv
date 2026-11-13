@@ -1,7 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"Mpersonnel","1","������","Physicians"
-"Mpersonnel","2","������ �� �������� ��������","Dentists"
-"Mpersonnel","3","���������� ����������� �� ������� �����","Medical specialists on 'Health cares'"
 "Units","","����� �������","Measuring units"
 "Units","num","����","Number"
 "EKATTE_Hlth","","������� � ������","Districts and munisipalities"
@@ -309,3 +306,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "EKATTE_Hlth","VTR31","��������","Strazhitsa"
 "EKATTE_Hlth","VTR32","��������","Suhindol"
 "Mpersonnel","","���������� ��������","Medical personnel"
+"Mpersonnel","1","������","Physicians"
+"Mpersonnel","2","������ �� �������� ��������","Dentists"
+"Mpersonnel","3","���������� ����������� �� ������� �����","Medical specialists on 'Health cares'"
