@@ -37,7 +37,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "NUTS","BG425","��������","Kardzhali"
 "Units","","����� �������","Measuring units"
 "Units","perc","�������","Per cent"
+"GenderID","","���","Sex"
 "GenderID","0","����","Total"
 "GenderID","1","����","Male"
 "GenderID","2","����","Female"
-"GenderID","","���","Sex"
