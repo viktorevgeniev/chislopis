@@ -3,6 +3,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Indicators","3.1.1.2.1","������������ (����������)","Production (Quantity)"
 "Indicators","3.1.1.2.2","�������� - ���� (����������)","Sold production (Quantity)"
 "Indicators","3.1.1.2.3","�������� - ���� (�������� � ���. ��. ��� ��� � ������)","Sold production (Value - thousand BGN, excl. VAT and excise duties)"
+"PRODPROM","","������������ �� ������������ ���������","Nomenclature of industrial production"
 "Units","","����� �������","Measuring units"
 "Units","1000BGN_fig","���. ��.","Thousand BGN"
 "Units","c/k","�����","c/k"
@@ -24,4 +25,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "Units","p/st","��.","p/st"
 "Units","pa_fig","��.","Pairs"
 "Units","t_fig","�","t"
-"PRODPROM","","������������ �� ������������ ���������","Nomenclature of industrial production"

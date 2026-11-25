@@ -1,5 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"Units","","����� �������","Measuring units"
 "Units","num","����","Number"
 "EKATTE_Hlth","","������� � ������","Districts and munisipalities"
 "EKATTE_Hlth","68134","���� �����","city Sofia"
@@ -223,6 +222,9 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "EKATTE_Hlth","SLS32","������","Sitovo"
 "EKATTE_Hlth","SLS34","��������","Tutrakan"
 "EKATTE_Hlth","SLV","������","Sliven"
+"Units","","����� �������","Measuring units"
+"HlthEst_measures","Beds","�����","Beds"
+"HlthEst_measures","Est","���������","Establishments"
 "EKATTE_Hlth","SLV11","�����","Kotel"
 "EKATTE_Hlth","SLV16","���� ������","Nova Zagora"
 "EKATTE_Hlth","SLV20","������","Sliven"
@@ -320,5 +322,3 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "HlthEst_2011_2013","2.5","������������� ������-������������ � ������-���������� �����������","Medical-diagnostical and medical-technical laboratories"
 "HlthEst_2011_2013","3","����� ������� � ������� ���������","Other helth establishments"
 "HlthEst_measures","","��������� ������� ���������","Health establishments measures"
-"HlthEst_measures","Beds","�����","Beds"
-"HlthEst_measures","Est","���������","Establishments"
