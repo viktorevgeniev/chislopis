@@ -9,6 +9,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "LFS_EDUlevel","4","������� � ��-�����","Primary or lower"
 "Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
-"Age10_LFS","","���������� ����� ","Age groups "
 "Age10_LFS","0","����","Total"
 "Age10_LFS","15 - 64_gr","� �.�. 15 - 64 ��������� ������","of which 15 - 64 years"
+"Age10_LFS","","���������� ����� ","Age groups "
