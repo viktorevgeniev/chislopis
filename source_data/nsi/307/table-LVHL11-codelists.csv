@@ -43,6 +43,6 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "SILC_Age","1","0-17 ������","Less than 18 years"
 "SILC_Age","4","18-59 ������","Between 18 and 59 years"
 "SILC_Age","5","��� 60 ������","less than 60 years"
+"Units","","����� �������","Measuring units"
 "Units","1000cp","���� ���� � ������","Thousand persons"
 "Units","perc_pop_fig","% �� ������������","PC_POP"
-"Units","","����� �������","Measuring units"

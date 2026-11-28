@@ -1,8 +1,4 @@
 Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code in English
-"Residence","","������������ ","Residence"
-"Residence","0","����","Total"
-"Residence","1","� ���������","Urban"
-"Residence","2","� ������","Rural"
 "HBS_POTR","","�����������  �� ������� ���������� �������� � �������","Consumption  of main foods and beverages"
 "HBS_POTR","01","���� � ������� ������� - ��","Bread and paste products - kg"
 "HBS_POTR","02","������ - ��","Flour - kg"
@@ -73,3 +69,7 @@ Code list,Code,Name of Code list or Code in Bulgarian,Name of Code list or Code 
 "HBS_POTR","383","�����","Brandy"
 "HBS_POTR","384","����� ������� �������","Other spirits"
 "HBS_POTR","39","������ - ��.","Cigarettes - number"
+"Residence","","������������ ","Residence"
+"Residence","0","����","Total"
+"Residence","1","� ���������","Urban"
+"Residence","2","� ������","Rural"
